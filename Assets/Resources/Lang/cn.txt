@@ -1,0 +1,4 @@
+here is key$左边是key，右边是翻译文本
+testA$testA
+testA_desc$测试方块A的描述
+testskillDmg$测试技能伤害
