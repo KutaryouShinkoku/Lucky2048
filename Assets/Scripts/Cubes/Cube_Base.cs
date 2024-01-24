@@ -19,6 +19,10 @@ public class Cube_Base : ScriptableObject
     [SerializeField] List<CubeSkill> cubeSkill; //技能列表
 
     //每次定义了新的参数记得在下方开放一下
+    public string CubeKey
+    {
+        get { return cubeKey; }
+    }
     public string CubeName
     {
         get { return $"{Localize.GetInstance().GetTextByKey($"{cubeName}")}"; }
