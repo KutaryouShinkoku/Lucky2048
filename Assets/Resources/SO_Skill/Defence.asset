@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b58d141aee39ec346a762fb2cc42227e, type: 3}
-  m_Name: Loyal Watchdog
+  m_Script: {fileID: 11500000, guid: bc60e6fb807f82348872caa4aac5cce4, type: 3}
+  m_Name: Defence
   m_EditorClassIdentifier: 
-  cubeName: 
-  level: 0
-  cubeRarity: 0
-  cubeRace: 0
-  cubeType: 1
-  description: 
-  sprite: {fileID: 0}
-  cubeSkill: []
+  skillName: Defence
+  type: 0
+  effects: 1
