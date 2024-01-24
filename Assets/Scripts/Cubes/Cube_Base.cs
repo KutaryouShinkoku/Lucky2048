@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Cube", menuName = "Cube/Create a new cube")]
 public class Cube_Base : ScriptableObject
 {
+    [SerializeField] string cubeKey; //cube唯一名称，用来识别cube
     [SerializeField] string cubeName; //名称
     [SerializeField] int level; //阶数
     [SerializeField] CubeRarity cubeRarity; //稀有度
