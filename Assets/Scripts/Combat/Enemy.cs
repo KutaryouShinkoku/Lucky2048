@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
     public enum Action { Guard, HeavyHit, Roar, Charge, Overload }
     private Action currentAction;//当前下回合的行为
     private Action lastAction;//敌人已经做出的行为
+    public int DamageReduction { get; set; } // 由于虚弱Buff导致的伤害减少
+    public bool IsStunned { get; set; } // 是否被晕眩
     private bool isInSecondPhase = false;//敌人是否进入二阶段
     private bool hasOverloadedConsecutively = false;//敌人是否连续两次充能
 
@@ -40,6 +42,14 @@ public class Enemy : MonoBehaviour
         CheckPhaseTransition();
         DecideNextAction();
         //UpdateNextActionUI();这里大概要加个敌人意图更新
+        ProcessBuffs();
+        if (IsStunned)
+        {
+            // 跳过行动逻辑
+            return;
+        }
+
+        // 行动逻辑
     }
 
     void CheckPhaseTransition()
@@ -114,57 +124,77 @@ public class Enemy : MonoBehaviour
         PerformAction();
     }
 
-public void PerformAction()
-{
-    switch (currentAction)
+    public void PerformAction()
     {
-        case Action.Guard:
-            PerformGuard();
-            break;
-        case Action.HeavyHit:
-            PerformHeavyHit();
-            break;
-        case Action.Roar:
-            PerformRoar();
-            break;
-        case Action.Charge:
-            PerformCharge();
-            break;
-        case Action.Overload:
-            PerformOverload();
-            break;
+        switch (currentAction)
+        {
+            case Action.Guard:
+                PerformGuard();
+                break;
+            case Action.HeavyHit:
+                PerformHeavyHit();
+                break;
+            case Action.Roar:
+                PerformRoar();
+                break;
+            case Action.Charge:
+                PerformCharge();
+                break;
+            case Action.Overload:
+                PerformOverload();
+                break;
+        }
+
+        lastAction = currentAction;
     }
 
-    lastAction = currentAction;
-}
-
-private void PerformGuard()
-{
+    private void PerformGuard()
+    {
         Defense(5);// 守护逻辑，增加5点护甲
-}
-private void PerformHeavyHit()
+    }
+    private void PerformHeavyHit()
     {
         // 重击逻辑，造成4点伤害
     }
 
-private void PerformRoar()
+    private void PerformRoar()
     {
         // 咆哮逻辑，给予自身1点力量（提高单次伤害X点）2点敏捷（提高单次护甲X点）
     }
 
-private void PerformCharge() 
+    private void PerformCharge() 
     {
         //充能逻辑，给予自身2点力量，给予自身15点护甲
     }
 
-private void PerformOverload() 
+    private void PerformOverload() 
     {
         //超载逻辑，造成1点伤害两次、给予自身12点护甲
     }
-private void Attack() { }
-private void Defense(int d) 
+    private void Attack() { }
+    private void Defense(int d) 
     {
         armor +=d;
     }
-private void Enhance() { }
+    private void Enhance() { }
+    private void ProcessBuffs()
+    {
+        DamageReduction = 0;
+        IsStunned = false;
+
+        for (int i = buffs.Count - 1; i >= 0; i--)
+        {
+            buffs[i].ApplyBuff(this);
+            if (buffs[i].UpdateBuff())
+            {
+                buffs.RemoveAt(i); // 移除已经结束的Buff
+            }
+        }
+    }
+    public void TakeDamage(int damage)
+    {
+        damage = Mathf.Max(0, damage - armor - DamageReduction); // 考虑护甲和虚弱Buff
+        hp -= damage;
+        // 添加受伤害的逻辑
+    }
 }

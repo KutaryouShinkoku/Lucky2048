@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b58d141aee39ec346a762fb2cc42227e, type: 3}
-  m_Name: LoyalWatchdog
+  m_Name: LoyalWatchdog_lv3
   m_EditorClassIdentifier: 
-  cubeName: LoyalWatchdog
+  cubeKey: 
+  cubeName: 
   level: 0
   cubeRarity: 0
   cubeRace: 0
-  cubeType: 1
+  cubeType: 0
   description: 
   sprite: {fileID: 0}
-  cubeSkill:
-  - skillBase: {fileID: 11400000, guid: 65b704f8afade7c47a89a6af947bc374, type: 2}
-    skillPar: 0
+  cubeSkill: []
