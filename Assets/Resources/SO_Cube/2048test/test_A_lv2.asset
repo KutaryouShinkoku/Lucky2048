@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubeKey: test_A_lv2
   cubeName: 
-  level: 0
+  level: 1
   cubeRarity: 0
   cubeRace: 0
   cubeType: 0
   description: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 91f9d0d9a7135ad438d60c3731ef32e4, type: 3}
   cubeSkill: []

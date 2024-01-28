@@ -36,7 +36,10 @@ public class Cube_Base : ScriptableObject
     {
         get { return $"{Localize.GetInstance().GetTextByKey($"{description}")}"; }
     }
-
+    public Sprite Sprite
+    {
+        get { return sprite; }
+    }
     
     public List<CubeSkill> CubeSkill
     {
