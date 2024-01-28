@@ -18,4 +18,10 @@ public class Player : MonoBehaviour
     {
         
     }
+    public void TakeDamage(int damage)
+    {
+        playerHP -= damage;
+        playerHP = Mathf.Max(0, playerHP); // 确保血量不会变成负数
+        // 可以在这里添加受伤动画或反应
+    }
 }

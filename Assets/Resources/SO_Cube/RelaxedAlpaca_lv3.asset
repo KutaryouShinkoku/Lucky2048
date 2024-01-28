@@ -23,3 +23,5 @@ MonoBehaviour:
   cubeSkill:
   - skillBase: {fileID: 11400000, guid: 65b704f8afade7c47a89a6af947bc374, type: 2}
     skillPar: 10
+  - skillBase: {fileID: 11400000, guid: 79bb1919165e0c045b2f29d552ca2e86, type: 2}
+    skillPar: 2

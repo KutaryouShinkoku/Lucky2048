@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: 
   type: 0
-  effects: 0
+  effects: 3
+  duration: 0

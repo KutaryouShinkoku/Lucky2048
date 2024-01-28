@@ -8,20 +8,21 @@ public class Enemy : MonoBehaviour
     //敌人ai在这里写就行
     [SerializeField] int maxHP; //血量
     [SerializeField] private List<Buff> buffs; //身上的Buff
-    public int hp;//初始血量
-    public int armor ;//初始护甲
-
     [Header("UI")]
     [SerializeField] Text txtEnemyHp;
     [SerializeField] Text txtNextAction; // 显示下一回合敌人的意图
     [SerializeField] Animator animator; // 动画组件的引用
     [SerializeField] Image enemyImage; // 敌人形象的UI元素引用
     [SerializeField] Sprite secondPhaseSprite; // 第二阶段的敌人形象
-
+    public int hp;//初始血量
+    public int armor;//初始护甲
     public enum Action { Guard, HeavyHit, Roar, Charge, Overload }
     private Action currentAction;//当前下回合的行为
     private Action lastAction;//敌人已经做出的行为
     public int DamageReduction { get; set; } // 由于虚弱Buff导致的伤害减少
+    public int addDefence { get; set; } // 由于虚弱Buff导致的伤害减少
+    public int damage { get; set; } //敌人的伤害
+
     public bool IsStunned { get; set; } // 是否被晕眩
     private bool isInSecondPhase = false;//敌人是否进入二阶段
     private bool hasOverloadedConsecutively = false;//敌人是否连续两次充能
@@ -151,11 +152,11 @@ public class Enemy : MonoBehaviour
 
     private void PerformGuard()
     {
-        Defense(5);// 守护逻辑，增加5点护甲
+        addDefence=5;// 守护逻辑，增加5点护甲
     }
     private void PerformHeavyHit()
     {
-        // 重击逻辑，造成4点伤害
+        damage = 4;// 重击逻辑，造成4点伤害
     }
 
     private void PerformRoar()
@@ -172,10 +173,10 @@ public class Enemy : MonoBehaviour
     {
         //超载逻辑，造成1点伤害两次、给予自身12点护甲
     }
-    private void Attack() { }
-    private void Defense(int d) 
+    private void Defense(int addDefence) 
     {
-        armor +=d;
+        armor += addDefence;
+        armor = Mathf.Max(0, armor); // 确保护甲值不是负数
     }
     private void Enhance() { }
     public void AddBuff(Buff newBuff)
@@ -202,4 +203,12 @@ public class Enemy : MonoBehaviour
         hp -= damage;
         // 添加受伤害的逻辑
     }
+
+    private void Attack(Player target)
+    {
+        int attackDamage = damage - DamageReduction;
+        attackDamage = Mathf.Max(0, attackDamage); // 确保伤害不是负数
+        target.TakeDamage(attackDamage);
+    }
+
 }
