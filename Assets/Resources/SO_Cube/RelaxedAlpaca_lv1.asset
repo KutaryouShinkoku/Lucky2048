@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b58d141aee39ec346a762fb2cc42227e, type: 3}
   m_Name: RelaxedAlpaca_lv1
   m_EditorClassIdentifier: 
-  cubeKey: 
+  cubeKey: alpaca_lv1
   cubeName: RelaxedAlpaca
   level: 0
   cubeRarity: 1

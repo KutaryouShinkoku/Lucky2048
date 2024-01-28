@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,7 +29,7 @@ public class Cube
     {
         foreach(var skill in skills)
         {
-            HandleSkill(skill.Base.Effects,skill.SkillPar);
+            HandleSkill(skill.Base.Effects,skill.SkillPar, skill);
             Debug.Log($"处理技能：{skill.Base.SkillName}，参数为{skill.SkillPar}");
         }
     }
@@ -53,7 +54,7 @@ public class Cube
         return armor;
     }
 
-    public void HandleSkill(SkillEffects effect, int skillPar) //对于每一个技能的具体处理，屎山部分
+    public void HandleSkill(SkillEffects effect, int skillPar,Skill skill) //对于每一个技能的具体处理，屎山部分
     {
         switch (effect)
         {
@@ -64,6 +65,9 @@ public class Cube
                 break;
             case SkillEffects.armor:
                 //叠甲
+                break;
+            case SkillEffects.ApplyWeakness:
+                target.AddBuff(new Buff(Buff.BuffType.Weakness, skillPar, skill.Duration));
                 break;
         }
     }

@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     //敌人ai在这里写就行
     [SerializeField] int maxHP; //血量
-    [SerializeField] List<Buff> buffs; //身上的Buff
+    [SerializeField] private List<Buff> buffs; //身上的Buff
     public int hp;//初始血量
     public int armor ;//初始护甲
 
@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
         hp = maxHP;
         armor = 0;
         currentAction = Action.Guard; // 第一回合始终是守护
+        buffs = new List<Buff>();
         DecideNextAction();
     }
 
@@ -177,6 +178,10 @@ public class Enemy : MonoBehaviour
         armor +=d;
     }
     private void Enhance() { }
+    public void AddBuff(Buff newBuff)
+    {
+        buffs.Add(newBuff);
+    }
     private void ProcessBuffs()
     {
         DamageReduction = 0;
