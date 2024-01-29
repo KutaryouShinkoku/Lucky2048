@@ -45,17 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeDeck:
-  - _base: {fileID: 11400000, guid: d5994b68d4ed1404db27b258825f8f0e, type: 2}
+  - _base: {fileID: 11400000, guid: 46d907d070b519148b6ac9d2de208d01, type: 2}
     target: {fileID: 0}
-  - _base: {fileID: 11400000, guid: d5994b68d4ed1404db27b258825f8f0e, type: 2}
+  - _base: {fileID: 11400000, guid: 46d907d070b519148b6ac9d2de208d01, type: 2}
     target: {fileID: 0}
-  - _base: {fileID: 11400000, guid: d5994b68d4ed1404db27b258825f8f0e, type: 2}
-    target: {fileID: 0}
-  - _base: {fileID: 11400000, guid: b066fa5c42e66294888c8f7d13e69de7, type: 2}
-    target: {fileID: 0}
-  - _base: {fileID: 11400000, guid: 411966fc62b663442b45e6091c0279e7, type: 2}
-    target: {fileID: 0}
-  - _base: {fileID: 11400000, guid: 74f51267001017b4296c51b2a620cf10, type: 2}
-    target: {fileID: 0}
-  - _base: {fileID: 11400000, guid: 92a3ff8c436c8ce43b17ada97277b046, type: 2}
+  - _base: {fileID: 11400000, guid: 46d907d070b519148b6ac9d2de208d01, type: 2}
     target: {fileID: 0}

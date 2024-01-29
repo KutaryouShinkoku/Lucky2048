@@ -139,6 +139,7 @@ MonoBehaviour:
   cellLevel: 0
   valueDisplay: {fileID: 180652421393293039}
   spriteDisplay: {fileID: 7423688004513745753}
+  speed: 1000
   cube:
     _base: {fileID: 0}
     target: {fileID: 0}

@@ -15,6 +15,12 @@ MonoBehaviour:
   cubeKey: test_A_lv1
   cubeName: 
   level: 0
+  nextLevelCube:
+    _base: {fileID: 11400000, guid: b066fa5c42e66294888c8f7d13e69de7, type: 2}
+    target: {fileID: 0}
+  lastLevelCube:
+    _base: {fileID: 0}
+    target: {fileID: 0}
   cubeRarity: 0
   cubeRace: 0
   cubeType: 0

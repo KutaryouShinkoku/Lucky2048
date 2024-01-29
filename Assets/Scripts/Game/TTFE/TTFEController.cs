@@ -5,6 +5,10 @@ using System;
 
 public class TTFEController : MonoBehaviour
 {
+    public static TTFEController instance;
+    public static bool isCubeMoving; //管理是否方块处于移动状态
+    public static int ticker; //可能需要用来接收一些动作指令的备用变量
+
     [SerializeField] GameObject cube;
     [SerializeField] int maxSpawnAmount;
     public Transform[] allCells;
@@ -18,7 +22,14 @@ public class TTFEController : MonoBehaviour
     //------移动------
     public static Action<string> slide;
 
-    // Start is called before the first frame update
+    private void OnEnable()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         //临时的，生成deckmanager，后续加入了肉鸽系统以后把生成逻辑转移到肉鸽里
@@ -27,21 +38,29 @@ public class TTFEController : MonoBehaviour
     }
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        //移动输入
+        if (!isCubeMoving)
         {
-            slide("left");
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            slide("up");
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            slide("right");
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            slide("down");
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                ticker = 0;
+                slide("left");
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                ticker = 0;
+                slide("up");
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                ticker = 0;
+                slide("right");
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                ticker = 0;
+                slide("down");
+            }
         }
     }
     public void InitializeTTFE()

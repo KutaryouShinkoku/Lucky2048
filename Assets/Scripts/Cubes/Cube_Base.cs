@@ -8,6 +8,9 @@ public class Cube_Base : ScriptableObject
     [SerializeField] string cubeKey; //cube唯一名称，用来识别cube
     [SerializeField] string cubeName; //名称
     [SerializeField] int level; //阶数
+    [SerializeField] Cube nextLevelCube;
+    [SerializeField] Cube lastLevelCube;
+
     [SerializeField] CubeRarity cubeRarity; //稀有度
     [SerializeField] CubeRace cubeRace; //种族
     [SerializeField] CubeType cubeType; //种类（攻击防御等）
@@ -31,7 +34,14 @@ public class Cube_Base : ScriptableObject
     {
         get { return level; }
     }
-
+    public Cube NextLevelCube
+    {
+        get { return nextLevelCube; }
+    }
+    public Cube LastLevelCube
+    {
+        get { return lastLevelCube; }
+    }
     public string Description
     {
         get { return $"{Localize.GetInstance().GetTextByKey($"{description}")}"; }

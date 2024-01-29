@@ -11,7 +11,9 @@ public class TTFECubeCell : MonoBehaviour
     public int cellLevel;
     [SerializeField] Text valueDisplay; //显示在外面的数值，用2的次方形式
     [SerializeField] Image spriteDisplay;
+    [SerializeField] float speed;
     public Cube cube;
+    bool hasCombined;
 
     public void cellUpdate(Cube cubeIn)
     {
@@ -20,15 +22,36 @@ public class TTFECubeCell : MonoBehaviour
         valueDisplay.text = Mathf.Pow(2, cellLevel).ToString();
         spriteDisplay.sprite = cubeIn.Base.Sprite;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.localPosition != Vector3.zero)
+        {
+            hasCombined = false;
+            TTFEController.isCubeMoving = true;
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, Vector3.zero, speed * Time.deltaTime);
+        }
+        else if(hasCombined == false)
+        {
+            if(transform .parent.GetChild(0) != this.transform)
+            {
+                Destroy(transform.parent.GetChild(0).gameObject);
+            }
+            hasCombined = true;
+        }
+        else
+        {
+            TTFEController.isCubeMoving = false;
+        }
+    }
+
+    public void Combine()
+    {
+        if (cube.Base.NextLevelCube.Base != null)
+        {
+            cube = cube.Base.NextLevelCube;
+            cellUpdate(cube);
+        }
     }
 }

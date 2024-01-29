@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b58d141aee39ec346a762fb2cc42227e, type: 3}
-  m_Name: test_B_lv1
+  m_Name: test_B_lv3 1
   m_EditorClassIdentifier: 
-  cubeKey: test_B_lv1
+  cubeKey: test_C_lv3
   cubeName: 
-  level: 0
+  level: 2
   nextLevelCube:
-    _base: {fileID: 11400000, guid: 74f51267001017b4296c51b2a620cf10, type: 2}
+    _base: {fileID: 0}
     target: {fileID: 0}
   lastLevelCube:
     _base: {fileID: 0}
