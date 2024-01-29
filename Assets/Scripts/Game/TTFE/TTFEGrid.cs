@@ -12,6 +12,8 @@ public class TTFEGrid : MonoBehaviour
 
     public TTFECubeCell cell;
 
+    bool hasCombined;
+
     private void OnEnable()
     {
         TTFEController.slide += OnSlide;
@@ -77,8 +79,8 @@ public class TTFEGrid : MonoBehaviour
     //原理是每个grid看自己的反方向有没有块，有的话就把那个块搬过来
     void SlideLeft(TTFEGrid currentGrid)
     {
-        //如果反方向是空的，就不管了
-        if(currentGrid.right == null)return;
+        //最边上的不执行
+        if (currentGrid.right == null) return;
         //Debug.Log($"Left:{currentGrid.gameObject}");
 
         //如果这个grid里本身就有块
@@ -96,7 +98,7 @@ public class TTFEGrid : MonoBehaviour
             if (nextGrid.cell != null)
             {
                 //如果两个cell中的cube完全相同
-                if(currentGrid .cell.cube.Base.CubeKey == nextGrid.cell.cube.Base.CubeKey)
+                if (currentGrid.cell.cube.Base.CubeKey == nextGrid.cell.cube.Base.CubeKey)
                 {
                     //如果没有上级cube，则无法合成
                     if (currentGrid.cell.cube.Base.NextLevelCube.Base == null)
@@ -106,22 +108,24 @@ public class TTFEGrid : MonoBehaviour
                     //低级可以合成更高级
                     else
                     {
-                        nextGrid.cell.Combine();
                         Debug.Log($"位于{currentGrid.name}合成{currentGrid.cell.cube.Base.name}！");
-                        nextGrid.cell.transform.parent = currentGrid.transform;
-                        currentGrid.cell = nextGrid.cell;
-                        nextGrid.cell = null;
+                        nextGrid.cell.transform.parent = currentGrid.transform; //把上个格子的cell接进来
+                        currentGrid.cell = nextGrid.cell; 
+                        currentGrid.cell.Combine();
+                        nextGrid.cell = null; //清空上个格子
                     }
                 }
+                //不同就合不了
                 else if (currentGrid.right.cell != nextGrid.cell)
                 {
-                    Debug.Log($"合不了！");
-                    nextGrid.cell.transform.parent = currentGrid.right.transform;
-                    currentGrid.cell = nextGrid.cell;
-                    nextGrid.cell = null;
+                    Debug.Log($"不一样，合不了！");
+                    //nextGrid.cell.transform.parent = currentGrid.right.transform;
+                    //currentGrid.cell = nextGrid.cell;
+                    //nextGrid.cell = null;
                 }
             }
         }
+        //如果grid里是空的，就直接把最近的块拉过来
         else
         {
             TTFEGrid nextGrid = currentGrid.right;
@@ -135,7 +139,7 @@ public class TTFEGrid : MonoBehaviour
                 currentGrid.cell = nextGrid.cell;
                 nextGrid.cell = null;
                 SlideLeft(currentGrid);
-                Debug.Log($"朝空位向左移动1");
+                Debug.Log($"向左移动");
             }
         }
 
@@ -144,44 +148,53 @@ public class TTFEGrid : MonoBehaviour
     }
     void SlideUp(TTFEGrid currentGrid)
     {
-        if (currentGrid.down == null)
-        {
-            return;
-        }
-        //Debug.Log($"Up:{currentGrid.gameObject}");
+        //如果反方向是空的，就不管了
+        if (currentGrid.down == null) return;
+        //Debug.Log($"Left:{currentGrid.gameObject}");
+
+        //如果这个grid里本身就有块
         if (currentGrid.cell != null)
         {
             TTFEGrid nextGrid = currentGrid.down;
+
+            //确定这个块反方向有没有grid，以及反方向最近的cell。没有grid的话next会输出null
             while (nextGrid.down != null && nextGrid.cell == null)
             {
                 nextGrid = nextGrid.down;
             }
+
+            //检测到cell的情况，把那个cell拉到自己跟前，然后判断能不能合成
             if (nextGrid.cell != null)
             {
+                //如果两个cell中的cube完全相同
                 if (currentGrid.cell.cube.Base.CubeKey == nextGrid.cell.cube.Base.CubeKey)
                 {
-                    if (currentGrid.cell.cube.Base.Level >= 2)
+                    //如果没有上级cube，则无法合成
+                    if (currentGrid.cell.cube.Base.NextLevelCube.Base == null)
                     {
                         Debug.Log($"满级了！合不了！");
                     }
+                    //低级可以合成更高级
                     else
                     {
-                        Debug.Log($"合成！");
-                        nextGrid.cell.Combine();
-                        nextGrid.cell.transform.parent = currentGrid.transform;
+                        Debug.Log($"位于{currentGrid.name}合成{currentGrid.cell.cube.Base.name}！");
+                        nextGrid.cell.transform.parent = currentGrid.transform; //把上个格子的cell接进来
                         currentGrid.cell = nextGrid.cell;
-                        nextGrid.cell = null;
+                        currentGrid.cell.Combine();
+                        nextGrid.cell = null; //清空上个格子
                     }
                 }
-                else if(currentGrid.down.cell != nextGrid.cell)
+                //不同就合不了
+                else if (currentGrid.down.cell != nextGrid.cell)
                 {
-                    Debug.Log($"合不了！");
-                    nextGrid.cell.transform.parent = currentGrid.down.transform;
-                    currentGrid.cell = nextGrid.cell;
-                    nextGrid.cell = null;
+                    Debug.Log($"不一样，合不了！");
+                    //nextGrid.cell.transform.parent = currentGrid.down.transform;
+                    //currentGrid.cell = nextGrid.cell;
+                    //nextGrid.cell = null;
                 }
             }
         }
+        //如果grid里是空的，就直接把最近的块拉过来
         else
         {
             TTFEGrid nextGrid = currentGrid.down;
@@ -195,7 +208,7 @@ public class TTFEGrid : MonoBehaviour
                 currentGrid.cell = nextGrid.cell;
                 nextGrid.cell = null;
                 SlideUp(currentGrid);
-                Debug.Log($"朝空位向上移动1");
+                Debug.Log($"向上移动");
             }
         }
 
@@ -204,44 +217,53 @@ public class TTFEGrid : MonoBehaviour
     }
     void SlideRight(TTFEGrid currentGrid)
     {
-        if (currentGrid.left == null)
-        {
-            return;
-        }
-        //Debug.Log($"Right:{currentGrid.gameObject}");
+        //如果反方向是空的，就不管了
+        if (currentGrid.left == null) return;
+        //Debug.Log($"Left:{currentGrid.gameObject}");
+
+        //如果这个grid里本身就有块
         if (currentGrid.cell != null)
         {
             TTFEGrid nextGrid = currentGrid.left;
+
+            //确定这个块反方向有没有grid，以及反方向最近的cell。没有grid的话next会输出null
             while (nextGrid.left != null && nextGrid.cell == null)
             {
                 nextGrid = nextGrid.left;
             }
+
+            //检测到cell的情况，把那个cell拉到自己跟前，然后判断能不能合成
             if (nextGrid.cell != null)
             {
+                //如果两个cell中的cube完全相同
                 if (currentGrid.cell.cube.Base.CubeKey == nextGrid.cell.cube.Base.CubeKey)
                 {
-                    if (currentGrid.cell.cube.Base.Level >= 2)
+                    //如果没有上级cube，则无法合成
+                    if (currentGrid.cell.cube.Base.NextLevelCube.Base == null)
                     {
                         Debug.Log($"满级了！合不了！");
                     }
+                    //低级可以合成更高级
                     else
                     {
-                        Debug.Log($"合成！");
-                        nextGrid.cell.Combine();
-                        nextGrid.cell.transform.parent = currentGrid.transform;
+                        Debug.Log($"位于{currentGrid.name}合成{currentGrid.cell.cube.Base.name}！");
+                        nextGrid.cell.transform.parent = currentGrid.transform; //把上个格子的cell接进来
                         currentGrid.cell = nextGrid.cell;
-                        nextGrid.cell = null;
+                        currentGrid.cell.Combine();
+                        nextGrid.cell = null; //清空上个格子
                     }
                 }
-                else if(currentGrid.left.cell != nextGrid.cell)
+                //不同就合不了
+                else if (currentGrid.left.cell != nextGrid.cell)
                 {
-                    Debug.Log($"合不了！");
-                    nextGrid.cell.transform.parent = currentGrid.left.transform;
-                    currentGrid.cell = nextGrid.cell;
-                    nextGrid.cell = null;
+                    Debug.Log($"不一样，合不了！");
+                    //nextGrid.cell.transform.parent = currentGrid.left.transform;
+                    //currentGrid.cell = nextGrid.cell;
+                    //nextGrid.cell = null;
                 }
             }
         }
+        //如果grid里是空的，就直接把最近的块拉过来
         else
         {
             TTFEGrid nextGrid = currentGrid.left;
@@ -255,7 +277,7 @@ public class TTFEGrid : MonoBehaviour
                 currentGrid.cell = nextGrid.cell;
                 nextGrid.cell = null;
                 SlideRight(currentGrid);
-                Debug.Log($"朝空位向右移动1");
+                Debug.Log($"向右移动");
             }
         }
 
@@ -264,44 +286,53 @@ public class TTFEGrid : MonoBehaviour
     }
     void SlideDown(TTFEGrid currentGrid)
     {
-        if (currentGrid.up == null)
-        {
-            return;
-        }
-        //Debug.Log($"Down:{currentGrid.gameObject}");
+        //如果反方向是空的，就不管了
+        if (currentGrid.up == null) return;
+        //Debug.Log($"Left:{currentGrid.gameObject}");
+
+        //如果这个grid里本身就有块
         if (currentGrid.cell != null)
         {
             TTFEGrid nextGrid = currentGrid.up;
+
+            //确定这个块反方向有没有grid，以及反方向最近的cell。没有grid的话next会输出null
             while (nextGrid.up != null && nextGrid.cell == null)
             {
                 nextGrid = nextGrid.up;
             }
+
+            //检测到cell的情况，把那个cell拉到自己跟前，然后判断能不能合成
             if (nextGrid.cell != null)
             {
+                //如果两个cell中的cube完全相同
                 if (currentGrid.cell.cube.Base.CubeKey == nextGrid.cell.cube.Base.CubeKey)
                 {
-                    if (currentGrid.cell.cube.Base.Level >= 2)
+                    //如果没有上级cube，则无法合成
+                    if (currentGrid.cell.cube.Base.NextLevelCube.Base == null)
                     {
                         Debug.Log($"满级了！合不了！");
                     }
+                    //低级可以合成更高级
                     else
                     {
-                        Debug.Log($"合成！");
-                        nextGrid.cell.Combine();
-                        nextGrid.cell.transform.parent = currentGrid.transform;
+                        Debug.Log($"位于{currentGrid.name}合成{currentGrid.cell.cube.Base.name}！");
+                        nextGrid.cell.transform.parent = currentGrid.transform; //把上个格子的cell接进来
                         currentGrid.cell = nextGrid.cell;
-                        nextGrid.cell = null;
+                        currentGrid.cell.Combine();
+                        nextGrid.cell = null; //清空上个格子
                     }
                 }
-                else if(currentGrid.up.cell!=nextGrid.cell)
+                //不同就合不了
+                else if (currentGrid.up.cell != nextGrid.cell)
                 {
-                    Debug.Log($"合不了！");
-                    nextGrid.cell.transform.parent = currentGrid.up.transform;
-                    currentGrid.cell = nextGrid.cell;
-                    nextGrid.cell = null;
+                    Debug.Log($"不一样，合不了！");
+                    //nextGrid.cell.transform.parent = currentGrid.up.transform;
+                    //currentGrid.cell = nextGrid.cell;
+                    //nextGrid.cell = null;
                 }
             }
         }
+        //如果grid里是空的，就直接把最近的块拉过来
         else
         {
             TTFEGrid nextGrid = currentGrid.up;
@@ -315,7 +346,7 @@ public class TTFEGrid : MonoBehaviour
                 currentGrid.cell = nextGrid.cell;
                 nextGrid.cell = null;
                 SlideDown(currentGrid);
-                Debug.Log($"朝空位向下移动1");
+                Debug.Log($"向下移动");
             }
         }
 

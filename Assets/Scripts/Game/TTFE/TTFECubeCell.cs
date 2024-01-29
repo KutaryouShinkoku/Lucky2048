@@ -28,12 +28,14 @@ public class TTFECubeCell : MonoBehaviour
     {
         if (transform.localPosition != Vector3.zero)
         {
+            //移动，子物体改变后，坐标不是原点，则移动到原点
             hasCombined = false;
             TTFEController.isCubeMoving = true;
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, Vector3.zero, speed * Time.deltaTime);
         }
         else if(hasCombined == false)
         {
+            //合成，如果一个格子出现了全新的物件，则删除它，并且标记
             if(transform .parent.GetChild(0) != this.transform)
             {
                 Destroy(transform.parent.GetChild(0).gameObject);
@@ -46,6 +48,7 @@ public class TTFECubeCell : MonoBehaviour
         }
     }
 
+    //合成，写在cell里，本质上就是这个cell的cube替换成更高一级的
     public void Combine()
     {
         if (cube.Base.NextLevelCube.Base != null)

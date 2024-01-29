@@ -4040,7 +4040,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cube: {fileID: 1930378049366715087, guid: c98d33729ffac75469fbce945ee1f293, type: 3}
-  maxSpawnAmount: 1
+  maxSpawnAmount: 3
+  GridAmount: 25
   allCells:
   - {fileID: 4691222786074123828}
   - {fileID: 1988075355}
@@ -6523,6 +6524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cube: {fileID: 1930378049366715087, guid: c98d33729ffac75469fbce945ee1f293, type: 3}
   maxSpawnAmount: 1
+  GridAmount: 0
   allCells:
   - {fileID: 1577579419}
   - {fileID: 781520724}

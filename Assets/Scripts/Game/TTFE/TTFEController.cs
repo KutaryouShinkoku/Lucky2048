@@ -68,7 +68,7 @@ public class TTFEController : MonoBehaviour
         //从deck里抽选最多15个方块
         List<Cube> spawnPool = new List<Cube>();
         List<int> spawnId = new List<int>(); //临时list，用来管理本批生成的方块
-        for (int i = 0;i < Mathf.Min(deckManager.cubeDeck.Count, maxSpawnAmount,25);) 
+        for (int i = 0;i < Mathf.Min(deckManager.cubeDeck.Count, maxSpawnAmount, allCells.Length);) 
         {
             int deckId = UnityEngine.Random.Range(0, deckManager.cubeDeck.Count);
             if(!spawnId.Contains (deckId))
@@ -118,6 +118,9 @@ public class TTFEController : MonoBehaviour
             }
         }
 
+        //更新棋盘上cube的信息
+
+
 
         //以前的循环逻辑，先放着
         //while (cubeNum == cellId.Count&&cellId .Count<25)
@@ -129,5 +132,9 @@ public class TTFEController : MonoBehaviour
         //        Instantiate(cube, allCells[whichSpawn]);
         //    }
         //}
+    }
+    public void UpdateCubeInfo()
+    {
+
     }
 }
