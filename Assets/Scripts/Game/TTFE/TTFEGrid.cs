@@ -11,6 +11,7 @@ public class TTFEGrid : MonoBehaviour
     public TTFEGrid down;
 
     public TTFECubeCell cell;
+    [SerializeField] TTFEController controller;
 
     bool hasCombined;
 
@@ -72,6 +73,7 @@ public class TTFEGrid : MonoBehaviour
                 return;
         }
         TTFEController.ticker++;
+        controller.UpdateCubeInfo();
     }
 
 

@@ -11,13 +11,16 @@ public class TTFEController : MonoBehaviour
 
     [SerializeField] GameObject cube;
     [SerializeField] int maxSpawnAmount;
-    public Transform[] allCells;
+    public TTFEGrid[] allCells;
     [SerializeField] Deck deckManager;
 
     //层级如下：
     //Grid（棋盘上的格子）-Cell（格子里面的2048块）-Cube（这个块承载的Cube信息）-Skill（这个Cube对应的技能）
-    //建立一个list管理panel上存在的方块
-    List<int> cellId = new List<int>();
+    //建立一个list管理panel上存在的cell位置
+    List<int> cellId;
+    //而这个list管理panel上cube的种类
+    List<Cube> cubesInPanel;
+    //这里放用来统计出现次数的功能，啊啊啊啊啊啊好麻烦
 
     //------移动------
     public static Action<string> slide;
@@ -35,6 +38,7 @@ public class TTFEController : MonoBehaviour
         //临时的，生成deckmanager，后续加入了肉鸽系统以后把生成逻辑转移到肉鸽里
         Instantiate(deckManager);
         Debug.Log($"数组长度：{allCells.Length}");
+        UpdateCubeInfo();
     }
     public void Update()
     {
@@ -100,14 +104,14 @@ public class TTFEController : MonoBehaviour
             if (!cellId.Contains(whichSpawn))
             {
                 //生成一个方块
-                cellId.Add(whichSpawn);
-                GameObject cell = Instantiate(cube, allCells[whichSpawn]);
+                GameObject cell = Instantiate(cube, allCells[whichSpawn].transform);
 
                 //把cube信息更新到cell中
                 TTFECubeCell cubeCellComp = cell.GetComponent<TTFECubeCell>();
                 allCells[whichSpawn].GetComponent<TTFEGrid>().cell = cubeCellComp; //这一步是在游戏里把cell扔进grid
                 cubeCellComp.cellUpdate(deckManager.cubeDeck[deckId]); //然后这里是给这个cell分配cube
 
+                UpdateCubeInfo();
                 isCubeSpawn = true;
                 Debug.Log($"生成一个{deckManager.cubeDeck[deckId].Base.CubeKey}方块在{whichSpawn}号位");
             }
@@ -135,6 +139,16 @@ public class TTFEController : MonoBehaviour
     }
     public void UpdateCubeInfo()
     {
-
+        cellId = new List<int>();
+        cubesInPanel = new List<Cube>();
+        for (int i = 0; i < allCells.Length; i++)
+        {
+            if (allCells[i].cell != null)
+            {
+                cellId.Add(i);
+                cubesInPanel.Add(allCells[i].cell.cube);
+                Debug.Log($"棋盘更新：{i}号位的{allCells[i].cell.cube.Base.CubeKey}");
+            }
+        }
     }
 }
