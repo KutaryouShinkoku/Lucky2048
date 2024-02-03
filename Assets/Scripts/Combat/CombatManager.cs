@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // 导入UI命名空间
 
 public enum CombatState //各阶段
 {
@@ -16,16 +17,13 @@ public class CombatManager : MonoBehaviour
 {
     public Player player;
     public Enemy enemy;
-    public int playerHP; //临时，后转移至player脚本
-    public int playerArmor; //临时，后转移至player脚本
-    public int enemyHP; //临时，后转移至enemy脚本
-    public int enemyArmor; //临时，后转移至enemy脚本
     private CombatState state;
+    public Text gameEndText; // 游戏结束时显示的文本
     private int thornsBuffIntensity; // 荆棘 Buff 的强度
     public void Start()
     {
-        playerArmor = 0;
-        enemyArmor = 0;
+        player.playerArmor = 0;
+        enemy.enemyArmor = 0;
         state = CombatState.none;
     }
     public void Update()
@@ -63,19 +61,28 @@ public class CombatManager : MonoBehaviour
     }
     public interface IDamageable
     {
-        void TakeDamage(int damage);
-        void AddBuff(Buff buff);
-        // 这里可以添加更多与受伤害相关的方法
     }
-
+    public interface IAddBuff
+    {
+    }
     //游戏结束的判定
     public void DeathCheck() //检查玩家或者敌人是否有人死
     {
-
+        if (player.playerHP==0)
+        {
+            // 玩家死亡，游戏失败
+            GameEnd(false);
+        }
+        else if (enemy.enemyHP==0)
+        {
+            // 敌人死亡，游戏获胜
+            GameEnd(true);
+        }
     }
-    public void GameEnd()
+    public void GameEnd(bool playerWon)
     {
-        //案子里没写获胜奖励，先不管
-        state = CombatState.none;
+        state = CombatState.none; // 停止游戏状态更新
+        gameEndText.gameObject.SetActive(true); // 显示游戏结束文本
+        gameEndText.text = playerWon ? "游戏胜利！" : "游戏失败！"; // 根据玩家是否赢得游戏来更新文本
     }
 }

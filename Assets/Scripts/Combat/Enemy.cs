@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using static CombatManager;
 
-public class Enemy : MonoBehaviour, IDamageable
+public class Enemy : MonoBehaviour
 {
     //敌人ai在这里写就行
-    [SerializeField] int maxHP; //血量
+    [SerializeField] int enemyMaxHP; //血量
     [SerializeField] private List<Buff> buffs; //身上的Buff
     [Header("UI")]
     [SerializeField] Text txtEnemyHp;
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     void Start()
     {
-        enemyHP = maxHP;
+        enemyHP = enemyMaxHP;
         enemyArmor = 0;
         currentAction = Action.Guard; // 第一回合始终是守护
         buffs = new List<Buff>();
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour, IDamageable
     
     void Update()
     {
-        txtEnemyHp.text = $"{enemyHP}/{maxHP}";
+        txtEnemyHp.text = $"{enemyHP}/{enemyMaxHP}";
         CheckPhaseTransition();
         DecideNextAction();
         //UpdateNextActionUI();这里大概要加个敌人意图更新
@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     void CheckPhaseTransition()
     {
-        if (enemyHP <= maxHP * 0.5 && !isInSecondPhase)
+        if (enemyHP <= enemyMaxHP * 0.5 && !isInSecondPhase)
         {
             isInSecondPhase = true;
             currentAction = Action.Charge; // 进入第二阶段，第一回合使用充能
