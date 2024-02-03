@@ -7,22 +7,42 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
 
     [Header("UI")]
+    [SerializeField] Transform canvas;
     [SerializeField] GameObject uiMainMenu;
     [SerializeField] GameObject uiComic;
     [SerializeField] GameObject uiPick;
     [SerializeField] GameObject uiTutorial;
+    [SerializeField] GameObject uiMainGame;
 
     public bool isFirstTimePlay = true;
     //[SerializeField] GameObject TTFEController;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        //canvas = transform.Find("Canvas");
+        //uiMainMenu = Instantiate(uiMainMenu,canvas);
+        //uiComic = Instantiate(uiComic, canvas);
+        ////uiPick = Instantiate(uiPick,canvas);
+        //uiTutorial = Instantiate(uiTutorial, canvas);
+        ////uiMainGame = Instantiate(uiMainGame,canvas);
+    }
     void Start()
     {
+        uiMainMenu.SetActive(true);
+        uiComic.SetActive(false);
+        uiPick.SetActive(false);
+        uiTutorial.SetActive(false);
+        uiMainGame.SetActive(false);
+
         gameState = GameState.none;
         uiMainMenu.SetActive(true);
         //Instantiate(TTFEController);
     }
 
+    public void Update()
+    {
 
+    }
     //-------------------------------------界面切换部分---------------------------
     public void BtnStart() //开始游戏
     {
@@ -35,6 +55,7 @@ public class GameManager : MonoBehaviour
             uiPick.SetActive(true);
         }
         gameState = GameState.game;
+        uiMainGame.SetActive(true);
         uiMainMenu.SetActive(false);
     }
     public void BtnTutorial() //教学

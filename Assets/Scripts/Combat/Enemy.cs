@@ -7,7 +7,8 @@ using static CombatManager;
 public class Enemy : MonoBehaviour
 {
     //敌人ai在这里写就行
-    [SerializeField] int enemyMaxHP; //血量
+    public int enemyMaxHP; //血量
+    public int enemyMaxArmor; //护甲
     [SerializeField] private List<Buff> buffs; //身上的Buff
     [Header("UI")]
     [SerializeField] Animator animator; // 动画组件的引用
@@ -52,6 +53,10 @@ public class Enemy : MonoBehaviour
         // 行动逻辑
     }
 
+    public void TestDmg()
+    {
+        TakeDamage(5);
+    }
     void CheckPhaseTransition()
     {
         if (enemyHP <= enemyMaxHP * 0.5 && !isInSecondPhase)

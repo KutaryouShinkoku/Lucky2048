@@ -911,12 +911,12 @@ GameObject:
   - component: {fileID: 333455059735980932}
   - component: {fileID: 1809590564551903309}
   m_Layer: 5
-  m_Name: CubeChoosingPanel
+  m_Name: UICubePickPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3383533917689264646
 RectTransform:
   m_ObjectHideFlags: 0

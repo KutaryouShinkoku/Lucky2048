@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7687db6d4ecda1541be33e10d3f7c7d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxHP: 100
-  txtPlayerHp: {fileID: 0}
+  playerMaxHP: 20
+  playerMaxArmor: 99
   playerHP: 0
   playerArmor: 0

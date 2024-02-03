@@ -11,7 +11,8 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] int playerMaxHP; //血量
+    public int playerMaxHP; //血量
+    public int playerMaxArmor; //护甲
     
     public int playerHP;//初始血量
     public int playerArmor;//初始护甲
@@ -28,6 +29,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         ;
+    }
+    public void TestDmg()
+    {
+        TakeDamage(5);
     }
     public void TakeDamage(int damage)
     {
@@ -54,7 +59,6 @@ public class Player : MonoBehaviour
         }
 
         playerHP = Mathf.Max(0, playerHP); // 确保血量不会变成负数
-        txtPlayerHp.text = $"{playerHP}/{playerMaxHP}";
 
         int damageTaken = originalHP - playerHP; // 计算实际受到的伤害
         if (damageTaken > 0)
@@ -65,7 +69,6 @@ public class Player : MonoBehaviour
     private void UpdatePlayerHealthUI(int damage)
     {
         // 更新玩家生命值UI
-        txtPlayerHp.text = $"{playerHP}/{playerMaxHP}";
     }
 
     private void OnDestroy()

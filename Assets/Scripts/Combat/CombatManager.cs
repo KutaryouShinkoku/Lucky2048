@@ -27,6 +27,7 @@ public class CombatManager : MonoBehaviour
     {
         Instantiate(player);
         Instantiate(enemy);
+        InitializePlayerAndEnemy();
         player.playerArmor = 0;
         enemy.enemyArmor = 0;
         state = CombatState.none;
@@ -51,6 +52,10 @@ public class CombatManager : MonoBehaviour
             DeathCheck();
             state = CombatState.select;
         }
+    }
+    public void InitializePlayerAndEnemy()
+    {
+
     }
 
     public void UpdateCombatStats()

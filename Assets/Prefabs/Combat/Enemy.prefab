@@ -49,9 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMaxHP: 100
+  enemyMaxArmor: 99
   buffs: []
-  txtEnemyHp: {fileID: 0}
-  txtNextAction: {fileID: 0}
   animator: {fileID: 0}
   enemyImage: {fileID: 0}
   secondPhaseSprite: {fileID: 0}
