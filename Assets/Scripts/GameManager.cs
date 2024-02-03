@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject uiMainMenu;
     [SerializeField] GameObject uiComic;
     [SerializeField] GameObject uiPick;
+    [SerializeField] GameObject uiTutorial;
 
     public bool isFirstTimePlay = true;
     //[SerializeField] GameObject TTFEController;
@@ -35,6 +36,14 @@ public class GameManager : MonoBehaviour
         }
         gameState = GameState.game;
         uiMainMenu.SetActive(false);
+    }
+    public void BtnTutorial() //教学
+    {
+        uiTutorial.SetActive(true);
+    }
+    public void BtnTutorialClose() //教学
+    {
+        uiTutorial.SetActive(false);
     }
 
     //漫画部分
