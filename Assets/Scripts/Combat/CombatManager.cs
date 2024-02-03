@@ -49,10 +49,10 @@ public class CombatManager : MonoBehaviour
         //敌人回合
         if(state == CombatState.enemy)
         {
-            //处理敌人的Buff
-            //然后处理敌人的行动
-            DeathCheck();
-            state = CombatState.select;
+            enemy.ProcessBuffs();//处理敌人的Buff
+            enemy.PerformAction();//然后处理敌人的行动
+            DeathCheck();// 检查战斗是否结束
+            state = CombatState.select; // 回合结束，切换到玩家选择方块的阶段
         }
     }
     public void InitializePlayerAndEnemy()

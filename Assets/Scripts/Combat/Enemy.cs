@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     private Action lastAction;//敌人已经做出的行为
     public int addDefence { get; set; } // 由于虚弱Buff导致的伤害减少
     public int damage { get; set; } //敌人的伤害
+    public int AttackCount { get; set; }//
 
     public bool IsStunned { get; set; } // 是否被晕眩
     private bool isInSecondPhase = false;//敌人是否进入二阶段
@@ -154,7 +155,7 @@ public class Enemy : MonoBehaviour
 
     private void PerformGuard()
     {
-        enemyArmor += 5;// 守护逻辑，增加5点护甲
+        Defense(5);// 守护逻辑，增加5点护甲
     }
     private void PerformHeavyHit()
     {
@@ -168,7 +169,7 @@ public class Enemy : MonoBehaviour
 
     private void PerformCharge() 
     {
-        enemyArmor += 5;//充能逻辑，给予自身2点力量，给予自身15点护甲
+        Defense(15);//充能逻辑，给予自身2点力量，给予自身15点护甲
     }
 
     private void PerformOverload() 
@@ -185,7 +186,7 @@ public class Enemy : MonoBehaviour
     {
         buffs.Add(newBuff);
     }
-    private void ProcessBuffs()
+    public void ProcessBuffs()
     {
         IsStunned = false;
 
