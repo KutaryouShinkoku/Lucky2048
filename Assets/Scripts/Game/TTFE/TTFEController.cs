@@ -13,6 +13,7 @@ public class TTFEController : MonoBehaviour
     [SerializeField] int maxSpawnAmount;
     public TTFEGrid[] allCells;
     [SerializeField] Deck deckManager;
+    [SerializeField] DeckPool deckPool; //全部的卡池以及权重
 
     //层级如下：
     //Grid（棋盘上的格子）-Cell（格子里面的2048块）-Cube（这个块承载的Cube信息）-Skill（这个Cube对应的技能）
