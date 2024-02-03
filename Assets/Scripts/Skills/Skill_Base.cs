@@ -34,8 +34,8 @@ public enum SkillEffects //效果都放这，一个技能写一个枚举
 {
     damage, //伤害
     armor, //叠甲
-    buffenemy, //给敌人上buff
-    ApplyWeakness,
+    ApplyWeakness,//上虚弱
+    ApplyThorns,//上荆棘
 }
 
 

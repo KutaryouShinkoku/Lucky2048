@@ -14,11 +14,14 @@ public enum CombatState //各阶段
 }
 public class CombatManager : MonoBehaviour
 {
+    public Player player;
+    public Enemy enemy;
     public int playerHP; //临时，后转移至player脚本
     public int playerArmor; //临时，后转移至player脚本
     public int enemyHP; //临时，后转移至enemy脚本
     public int enemyArmor; //临时，后转移至enemy脚本
     private CombatState state;
+    private int thornsBuffIntensity; // 荆棘 Buff 的强度
     public void Start()
     {
         playerArmor = 0;
@@ -45,6 +48,24 @@ public class CombatManager : MonoBehaviour
             DeathCheck();
             state = CombatState.select;
         }
+    }
+    private void HandleThornsEffect(int damage)
+    {
+        if (thornsBuffIntensity > 0)
+        {
+            enemy.TakeDamage(thornsBuffIntensity); // 对敌人造成荆棘伤害
+        }
+    }
+
+    public void AddThornsBuff(int intensity)
+    {
+        thornsBuffIntensity += intensity; // 增加荆棘 Buff 强度
+    }
+    public interface IDamageable
+    {
+        void TakeDamage(int damage);
+        void AddBuff(Buff buff);
+        // 这里可以添加更多与受伤害相关的方法
     }
 
     //游戏结束的判定

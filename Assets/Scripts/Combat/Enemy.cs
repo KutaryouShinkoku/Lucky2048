@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static CombatManager;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     //敌人ai在这里写就行
     [SerializeField] int maxHP; //血量
@@ -14,9 +15,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] Animator animator; // 动画组件的引用
     [SerializeField] Image enemyImage; // 敌人形象的UI元素引用
     [SerializeField] Sprite secondPhaseSprite; // 第二阶段的敌人形象
-    public int hp;//初始血量
-    public int armor;//初始护甲
-    public enum Action { Guard, HeavyHit, Roar, Charge, Overload }
+    public int enemyHP;//初始血量
+    public int enemyArmor;//初始护甲
+    public enum Action { Guard, HeavyHit, Roar, Charge, Overload }//敌人的行为
     private Action currentAction;//当前下回合的行为
     private Action lastAction;//敌人已经做出的行为
     public int DamageReduction { get; set; } // 由于虚弱Buff导致的伤害减少
@@ -30,8 +31,8 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        hp = maxHP;
-        armor = 0;
+        enemyHP = maxHP;
+        enemyArmor = 0;
         currentAction = Action.Guard; // 第一回合始终是守护
         buffs = new List<Buff>();
         DecideNextAction();
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
-        txtEnemyHp.text = $"{hp}/{maxHP}";
+        txtEnemyHp.text = $"{enemyHP}/{maxHP}";
         CheckPhaseTransition();
         DecideNextAction();
         //UpdateNextActionUI();这里大概要加个敌人意图更新
@@ -56,7 +57,7 @@ public class Enemy : MonoBehaviour
 
     void CheckPhaseTransition()
     {
-        if (hp <= maxHP * 0.5 && !isInSecondPhase)
+        if (enemyHP <= maxHP * 0.5 && !isInSecondPhase)
         {
             isInSecondPhase = true;
             currentAction = Action.Charge; // 进入第二阶段，第一回合使用充能
@@ -175,8 +176,8 @@ public class Enemy : MonoBehaviour
     }
     private void Defense(int addDefence) 
     {
-        armor += addDefence;
-        armor = Mathf.Max(0, armor); // 确保护甲值不是负数
+        enemyArmor += addDefence;
+        enemyArmor = Mathf.Max(0, enemyArmor); // 确保护甲值不是负数
     }
     private void Enhance() { }
     public void AddBuff(Buff newBuff)
@@ -199,8 +200,8 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        damage = Mathf.Max(0, damage - armor - DamageReduction); // 考虑护甲和虚弱Buff
-        hp -= damage;
+        damage = Mathf.Max(0, damage - enemyArmor - DamageReduction); // 考虑护甲和虚弱Buff
+        enemyHP -= damage;
         // 添加受伤害的逻辑
     }
 

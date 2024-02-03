@@ -1,16 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static Buff;
+using static CombatManager;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] int playerMaxHP; //血量
     public int playerHP;//初始血量
     public int playerArmor;//初始护甲
-    // Start is called before the first frame update
+    public static event Action<int> OnDamageTaken; // 受伤事件
     void Start()
     {
-        
+        playerHP = playerMaxHP;
     }
 
     // Update is called once per frame
@@ -22,6 +27,8 @@ public class Player : MonoBehaviour
     {
         playerHP -= damage;
         playerHP = Mathf.Max(0, playerHP); // 确保血量不会变成负数
-        // 可以在这里添加受伤动画或反应
+                                           // 可以在这里添加受伤动画或反应
+        OnDamageTaken?.Invoke(damage); // 触发受伤事件
     }
+    
 }

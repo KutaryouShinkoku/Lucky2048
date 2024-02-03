@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
+using static Buff;
 
 [System.Serializable]
 
@@ -67,8 +68,15 @@ public class Cube
                 //µþ¼×
                 break;
             case SkillEffects.ApplyWeakness:
+                //ÐéÈõ
                 target.AddBuff(new Buff(Buff.BuffType.Weakness, skillPar, skill.Duration));
                 break;
+            case SkillEffects.ApplyThorns:
+                //¾£¼¬
+                target.AddBuff(new Buff(BuffType.Thorns, skillPar, 1));
+                break;
+               
+
         }
     }
 }

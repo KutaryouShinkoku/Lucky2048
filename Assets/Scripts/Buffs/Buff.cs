@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Buff
 {
-    public enum BuffType { Weakness, Poison, Stun }
+    public enum BuffType { Weakness, Poison, Stun, Thorns }
     public BuffType type;
     public int intensity; // 虚弱减少的伤害，中毒的初始伤害
     public int duration; // Buff持续的回合数
@@ -31,6 +31,9 @@ public class Buff
                 break;
             case BuffType.Stun:
                 enemy.IsStunned = true;
+                break;
+            case BuffType.Thorns:
+                // Thorns Buff可能不需要在这里立即应用效果
                 break;
         }
     }
