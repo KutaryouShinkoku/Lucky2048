@@ -11,10 +11,10 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private List<Buff> buffs; //身上的Buff
+    public int playerHP;//初始血量
     public int playerMaxHP; //血量
     public int playerMaxArmor; //护甲
-    
-    public int playerHP;//初始血量
     public int playerArmor;//初始护甲
     public static event Action<int> OnDamageTaken; // 受伤事件
     void Start()
@@ -69,6 +69,10 @@ public class Player : MonoBehaviour
     private void UpdatePlayerHealthUI(int damage)
     {
         // 更新玩家生命值UI
+    }
+    public void AddBuff(Buff newBuff)
+    {
+        buffs.Add(newBuff);
     }
 
     private void OnDestroy()

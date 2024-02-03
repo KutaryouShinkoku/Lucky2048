@@ -36,6 +36,11 @@ public enum SkillEffects //效果都放这，一个技能写一个枚举
     armor, //叠甲
     ApplyWeakness,//上虚弱
     ApplyThorns,//上荆棘
+    ApplyBuffer,//上缓冲
+    ApplyPoison,//上中毒
+    ApplyStun,//上眩晕
+    ApplyBreakdown,//上崩溃
+    ApplyApple,//苹果专用
 }
 
 

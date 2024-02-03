@@ -5,15 +5,15 @@ using UnityEngine;
 [System.Serializable]
 public class Buff
 {
-    public enum BuffType { Weakness, Poison, Stun, Thorns }
+    public enum BuffType { Weakness, Poison, Stun, Thorns, Buffer, Breakdown, }
     public BuffType type;
-    public int intensity; // 虚弱减少的伤害，中毒的初始伤害
+    public int SkillPar; // 具体暴露的数据
     public int duration; // Buff持续的回合数
 
-    public Buff(BuffType type, int intensity, int duration)
+    public Buff(BuffType type, int SkillPar,int duration)
     {
         this.type = type;
-        this.intensity = intensity;
+        this.SkillPar = SkillPar;
         this.duration = duration;
     }
 
@@ -22,19 +22,25 @@ public class Buff
     {
         switch (type)
         {
-            case BuffType.Weakness:
-                enemy.DamageReduction += intensity;
+            case BuffType.Weakness://虚弱
+                enemy.damage = (enemy.damage * 25) / 100;
+                duration += SkillPar;
                 break;
-            case BuffType.Poison:
-                enemy.TakeDamage(intensity);
-                intensity = Mathf.Max(0, intensity - 1); // 中毒伤害递减
+            case BuffType.Poison://中毒
+                enemy.TakeDamage(SkillPar);//X层中毒
+                SkillPar = Mathf.Max(0, SkillPar - 1); // 中毒伤害递减
                 break;
-            case BuffType.Stun:
+            case BuffType.Stun://眩晕
                 enemy.IsStunned = true;
                 break;
-            case BuffType.Thorns:
+            case BuffType.Thorns://荆棘
                 // Thorns Buff可能不需要在这里立即应用效果
                 break;
+            case BuffType.Buffer://缓冲
+                break; 
+            case BuffType.Breakdown://破甲
+                break;
+
         }
     }
 

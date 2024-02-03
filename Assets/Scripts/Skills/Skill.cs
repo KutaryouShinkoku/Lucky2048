@@ -6,7 +6,7 @@ public class Skill
 {
     public Skill_Base Base { get; set; }
     public int SkillPar { get; set; }
-    public int Duration { get; private set; } // 添加持续时间字段
+    public int Duration { get; set; } // 添加持续时间字段
 
     public Skill(Skill_Base hBase)
     {

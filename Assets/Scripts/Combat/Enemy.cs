@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
     public enum Action { Guard, HeavyHit, Roar, Charge, Overload }//敌人的行为
     private Action currentAction;//当前下回合的行为
     private Action lastAction;//敌人已经做出的行为
-    public int DamageReduction { get; set; } // 由于虚弱Buff导致的伤害减少
     public int addDefence { get; set; } // 由于虚弱Buff导致的伤害减少
     public int damage { get; set; } //敌人的伤害
 
@@ -155,7 +154,7 @@ public class Enemy : MonoBehaviour
 
     private void PerformGuard()
     {
-        addDefence=5;// 守护逻辑，增加5点护甲
+        enemyArmor += 5;// 守护逻辑，增加5点护甲
     }
     private void PerformHeavyHit()
     {
@@ -169,7 +168,7 @@ public class Enemy : MonoBehaviour
 
     private void PerformCharge() 
     {
-        //充能逻辑，给予自身2点力量，给予自身15点护甲
+        enemyArmor += 5;//充能逻辑，给予自身2点力量，给予自身15点护甲
     }
 
     private void PerformOverload() 
@@ -188,7 +187,6 @@ public class Enemy : MonoBehaviour
     }
     private void ProcessBuffs()
     {
-        DamageReduction = 0;
         IsStunned = false;
 
         for (int i = buffs.Count - 1; i >= 0; i--)
@@ -202,14 +200,14 @@ public class Enemy : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        damage = Mathf.Max(0, damage - enemyArmor - DamageReduction); // 考虑护甲和虚弱Buff
+        damage = Mathf.Max(0, damage - enemyArmor); // 考虑护甲
         enemyHP -= damage;
         // 添加受伤害的逻辑
     }
 
     private void Attack(Player target)
     {
-        int attackDamage = damage - DamageReduction;
+        int attackDamage = damage;
         attackDamage = Mathf.Max(0, attackDamage); // 确保伤害不是负数
         target.TakeDamage(attackDamage);
     }

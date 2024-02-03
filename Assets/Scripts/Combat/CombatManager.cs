@@ -15,6 +15,7 @@ public enum CombatState //各阶段
 }
 public class CombatManager : MonoBehaviour
 {
+    public Cube cube;
     public Player player;
     public Enemy enemy;
     private CombatState state;
@@ -31,6 +32,7 @@ public class CombatManager : MonoBehaviour
         player.playerArmor = 0;
         enemy.enemyArmor = 0;
         state = CombatState.none;
+        cube.Setup(this); // 将CombatManager的引用传递给Cube
     }
     public void Update()
     {
@@ -80,12 +82,7 @@ public class CombatManager : MonoBehaviour
     {
         thornsBuffIntensity += intensity; // 增加荆棘 Buff 强度
     }
-    public interface IDamageable
-    {
-    }
-    public interface IAddBuff
-    {
-    }
+
     //游戏结束的判定
     public void DeathCheck() //检查玩家或者敌人是否有人死
     {

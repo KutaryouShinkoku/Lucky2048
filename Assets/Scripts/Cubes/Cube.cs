@@ -4,6 +4,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 using static Buff;
+using static CombatManager;
 
 [System.Serializable]
 
@@ -12,7 +13,12 @@ public class Cube
     [SerializeField] Cube_Base _base;
     public Cube_Base Base { get { return _base; } }
     public List<Skill> skills;
-    public Enemy target; //作为cube的目标，由combatmanager给方块赋予目标
+    private CombatManager combatManager;
+    public void Setup(CombatManager combatManager)
+    {
+        this.combatManager = combatManager;
+        Init(); // 如果需要，也可以在这里调用Init
+    }
 
     //实装技能
     public void Init()
@@ -62,20 +68,25 @@ public class Cube
             case SkillEffects.damage:
                 //造成伤害
                 Debug.Log($"造成了{skillPar}点伤害");
-                target.enemyHP -= skillPar;
+                combatManager.enemy.TakeDamage(skillPar); // 使用CombatManager的实例来访问enemy
                 break;
             case SkillEffects.armor:
                 //叠甲
                 break;
             case SkillEffects.ApplyWeakness:
                 //虚弱
-                target.AddBuff(new Buff(Buff.BuffType.Weakness, skillPar, skill.Duration));
+                combatManager.enemy.AddBuff(new Buff(BuffType.Weakness, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyThorns:
                 //荆棘
-                target.AddBuff(new Buff(BuffType.Thorns, skillPar, 1));
+                combatManager.player.AddBuff(new Buff(BuffType.Thorns, skillPar, 1));
                 break;
-               
+            case SkillEffects.ApplyBuffer:
+                //缓冲
+                combatManager.player.AddBuff(new Buff(BuffType.Buffer, skillPar, 1));
+                break;
+
+
 
         }
     }
