@@ -18,10 +18,15 @@ public class CombatManager : MonoBehaviour
     public Player player;
     public Enemy enemy;
     private CombatState state;
+    [Header("UI")]
+    public CombatHUD combatHUD;
     public Text gameEndText; // 游戏结束时显示的文本
+
     private int thornsBuffIntensity; // 荆棘 Buff 的强度
     public void Start()
     {
+        Instantiate(player);
+        Instantiate(enemy);
         player.playerArmor = 0;
         enemy.enemyArmor = 0;
         state = CombatState.none;
@@ -47,6 +52,17 @@ public class CombatManager : MonoBehaviour
             state = CombatState.select;
         }
     }
+
+    public void UpdateCombatStats()
+    {
+
+    }
+
+    public void UpdateCombatHUD()
+    {
+
+    }
+
     private void HandleThornsEffect(int damage)
     {
         if (thornsBuffIntensity > 0)

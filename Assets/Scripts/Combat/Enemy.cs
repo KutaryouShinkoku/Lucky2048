@@ -10,8 +10,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] int enemyMaxHP; //血量
     [SerializeField] private List<Buff> buffs; //身上的Buff
     [Header("UI")]
-    [SerializeField] Text txtEnemyHp;
-    [SerializeField] Text txtNextAction; // 显示下一回合敌人的意图
     [SerializeField] Animator animator; // 动画组件的引用
     [SerializeField] Image enemyImage; // 敌人形象的UI元素引用
     [SerializeField] Sprite secondPhaseSprite; // 第二阶段的敌人形象
@@ -41,7 +39,6 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
-        txtEnemyHp.text = $"{enemyHP}/{enemyMaxHP}";
         CheckPhaseTransition();
         DecideNextAction();
         //UpdateNextActionUI();这里大概要加个敌人意图更新

@@ -12,8 +12,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class Player : MonoBehaviour
 {
     [SerializeField] int playerMaxHP; //血量
-    [Header("UI")]
-    [SerializeField] Text txtPlayerHp;
+    
     public int playerHP;//初始血量
     public int playerArmor;//初始护甲
     public static event Action<int> OnDamageTaken; // 受伤事件
