@@ -50,10 +50,8 @@ public class GameManager : MonoBehaviour
         {
             uiComic.SetActive(true);
         }
-        else
-        {
-            uiPick.SetActive(true);
-        }
+
+        uiPick.SetActive(true);
         gameState = GameState.game;
         uiMainGame.SetActive(true);
         uiMainMenu.SetActive(false);

@@ -40,7 +40,6 @@ public class CombatManager : MonoBehaviour
         //回合结束开始处理方块
         if(state == CombatState.end)
         {
-
             for(int i = 0; i < ttfeController.cubesInPanel.Count;i++)
             {
                 ttfeController.cubesInPanel[i].Setup(this);
