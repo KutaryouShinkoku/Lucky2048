@@ -15,13 +15,14 @@ public enum CombatState //各阶段
 }
 public class CombatManager : MonoBehaviour
 {
-    public Cube cube;
+    //public Cube cube;
     public Player player;
     public Enemy enemy;
     private CombatState state;
     [Header("UI")]
     public CombatHUD combatHUD;
     public Text gameEndText; // 游戏结束时显示的文本
+    [SerializeField] TTFEController ttfeController;
 
     private int thornsBuffIntensity; // 荆棘 Buff 的强度
     public void Start()
@@ -32,15 +33,21 @@ public class CombatManager : MonoBehaviour
         player.playerArmor = 0;
         enemy.enemyArmor = 0;
         state = CombatState.none;
-        cube.Setup(this); // 将CombatManager的引用传递给Cube
+        //cube.Setup(this); // 将CombatManager的引用传递给Cube
     }
     public void Update()
     {
         //回合结束开始处理方块
         if(state == CombatState.end)
         {
-            //先处理稻穗的升级
-            //然后依次处理方块的技能
+
+            for(int i = 0; i < ttfeController.cubesInPanel.Count;i++)
+            {
+                ttfeController.cubesInPanel[i].Setup(this);
+                //先处理稻穗的升级
+                //然后依次处理方块的技能
+                ttfeController.cubesInPanel[i].ResolveSkills();
+            }
             //流程为给方块取目标（把技能目标附给方块）-结算方块技能（在cube脚本）-处理技能对目标的结果
             DeathCheck();
             state = CombatState.enemy;

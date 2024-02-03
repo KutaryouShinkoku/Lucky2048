@@ -19,7 +19,7 @@ public class TTFEController : MonoBehaviour
     //建立一个list管理panel上存在的cell位置
     List<int> cellId;
     //而这个list管理panel上cube的种类
-    List<Cube> cubesInPanel;
+    public List<Cube> cubesInPanel;
     //这里放用来统计出现次数的功能，啊啊啊啊啊啊好麻烦
 
     //------移动------
