@@ -1,15 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static Buff;
 using static CombatManager;
+using UnityEngine.UI;
 using static UnityEngine.EventSystems.EventTrigger;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] int playerMaxHP; //血量
+    [Header("UI")]
+    [SerializeField] Text txtPlayerHp;
     public int playerHP;//初始血量
     public int playerArmor;//初始护甲
     public static event Action<int> OnDamageTaken; // 受伤事件
@@ -21,7 +25,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        txtPlayerHp.text = $"{playerHP}/{playerMaxHP}";
     }
     public void TakeDamage(int damage)
     {

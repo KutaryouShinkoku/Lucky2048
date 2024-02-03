@@ -62,7 +62,7 @@ public class Cube
             case SkillEffects.damage:
                 //造成伤害
                 Debug.Log($"造成了{skillPar}点伤害");
-                target.hp -= skillPar;
+                target.enemyHP -= skillPar;
                 break;
             case SkillEffects.armor:
                 //叠甲
