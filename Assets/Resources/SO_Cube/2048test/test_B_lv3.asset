@@ -13,14 +13,12 @@ MonoBehaviour:
   m_Name: test_B_lv3
   m_EditorClassIdentifier: 
   cubeKey: test_B_lv3
-  cubeName: 
+  cubeName: "\u6D4B\u8BD5B3"
   level: 2
   nextLevelCube:
     _base: {fileID: 0}
-    target: {fileID: 0}
   lastLevelCube:
     _base: {fileID: 11400000, guid: 74f51267001017b4296c51b2a620cf10, type: 2}
-    target: {fileID: 0}
   cubeRarity: 0
   cubeRace: 0
   cubeType: 0

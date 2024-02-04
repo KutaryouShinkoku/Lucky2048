@@ -12,8 +12,13 @@ public class TTFEController : MonoBehaviour
     [SerializeField] GameObject cube;
     [SerializeField] int maxSpawnAmount;
     public TTFEGrid[] allCells;
+
+    [Header("Deck")]
     [SerializeField] Deck deckManager;
-    [SerializeField] DeckPool deckPool; //全部的卡池以及权重
+
+
+
+
 
     //层级如下：
     //Grid（棋盘上的格子）-Cell（格子里面的2048块）-Cube（这个块承载的Cube信息）-Skill（这个Cube对应的技能）
@@ -22,6 +27,7 @@ public class TTFEController : MonoBehaviour
     //而这个list管理panel上cube的种类
     public List<Cube> cubesInPanel;
     //这里放用来统计出现次数的功能，啊啊啊啊啊啊好麻烦
+
 
     //------移动------
     public static Action<string> slide;
@@ -37,7 +43,7 @@ public class TTFEController : MonoBehaviour
     void Start()
     {
         //临时的，生成deckmanager，后续加入了肉鸽系统以后把生成逻辑转移到肉鸽里
-        Instantiate(deckManager);
+        //Instantiate(deckManager);
         Debug.Log($"数组长度：{allCells.Length}");
         UpdateCubeInfo();
     }
@@ -67,7 +73,11 @@ public class TTFEController : MonoBehaviour
                 slide("down");
             }
         }
+
+
+
     }
+
     public void InitializeTTFE()
     {
         //从deck里抽选最多15个方块
@@ -123,21 +133,9 @@ public class TTFEController : MonoBehaviour
             }
         }
 
-        //更新棋盘上cube的信息
 
-
-
-        //以前的循环逻辑，先放着
-        //while (cubeNum == cellId.Count&&cellId .Count<25)
-        //{
-        //    int whichSpawn = Random.Range(0, allCells.Length);
-        //    if (!cellId.Contains(whichSpawn))
-        //    {
-        //        cellId.Add(whichSpawn);
-        //        Instantiate(cube, allCells[whichSpawn]);
-        //    }
-        //}
     }
+    //更新棋盘上cube的信息
     public void UpdateCubeInfo()
     {
         cellId = new List<int>();
@@ -152,4 +150,10 @@ public class TTFEController : MonoBehaviour
             }
         }
     }
+    //---------------------选牌------------------------
+
+
+
+
+
 }

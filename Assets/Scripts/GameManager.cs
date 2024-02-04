@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameState gameState;
+    [Header("Game")]
+    [SerializeField] TTFEController ttfeController;
+    [SerializeField] CombatManager combatManager;
 
     [Header("UI")]
     [SerializeField] Transform canvas;

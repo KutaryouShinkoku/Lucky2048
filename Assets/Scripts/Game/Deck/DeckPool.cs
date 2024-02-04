@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeckPool
+public class DeckPool:MonoBehaviour
 {
     public List<Cube> normalDeck; //∆’Õ®ø®≥ÿ
     public List<Cube> rareDeck; //œ°”–ø®≥ÿ

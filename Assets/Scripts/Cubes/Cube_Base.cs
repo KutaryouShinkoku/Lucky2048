@@ -28,7 +28,7 @@ public class Cube_Base : ScriptableObject
     }
     public string CubeName
     {
-        get { return $"{Localize.GetInstance().GetTextByKey($"{cubeName}")}"; }
+        get { return cubeName; }
     }
     public int Level
     {
@@ -44,7 +44,7 @@ public class Cube_Base : ScriptableObject
     }
     public string Description
     {
-        get { return $"{Localize.GetInstance().GetTextByKey($"{description}")}"; }
+        get { return description; }
     }
     public Sprite Sprite
     {

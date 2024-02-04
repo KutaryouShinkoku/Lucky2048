@@ -24,9 +24,20 @@ public class CombatManager : MonoBehaviour
     public Text gameEndText; // 游戏结束时显示的文本
     [SerializeField] TTFEController ttfeController;
 
+    [SerializeField] DeckPool deckPool; //全部的卡池以及权重
+    [SerializeField] DeckBuilder deckBuilder1;
+    [SerializeField] DeckBuilder deckBuilder2;
+    [SerializeField] DeckBuilder deckBuilder3;
+    public Queue<Cube> addedCube { get; set; } = new Queue<Cube>();
+    //这个list则是临时用来管理选牌的
+    public List<int> tempId;
+
     private int thornsBuffIntensity; // 荆棘 Buff 的强度
     public void Start()
     {
+        GenerateDeckBuilder(deckPool.normalDeck);
+        addedCube.Enqueue(deckBuilder1.cube);
+        Debug.Log($"{addedCube}");
         Instantiate(player);
         Instantiate(enemy);
         InitializePlayerAndEnemy();
@@ -37,6 +48,26 @@ public class CombatManager : MonoBehaviour
     }
     public void Update()
     {
+        //更新卡组
+        if (deckBuilder1.addedCube.Count != 0)
+        {
+            AddCube(deckBuilder1);
+        }
+        if (deckBuilder2.addedCube.Count != 0)
+        {
+            AddCube(deckBuilder2);
+        }
+        if (deckBuilder3.addedCube.Count != 0)
+        {
+            AddCube(deckBuilder3);
+        }
+
+
+        //选方块
+        if (state == CombatState.select)
+        {
+            GenerateDeckBuilder(deckPool.normalDeck);
+        }
         //回合结束开始处理方块
         if(state == CombatState.end)
         {
@@ -108,5 +139,34 @@ public class CombatManager : MonoBehaviour
         state = CombatState.none; // 停止游戏状态更新
         gameEndText.gameObject.SetActive(true); // 显示游戏结束文本
         gameEndText.text = playerWon ? "游戏胜利！" : "游戏失败！"; // 根据玩家是否赢得游戏来更新文本
+    }
+    //-------------------------卡组相关------------------------
+    public void GenerateDeckBuilder(List<Cube> pool)
+    {
+        tempId = new List<int>();
+
+        deckBuilder1.Init(pool[GenerateUniqueId(pool.Count)]);
+        deckBuilder2.Init(pool[GenerateUniqueId(pool.Count)]);
+        deckBuilder3.Init(pool[GenerateUniqueId(pool.Count)]);
+    }
+    public int GenerateUniqueId(int count)
+    {
+        int cubeId = UnityEngine.Random.Range(0, count);
+        if (!tempId.Contains(cubeId))
+        {
+            tempId.Add(cubeId);
+            return cubeId;
+        }
+        else GenerateUniqueId(count);
+        return 0;
+    }
+    public void AddCube(DeckBuilder deckBuilder)
+    {
+        while (deckBuilder.addedCube.Count > 0)
+        {
+            var message = deckBuilder.addedCube.Dequeue();
+            Debug.Log($"从deckbuilder里抓{message.Base.CubeName}来用");
+            addedCube.Enqueue(message);
+        }
     }
 }
