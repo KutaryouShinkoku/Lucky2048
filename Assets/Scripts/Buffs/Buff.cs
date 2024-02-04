@@ -18,7 +18,7 @@ public class Buff
     }
 
     // 每回合Buff效果的处理
-    public void ApplyBuff(Enemy enemy)
+    public void ApplyBuffEnemy(Enemy enemy)
     {
         switch (type)
         {
@@ -36,11 +36,19 @@ public class Buff
             case BuffType.Thorns://荆棘
                 // Thorns Buff可能不需要在这里立即应用效果
                 break;
-            case BuffType.Buffer://缓冲
-                break; 
             case BuffType.Breakdown://破甲
                 break;
 
+        }
+    }
+    public void ApplyBuffPlayer(Player player)
+    {
+        switch (type)
+        {
+            case BuffType.Buffer://缓冲
+                player.playerBuffer += SkillPar;
+                player.IsBuffer = true;
+                break;
         }
     }
 

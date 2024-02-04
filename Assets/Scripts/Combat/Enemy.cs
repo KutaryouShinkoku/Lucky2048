@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static CombatManager;
@@ -183,8 +184,7 @@ public class Enemy : MonoBehaviour
     }
     private void Defense(int addDefence) 
     {
-        enemyArmor = addDefence + Agility;
-        enemyArmor = Mathf.Max(0, enemyArmor); // 确保护甲值不是负数
+        enemyArmor = Mathf.Clamp(enemyArmor+addDefence + Agility, 0, 99);// 确保护甲值不是负数
     }
     public void AddBuff(Buff newBuff)
     {
@@ -196,7 +196,7 @@ public class Enemy : MonoBehaviour
 
         for (int i = buffs.Count - 1; i >= 0; i--)
         {
-            buffs[i].ApplyBuff(this);
+            buffs[i].ApplyBuffEnemy(this);
             if (buffs[i].UpdateBuff())
             {
                 buffs.RemoveAt(i); // 移除已经结束的Buff
@@ -206,6 +206,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         damage = Mathf.Max(0, damage - enemyArmor); // 考虑护甲
+        enemyArmor = Mathf.Clamp(enemyArmor - damage, 0, 99);
         enemyHP -= damage;
         // 添加受伤害的逻辑
     }

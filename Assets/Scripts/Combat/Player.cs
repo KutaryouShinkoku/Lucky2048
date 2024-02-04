@@ -16,11 +16,14 @@ public class Player : MonoBehaviour
     public int playerMaxHP; //血量
     public int playerMaxArmor; //护甲
     public int playerArmor;//初始护甲
+    public int playerBuffer;//缓冲层数
+    public bool IsBuffer { get; set; }//是否缓冲
     public static event Action<int> OnDamageTaken; // 受伤事件
     void Start()
     {   
         playerHP = playerMaxHP;
         playerArmor = 0;
+        playerBuffer = 0;
         // 订阅事件
         OnDamageTaken += UpdatePlayerHealthUI;
     }
@@ -47,9 +50,15 @@ public class Player : MonoBehaviour
             }
             else
             {
-                playerHP -= (damage - playerArmor);
-                playerArmor = 0;
-                // 播放护甲受损和生命受损音效
+                playerArmor = 0;// 播放护甲受损音效
+                if (IsBuffer!)
+                {
+                    playerHP -= (damage - playerArmor); // 播放生命受损音效
+                }
+                else
+                {
+                    playerBuffer -= 1;
+                }
             }
         }
         else
@@ -70,9 +79,24 @@ public class Player : MonoBehaviour
     {
         // 更新玩家生命值UI
     }
-    public void AddBuff(Buff newBuff)
+    public void AddBuff(Buff newBuff)//上buff
     {
         buffs.Add(newBuff);
+    }
+    public void RemoveBuff(Buff newBuff)//移除buff
+    { 
+        buffs.Remove(newBuff); 
+    }
+    public void ProcessBuffs() 
+    {
+        if (playerBuffer == 0)
+        {
+        //移除Buffer这个Buff
+        }
+    }
+    public void AddArmor(int AddA) 
+    {
+        playerArmor = Mathf.Clamp(playerArmor + AddA, 0, 99);
     }
 
     private void OnDestroy()

@@ -72,6 +72,7 @@ public class Cube
                 break;
             case SkillEffects.armor:
                 //µþ¼×
+                combatManager.player.AddArmor(skillPar);
                 break;
             case SkillEffects.ApplyWeakness:
                 //ÐéÈõ
