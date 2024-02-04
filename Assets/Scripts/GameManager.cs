@@ -22,12 +22,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        //canvas = transform.Find("Canvas");
-        //uiMainMenu = Instantiate(uiMainMenu,canvas);
-        //uiComic = Instantiate(uiComic, canvas);
-        ////uiPick = Instantiate(uiPick,canvas);
-        //uiTutorial = Instantiate(uiTutorial, canvas);
-        ////uiMainGame = Instantiate(uiMainGame,canvas);
+
     }
     void Start()
     {
@@ -44,7 +39,10 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-
+        if (combatManager.state == CombatState.selectR || combatManager.state == CombatState.selectC)
+        {
+            uiPick.SetActive(true);
+        }
     }
     //-------------------------------------界面切换部分---------------------------
     public void BtnStart() //开始游戏

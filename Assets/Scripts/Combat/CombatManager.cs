@@ -8,8 +8,8 @@ public enum CombatState //各阶段
     none, //空阶段，备用
     selectR, //选方块稀有度
     selectC, //选方块
-    preroll, //摇之前的阶段，检测马之类的
     roll, //摇老虎机
+    precombine, //摇之前的阶段，检测马之类的
     combine, //2048
     end, //玩家回合结束，结算方块，先叠甲再攻击
     enemy, //敌人回合
@@ -69,6 +69,28 @@ public class CombatManager : MonoBehaviour
             AddCube(deckBuilder3);
             RefreshPick();
         }
+        Debug.Log($"阶段：{state}");
+
+            if (state == CombatState.roll)
+        {
+            if (ttfeController.isRoll)
+            {
+                state = CombatState.precombine;
+            }
+        }
+
+        if (state == CombatState.precombine)
+        {
+            state = CombatState.combine;
+        }
+
+        if(state == CombatState.combine)
+        {
+            if (ttfeController.isEnd)
+            {
+                state = CombatState.end;
+            }
+        }
 
         //回合结束开始处理方块
         if(state == CombatState.end)
@@ -90,6 +112,7 @@ public class CombatManager : MonoBehaviour
         {
             enemy.ProcessBuffs();//处理敌人的Buff
             enemy.PerformAction();//然后处理敌人的行动
+            Debug.Log($"当前状态：{state}");
             DeathCheck();// 检查战斗是否结束
             state = CombatState.selectR; // 回合结束，切换到玩家选择方块的阶段
         }
@@ -203,7 +226,7 @@ public class CombatManager : MonoBehaviour
     }
     public void EndPick()
     {
-        state = CombatState.preroll;
+        state = CombatState.roll;
         ResetCount();
     }
     public void ResetCount()

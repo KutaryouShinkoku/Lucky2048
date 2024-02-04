@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
     public int enemyArmor;//初始护甲
     public enum Action { Guard, HeavyHit, Roar, Charge, Overload }//敌人的行为
     private Action currentAction;//当前下回合的行为
-    private Action lastAction;//敌人已经做出的行为
     public int addDefence { get; set; } // 由于虚弱Buff导致的伤害减少
     public int damage { get; set; } //敌人受到的的伤害
     public int AttackCount { get; set; }//敌人伤害次数
@@ -129,9 +128,6 @@ public class Enemy : MonoBehaviour
                     break;
             }
         }
-
-
-        PerformAction();
     }
 
     public void PerformAction()
@@ -154,8 +150,6 @@ public class Enemy : MonoBehaviour
                 PerformOverload();
                 break;
         }
-
-        lastAction = currentAction;
     }
 
     private void PerformGuard()

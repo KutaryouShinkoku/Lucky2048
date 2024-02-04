@@ -13,6 +13,8 @@ public class TTFEController : MonoBehaviour
     [SerializeField] int maxSpawnAmount;
     public TTFEGrid[] allCells;
     public int maxMoveTime;
+    public bool isRoll;
+    public bool isEnd;
     
 
     [Header("Deck")]
@@ -45,6 +47,7 @@ public class TTFEController : MonoBehaviour
         //Instantiate(deckManager);
         Debug.Log($"数组长度：{allCells.Length}");
         UpdateCubeInfo();
+        isRoll = false;
     }
     public void Update()
     {
@@ -102,6 +105,8 @@ public class TTFEController : MonoBehaviour
                 i++;
             }
         }
+        isEnd = false;
+        isRoll = true;
     }
 
     //在随机位置生成一个方块，然后给他绑定cube
@@ -158,6 +163,14 @@ public class TTFEController : MonoBehaviour
             }
         }
     }
+
+    public void EndTurn()
+    {
+        isRoll = false;
+        isEnd = true;
+
+    }
+
     //---------------------选牌------------------------
 
 

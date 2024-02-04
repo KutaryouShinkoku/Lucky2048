@@ -3274,8 +3274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 2
-  ttfeController: {fileID: 0}
-  combatManager: {fileID: 0}
+  ttfeController: {fileID: 73972795}
+  combatManager: {fileID: 116538137}
   canvas: {fileID: 849397060}
   uiMainMenu: {fileID: 8584905641937571712}
   uiComic: {fileID: 8727612345963019502}

@@ -7,7 +7,6 @@ public class UICubePickPanel : MonoBehaviour
     [SerializeField] CombatManager combatManager;
     [SerializeField] GameObject uiRaritySelect;
     [SerializeField] GameObject uiCubeSelect;
-    
 
     private void Update()
     {
@@ -31,4 +30,5 @@ public class UICubePickPanel : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
 }
