@@ -69,7 +69,7 @@ public class CombatManager : MonoBehaviour
             AddCube(deckBuilder3);
             RefreshPick();
         }
-        Debug.Log($"阶段：{state}");
+        //Debug.Log($"阶段：{state}");
 
             if (state == CombatState.roll)
         {
@@ -112,7 +112,6 @@ public class CombatManager : MonoBehaviour
         {
             enemy.ProcessBuffs();//处理敌人的Buff
             enemy.PerformAction();//然后处理敌人的行动
-            Debug.Log($"当前状态：{state}");
             DeathCheck();// 检查战斗是否结束
             state = CombatState.selectR; // 回合结束，切换到玩家选择方块的阶段
         }

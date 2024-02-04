@@ -43,8 +43,6 @@ public class TTFEController : MonoBehaviour
 
     void Start()
     {
-        //临时的，生成deckmanager，后续加入了肉鸽系统以后把生成逻辑转移到肉鸽里
-        //Instantiate(deckManager);
         Debug.Log($"数组长度：{allCells.Length}");
         UpdateCubeInfo();
         isRoll = false;
@@ -90,6 +88,8 @@ public class TTFEController : MonoBehaviour
 
     public void InitializeTTFE()
     {
+        //先把之前的面板信息清空
+        cubesInPanel = new List<Cube>();
         //从deck里抽选最多15个方块
         List<Cube> spawnPool = new List<Cube>();
         List<int> spawnId = new List<int>(); //临时list，用来管理本批生成的方块
@@ -168,7 +168,7 @@ public class TTFEController : MonoBehaviour
     {
         isRoll = false;
         isEnd = true;
-
+        Debug.Log($"结束回合");
     }
 
     //---------------------选牌------------------------

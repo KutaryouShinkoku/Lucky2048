@@ -12,6 +12,7 @@ public class TTFEGrid : MonoBehaviour
 
     public TTFECubeCell cell;
     [SerializeField] TTFEController controller;
+    [SerializeField] CombatManager combatManager;
 
     bool hasCombined;
 
@@ -23,6 +24,21 @@ public class TTFEGrid : MonoBehaviour
     private void OnDisable()
     {
         TTFEController.slide -= OnSlide;
+    }
+
+    private void Update()
+    {
+        if (combatManager.state == CombatState.selectR&&gameObject.transform.childCount!=0)
+        {
+            Debug.Log("清格子");
+            cell = null;
+            Transform transform;
+            for(int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                transform = gameObject.transform.GetChild(i);
+                GameObject.Destroy(transform.gameObject);
+            }
+        }
     }
 
     //------移动指令，屎山部分，先能跑就行吧，优化不动了
