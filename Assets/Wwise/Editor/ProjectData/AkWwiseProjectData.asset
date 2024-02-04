@@ -1,0 +1,425 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9a434f19492446d79b5d1ada06ca1e6, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics/Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Virtual Acoustics
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 88d85c7bc22c6d488f4f8eef57acc324
+    ParentPath: Virtual Acoustics/Default Work Unit
+    guid: 88d85c7bc22c6d488f4f8eef57acc324
+    GuidInternal: 
+    m_lastTime: -8584945592102548437
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Master-Mixer Hierarchy
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: eb40f874bd087046b56dce3bf923823b
+    ParentPath: Master-Mixer Hierarchy/Default Work Unit
+    guid: eb40f874bd087046b56dce3bf923823b
+    GuidInternal: 
+    m_lastTime: -8584945592106217191
+    List:
+    - name: Master Audio Bus
+      guid: d8a41415a61d2a41a17e75ca0c2149f3
+      id: 3803692087
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: eb40f874bd087046b56dce3bf923823b
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus
+  BankWwu:
+  - PhysicalPath: SoundBanks/Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: SoundBanks
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 7fd5db84a0320243a85b3003d405f48a
+    ParentPath: SoundBanks/Default Work Unit
+    guid: 7fd5db84a0320243a85b3003d405f48a
+    GuidInternal: 
+    m_lastTime: -8584945557955059770
+    List:
+    - name: mainSoundBank
+      guid: ef223a2d0c2a044bab4a2c3bb86b3ce9
+      id: 534561221
+      PathAndIcons:
+      - ElementName: SoundBanks
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7fd5db84a0320243a85b3003d405f48a
+      - ElementName: mainSoundBank
+        ObjectType: 7
+        guid: ef223a2d0c2a044bab4a2c3bb86b3ce9
+      Path: SoundBanks/Default Work Unit/mainSoundBank
+  EventWwu:
+  - PhysicalPath: Events/Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Events
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+    ParentPath: Events/Default Work Unit
+    guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+    GuidInternal: 
+    m_lastTime: -8584945536628069648
+    List:
+    - name: bgm
+      guid: 3fd76fd1f1f40543abc1d600acc9fd57
+      id: 412724365
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: bgm
+        ObjectType: 4
+        guid: 3fd76fd1f1f40543abc1d600acc9fd57
+      Path: Events/Default Work Unit/bgm
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: event_attack
+      guid: 254e45ccba5f99419c6bf5fb7385a909
+      id: 3316832966
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: fight
+        ObjectType: 4
+        guid: 2d9c0a0f4590d64f8549cfe8a01572d5
+      - ElementName: event_attack
+        ObjectType: 3
+        guid: 254e45ccba5f99419c6bf5fb7385a909
+      Path: Events/Default Work Unit/fight/event_attack
+      maxAttenuation: 0
+      maxDuration: 0.3509524
+      minDuration: 0.3509524
+    - name: event_bgm
+      guid: 69bbb48f221d7742a495f48b2cae33ab
+      id: 1915427516
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: bgm
+        ObjectType: 4
+        guid: 3fd76fd1f1f40543abc1d600acc9fd57
+      - ElementName: event_bgm
+        ObjectType: 3
+        guid: 69bbb48f221d7742a495f48b2cae33ab
+      Path: Events/Default Work Unit/bgm/event_bgm
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: event_bgm_switch_01
+      guid: cbd20bd8e6075342a8bc5ddc71310fce
+      id: 1628572659
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: bgm
+        ObjectType: 4
+        guid: 3fd76fd1f1f40543abc1d600acc9fd57
+      - ElementName: event_bgm_switch_01
+        ObjectType: 3
+        guid: cbd20bd8e6075342a8bc5ddc71310fce
+      Path: Events/Default Work Unit/bgm/event_bgm_switch_01
+      maxAttenuation: 0
+      maxDuration: 0.9419728
+      minDuration: 0.9419728
+    - name: event_bgm_switch_02
+      guid: b9ab25a7570ce54b8cca76284234f3da
+      id: 1628572656
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: bgm
+        ObjectType: 4
+        guid: 3fd76fd1f1f40543abc1d600acc9fd57
+      - ElementName: event_bgm_switch_02
+        ObjectType: 3
+        guid: b9ab25a7570ce54b8cca76284234f3da
+      Path: Events/Default Work Unit/bgm/event_bgm_switch_02
+      maxAttenuation: 0
+      maxDuration: 1.434494
+      minDuration: 1.434494
+    - name: event_button
+      guid: 180fabb1536502448cfff637099ad31b
+      id: 3201060962
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: ui
+        ObjectType: 4
+        guid: a95b7aa4a6470b4bbde5e0d890237a80
+      - ElementName: event_button
+        ObjectType: 3
+        guid: 180fabb1536502448cfff637099ad31b
+      Path: Events/Default Work Unit/ui/event_button
+      maxAttenuation: 0
+      maxDuration: 0.3355165
+      minDuration: 0.22104618
+    - name: event_combine
+      guid: bc0171b0109de6478f1d3910616aa3a6
+      id: 2460205537
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: ui
+        ObjectType: 4
+        guid: a95b7aa4a6470b4bbde5e0d890237a80
+      - ElementName: event_combine
+        ObjectType: 3
+        guid: bc0171b0109de6478f1d3910616aa3a6
+      Path: Events/Default Work Unit/ui/event_combine
+      maxAttenuation: 0
+      maxDuration: 1.2646939
+      minDuration: 1.1112018
+    - name: event_hit_aromr
+      guid: 03db3b7e9fd4e048a7009f9da11f15bb
+      id: 1563130721
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: fight
+        ObjectType: 4
+        guid: 2d9c0a0f4590d64f8549cfe8a01572d5
+      - ElementName: event_hit_aromr
+        ObjectType: 3
+        guid: 03db3b7e9fd4e048a7009f9da11f15bb
+      Path: Events/Default Work Unit/fight/event_hit_aromr
+      maxAttenuation: 0
+      maxDuration: 0.3509524
+      minDuration: 0.3509524
+    - name: event_hit_health
+      guid: d4feff459f3acb4cb4523398707f4154
+      id: 632939674
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: fight
+        ObjectType: 4
+        guid: 2d9c0a0f4590d64f8549cfe8a01572d5
+      - ElementName: event_hit_health
+        ObjectType: 3
+        guid: d4feff459f3acb4cb4523398707f4154
+      Path: Events/Default Work Unit/fight/event_hit_health
+      maxAttenuation: 0
+      maxDuration: 0.9676977
+      minDuration: 0.674456
+    - name: event_slip
+      guid: fec0049fd04e804191054edce97d0f5c
+      id: 2924374976
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: ui
+        ObjectType: 4
+        guid: a95b7aa4a6470b4bbde5e0d890237a80
+      - ElementName: event_slip
+        ObjectType: 3
+        guid: fec0049fd04e804191054edce97d0f5c
+      Path: Events/Default Work Unit/ui/event_slip
+      maxAttenuation: 0
+      maxDuration: 0.20126584
+      minDuration: 0.20126584
+    - name: event_tigger
+      guid: 5c94abc9b952ec48b31dc0e7aa6dd4a7
+      id: 3613249352
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: ui
+        ObjectType: 4
+        guid: a95b7aa4a6470b4bbde5e0d890237a80
+      - ElementName: event_tigger
+        ObjectType: 3
+        guid: 5c94abc9b952ec48b31dc0e7aa6dd4a7
+      Path: Events/Default Work Unit/ui/event_tigger
+      maxAttenuation: 0
+      maxDuration: 0.4583287
+      minDuration: 0.4583287
+    - name: fight
+      guid: 2d9c0a0f4590d64f8549cfe8a01572d5
+      id: 514064485
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: fight
+        ObjectType: 4
+        guid: 2d9c0a0f4590d64f8549cfe8a01572d5
+      Path: Events/Default Work Unit/fight
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: ui
+      guid: a95b7aa4a6470b4bbde5e0d890237a80
+      id: 1551306167
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: d21fb311d5c12f4bb2cc5f82bc5ca8de
+      - ElementName: ui
+        ObjectType: 4
+        guid: a95b7aa4a6470b4bbde5e0d890237a80
+      Path: Events/Default Work Unit/ui
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  RtpcWwu:
+  - PhysicalPath: Game Parameters/Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Game Parameters
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: f7b560a8c5b8bb49b3ca1de42f8ba619
+    ParentPath: Game Parameters/Default Work Unit
+    guid: f7b560a8c5b8bb49b3ca1de42f8ba619
+    GuidInternal: 
+    m_lastTime: -8584945541615640805
+    List:
+    - name: bgm_RTPC
+      guid: 6106a6835f94424a819b032b1e402de6
+      id: 221845225
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f7b560a8c5b8bb49b3ca1de42f8ba619
+      - ElementName: bgm_RTPC
+        ObjectType: 13
+        guid: 6106a6835f94424a819b032b1e402de6
+      Path: Game Parameters/Default Work Unit/bgm_RTPC
+  StateWwu:
+  - PhysicalPath: States/Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: States
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 32c8e478a8708346babcd16282b2356a
+    ParentPath: States/Default Work Unit
+    guid: 32c8e478a8708346babcd16282b2356a
+    GuidInternal: 
+    m_lastTime: -8584945592102555826
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches/Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Switches
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 9e00dfc6433edc46bc136b5bef02c9e8
+    ParentPath: Switches/Default Work Unit
+    guid: 9e00dfc6433edc46bc136b5bef02c9e8
+    GuidInternal: 
+    m_lastTime: -8584945592102553297
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers/Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Triggers
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: Default Work Unit
+      ObjectType: 12
+      guid: 725a6104f89eef44a17c1d7be47bfda2
+    ParentPath: Triggers/Default Work Unit
+    guid: 725a6104f89eef44a17c1d7be47bfda2
+    GuidInternal: 
+    m_lastTime: -8584945592102550891
+    List: []
+  ExpandedFileSystemItemIds: 0200000003000000040000000a00000015000000160000001f00000020000000
+  ExpandedWaapiItemIds: 02000000
+  AutoSyncSelection: 0
+  autoPopulateEnabled: 1
+  currentDataSource: 1
+  CurrentPluginConfig: 
