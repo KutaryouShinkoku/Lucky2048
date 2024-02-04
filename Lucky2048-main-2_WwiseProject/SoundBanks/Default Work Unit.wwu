@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{84DBD57F-32A0-4302-A85B-3003D405F48A}" SchemaVersion="119">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{84DBD57F-32A0-4302-A85B-3003D405F48A}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{84DBD57F-32A0-4302-A85B-3003D405F48A}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="soundbank" ID="{2F4BED66-00AC-43F9-813E-2A560BDE519D}">
+					<ObjectInclusionList>
+						<ObjectRef Name="event_button" ID="{3D54A590-CA0D-444E-8FAE-A97F6F991D8B}" WorkUnitID="{11B31FD2-C1D5-4B2F-B2CC-5F82BC5CA8DE}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="event_bgm" ID="{A2EF8D35-EE59-4470-BE6C-6C6A974745E7}" WorkUnitID="{11B31FD2-C1D5-4B2F-B2CC-5F82BC5CA8DE}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="event_switch_to_bgm2" ID="{9309BD88-7088-4634-8E8B-A5A0ACB4EC3E}" WorkUnitID="{11B31FD2-C1D5-4B2F-B2CC-5F82BC5CA8DE}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="event_tiger" ID="{77E638DF-70B6-473C-AB08-BE4C5D11397E}" WorkUnitID="{11B31FD2-C1D5-4B2F-B2CC-5F82BC5CA8DE}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="event_switch_to_bgm3" ID="{43995CEC-D2D0-4856-AE64-F5CA42D596FE}" WorkUnitID="{11B31FD2-C1D5-4B2F-B2CC-5F82BC5CA8DE}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="event_combine" ID="{CAEC89EA-F403-4957-B225-15FF2598577B}" WorkUnitID="{11B31FD2-C1D5-4B2F-B2CC-5F82BC5CA8DE}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="event_fight_hit" ID="{A83AEC60-20E1-49B2-9C4E-BF127D7BB929}" WorkUnitID="{11B31FD2-C1D5-4B2F-B2CC-5F82BC5CA8DE}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="event_slip" ID="{F7AEF648-7190-4C71-AB77-BF0906BE00F4}" WorkUnitID="{11B31FD2-C1D5-4B2F-B2CC-5F82BC5CA8DE}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="event_fight_attack" ID="{C8CA2011-0AC8-4DFF-876C-702A51581E40}" WorkUnitID="{11B31FD2-C1D5-4B2F-B2CC-5F82BC5CA8DE}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

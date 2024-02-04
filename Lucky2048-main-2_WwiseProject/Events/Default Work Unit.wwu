@@ -1,6 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{11B31FD2-C1D5-4B2F-B2CC-5F82BC5CA8DE}" SchemaVersion="119">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{11B31FD2-C1D5-4B2F-B2CC-5F82BC5CA8DE}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{11B31FD2-C1D5-4B2F-B2CC-5F82BC5CA8DE}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="event_bgm" ID="{A2EF8D35-EE59-4470-BE6C-6C6A974745E7}">
+					<ChildrenList>
+						<Action Name="" ID="{02FE23BC-E921-429E-9064-BB6F4FCB173D}" ShortID="787851717">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="bgm1" ID="{5CAD2DAD-DF71-45C2-B51F-7A36FAFE0724}" WorkUnitID="{5B9F4413-2627-4182-9934-519FFF8E60A6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{DB351734-7D13-4848-8758-FB6B985E3D85}" ShortID="977224534">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="bgm2" ID="{E098B068-AADB-471E-83E5-92179D9D0C73}" WorkUnitID="{5B9F4413-2627-4182-9934-519FFF8E60A6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{33688BA5-E26B-4CEF-920D-43F5E0983478}" ShortID="43102318">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="bgm3" ID="{702F8508-6E7D-42BF-9BDF-07CE524ACC07}" WorkUnitID="{5B9F4413-2627-4182-9934-519FFF8E60A6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{BF5231A6-8723-4427-9233-7A75DB1C65B0}" ShortID="931236653">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="GameParameterValue" Type="Real64" Value="30"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="game_state" ID="{35D76A96-CF86-4D7E-88B8-AD71A0186BE5}" WorkUnitID="{A860B5F7-B8C5-49BB-B3CA-1DE42F8BA619}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="event_switch_to_bgm2" ID="{9309BD88-7088-4634-8E8B-A5A0ACB4EC3E}">
+					<ChildrenList>
+						<Action Name="" ID="{A86CF881-F1A8-43D9-BA9A-E3943A95080E}" ShortID="175966857">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+								<Property Name="GameParameterValue" Type="Real64" Value="18"/>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="game_state" ID="{35D76A96-CF86-4D7E-88B8-AD71A0186BE5}" WorkUnitID="{A860B5F7-B8C5-49BB-B3CA-1DE42F8BA619}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{64245E08-BE0F-43F8-B996-3BA5DC4D486B}" ShortID="1005782304">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="衔接" ID="{EB705AC2-818C-4D69-96CC-0413029A8D29}" WorkUnitID="{5B9F4413-2627-4182-9934-519FFF8E60A6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{5F895655-BB16-4C41-BC58-4780B258C777}" ShortID="1003355416">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="GameParameterValue" Type="Real64" Value="12"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="game_state" ID="{35D76A96-CF86-4D7E-88B8-AD71A0186BE5}" WorkUnitID="{A860B5F7-B8C5-49BB-B3CA-1DE42F8BA619}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="event_switch_to_bgm3" ID="{43995CEC-D2D0-4856-AE64-F5CA42D596FE}">
+					<ChildrenList>
+						<Action Name="" ID="{BF44DF9B-0580-406E-A53B-074A6DBAB5C2}" ShortID="589574416">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="38"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+								<Property Name="GameParameterValue" Type="Real64" Value="8"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="game_state" ID="{35D76A96-CF86-4D7E-88B8-AD71A0186BE5}" WorkUnitID="{A860B5F7-B8C5-49BB-B3CA-1DE42F8BA619}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{13735715-3B81-4CE2-9932-951344FD627F}" ShortID="991790019">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="衔接2" ID="{EE80EE2E-20B0-48C3-AB3B-1D4B3758D40D}" WorkUnitID="{5B9F4413-2627-4182-9934-519FFF8E60A6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="event_button" ID="{3D54A590-CA0D-444E-8FAE-A97F6F991D8B}">
+					<ChildrenList>
+						<Action Name="" ID="{09402A1C-6B0C-490E-817E-C78048D045CA}" ShortID="608607731">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="button" ID="{C4243B63-347A-4D5F-803D-CB14CC912DC0}" WorkUnitID="{5B9F4413-2627-4182-9934-519FFF8E60A6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="event_slip" ID="{F7AEF648-7190-4C71-AB77-BF0906BE00F4}">
+					<ChildrenList>
+						<Action Name="" ID="{C5043232-D8BC-4C18-8F15-19AD7675BCA8}" ShortID="456703506">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_move_1" ID="{8FC0C77C-AD46-43FA-9A03-E5ECFCC95FE4}" WorkUnitID="{5B9F4413-2627-4182-9934-519FFF8E60A6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="event_tiger" ID="{77E638DF-70B6-473C-AB08-BE4C5D11397E}">
+					<ChildrenList>
+						<Action Name="" ID="{68ADC804-C8C4-4B49-871A-B4A9A4DB2E92}" ShortID="35160957">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="老虎机ver1" ID="{8F84F594-4C66-4D3A-A33B-D6842E26CE71}" WorkUnitID="{5B9F4413-2627-4182-9934-519FFF8E60A6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="event_combine" ID="{CAEC89EA-F403-4957-B225-15FF2598577B}">
+					<ChildrenList>
+						<Action Name="" ID="{B90855C5-7B27-4FDB-A77C-2E1118E3445C}" ShortID="184517093">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="combine" ID="{0EC1DD77-9412-4E22-B9BF-F155F743256C}" WorkUnitID="{5B9F4413-2627-4182-9934-519FFF8E60A6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="event_fight_attack" ID="{C8CA2011-0AC8-4DFF-876C-702A51581E40}">
+					<ChildrenList>
+						<Action Name="" ID="{B5ECCDAB-3CB3-4D6F-BB7E-C025B34B01F0}" ShortID="731512303">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="attack" ID="{8D655429-0557-41B4-B5BD-52B39AA729B1}" WorkUnitID="{5B9F4413-2627-4182-9934-519FFF8E60A6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="event_fight_hit" ID="{A83AEC60-20E1-49B2-9C4E-BF127D7BB929}">
+					<ChildrenList>
+						<Action Name="" ID="{77637C1C-5C9C-4E2D-B316-71836299DDC3}" ShortID="673361263">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="hit_armor" ID="{235C1C26-1F10-4024-801C-F8B90FCD8093}" WorkUnitID="{5B9F4413-2627-4182-9934-519FFF8E60A6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{66D32C50-E9E7-4FD4-ACC8-F1BE738F85FA}" ShortID="266029309">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="hit_health" ID="{6935BB2F-A6DD-41AC-903E-2D19465D6357}" WorkUnitID="{5B9F4413-2627-4182-9934-519FFF8E60A6}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>
