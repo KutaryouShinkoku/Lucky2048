@@ -79,12 +79,33 @@ public class Cube
                 break;
             case SkillEffects.ApplyThorns:
                 //¾£¼¬
-                combatManager.player.AddBuff(new Buff(BuffType.Thorns, skillPar, 1));
+                combatManager.player.AddBuff(new Buff(BuffType.Thorns, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyBuffer:
                 //»º³å
-                combatManager.player.AddBuff(new Buff(BuffType.Buffer, skillPar, 1));
+                combatManager.player.AddBuff(new Buff(BuffType.Buffer, skillPar, skill.Duration));
                 break;
+            case SkillEffects.ApplyPoison:
+                //ÖÐ¶¾
+                combatManager.enemy.AddBuff(new Buff(BuffType.Buffer, skillPar, skill.Duration));
+                break;
+            case SkillEffects.ApplyBreakdown:
+                //ÆÆ¼×
+                combatManager.enemy.AddBuff(new Buff(BuffType.Buffer, skillPar, skill.Duration));
+                break;
+            case SkillEffects.ApplyStun:
+                //Ñ£ÔÎ
+                combatManager.enemy.AddBuff(new Buff(BuffType.Buffer, skillPar, skill.Duration));
+                break;
+            case SkillEffects.ApplyApple:
+                //Æ»¹ûÉËº¦±¶ÂÊÌáÉý
+                combatManager.enemy.AddBuff(new Buff(BuffType.Buffer, skillPar, skill.Duration));
+                break;
+            case SkillEffects.ApplyHorse:
+                //¿¥ÂíÒÆ¶¯´ÎÊýÌáÉý
+                break;
+
+
 
 
 

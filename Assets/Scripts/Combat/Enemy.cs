@@ -20,8 +20,11 @@ public class Enemy : MonoBehaviour
     private Action currentAction;//当前下回合的行为
     private Action lastAction;//敌人已经做出的行为
     public int addDefence { get; set; } // 由于虚弱Buff导致的伤害减少
-    public int damage { get; set; } //敌人的伤害
-    public int AttackCount { get; set; }//
+    public int damage { get; set; } //敌人受到的的伤害
+    public int AttackCount { get; set; }//敌人伤害次数
+    public int AttackSin { get; set; }//敌人单次伤害
+    public int Strength { get; set; }//敌人力量
+    public int Agility {  get; set; }//敌人敏捷
 
     public bool IsStunned { get; set; } // 是否被晕眩
     private bool isInSecondPhase = false;//敌人是否进入二阶段
@@ -32,6 +35,8 @@ public class Enemy : MonoBehaviour
     {
         enemyHP = enemyMaxHP;
         enemyArmor = 0;
+        Strength = 0;
+        Agility = 0;
         currentAction = Action.Guard; // 第一回合始终是守护
         buffs = new List<Buff>();
         DecideNextAction();
@@ -39,7 +44,7 @@ public class Enemy : MonoBehaviour
 
     
     void Update()
-    {
+    {   
         CheckPhaseTransition();
         DecideNextAction();
         //UpdateNextActionUI();这里大概要加个敌人意图更新
@@ -159,29 +164,34 @@ public class Enemy : MonoBehaviour
     }
     private void PerformHeavyHit()
     {
-        damage = 4;// 重击逻辑，造成4点伤害
+        AttackSin = 4 + Strength;// 重击逻辑，造成4点伤害
+        AttackCount = 1;//一次
     }
 
     private void PerformRoar()
     {
-        // 咆哮逻辑，给予自身1点力量（提高单次伤害X点）2点敏捷（提高单次护甲X点）
+        Strength += 1;
+        Agility += 2;// 咆哮逻辑，给予自身1点力量（提高单次伤害X点）2点敏捷（提高单次护甲X点）
     }
 
     private void PerformCharge() 
     {
+        Strength += 2;
         Defense(15);//充能逻辑，给予自身2点力量，给予自身15点护甲
     }
 
     private void PerformOverload() 
     {
+        AttackSin = 1 + Strength;
+        AttackCount = 2;
+        Defense(15);
         //超载逻辑，造成1点伤害两次、给予自身12点护甲
     }
     private void Defense(int addDefence) 
     {
-        enemyArmor += addDefence;
+        enemyArmor = addDefence + Agility;
         enemyArmor = Mathf.Max(0, enemyArmor); // 确保护甲值不是负数
     }
-    private void Enhance() { }
     public void AddBuff(Buff newBuff)
     {
         buffs.Add(newBuff);
