@@ -41,11 +41,18 @@ public enum SkillEffects //效果都放这，一个技能写一个枚举
     ApplyStun,//上眩晕
     ApplyBreakdown,//上崩溃
     ApplyApple,//苹果专用
+    ApplyMilk,//牛奶专用
+    ApplyHorse,//骏马专用
+    ApplyWheat,//麦穗专用
 }
 
 
 public enum SkillType //不用全加，有需求再加
 {
-    none,
+    defence,
     damage, //伤害类技能
+    buff,
+    heal,
+    levelup,
+    others,
 }
