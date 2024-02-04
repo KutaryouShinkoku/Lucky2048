@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23, y: -724}
+  m_AnchoredPosition: {x: 0.1, y: -661.5}
   m_SizeDelta: {x: 467.993, y: 87.7487}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8514279034978138826
@@ -149,15 +149,15 @@ MonoBehaviour:
     m_FontSize: 76
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 77
-    m_Alignment: 0
-    m_AlignByGeometry: 0
+    m_MinSize: 7
+    m_MaxSize: 91
+    m_Alignment: 7
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\u6B22\u8FCE\u6E38\u73A9Lucky2048!\n\u8FD9\u662F\u6559\u7A0B\u7684\u5185\u5BB9\n\u884C\u8DDD\u548C\u5B57\u4F53\u90FD\u53EF\u4EE5\u8C03\u6574\n\u989C\u8272\u4E5F\u53EF\u4EE5\uFF01\n\n\n\n\n\u603B\u4E4B\u8FD9\u662F\u6559\u7A0B\n\n\n\n\n\n\n\u6700\u591A\u80FD\u5199\u5230\u8FD9\u91CC"
+    m_LineSpacing: 1.1
+  m_Text: "\u6B22\u8FCE\u6E38\u73A9Lucky2048!\n\u8FD9\u662F\u6559\u7A0B\u7684\u5185\u5BB9:\n\n\u6784\u5EFA\u4F60\u7684\u724C\u7EC4\uFF0C\u4E0D\u540C\u7684\u65B9\u5757\u6709\u4E0D\u540C\u7684\u6548\u679C\uFF01\n\n\u4F7F\u7528WASD\u6216\u9F20\u6807\u79FB\u52A8\u4F60\u7684\u9762\u677F\u65B9\u5757\u53BB\u5B9E\u73B0\u5408\u6210\u66F4\u9AD8\u9636\u65B9\u5757\uFF0C\u9AD8\u9636\u65B9\u5757\u6709\u5F3A\u529B\u6548\u679C\u54E6\uFF01\n\n\u8BF7\u5145\u5206\u53D1\u6325\u4F60\u7684\u7B56\u7565\u4E0E\u8FD0\u6C14\uFF0C\u6253\u8D25\u5821\u5792\u673A\u5668\u4EBA\u5427\uFF01\n"
 --- !u!1 &3401232432581591691
 GameObject:
   m_ObjectHideFlags: 0
