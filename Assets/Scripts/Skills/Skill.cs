@@ -15,6 +15,6 @@ public class Skill
     }
     //public int Skillpar
     //{
-       //get{ return skillPar; }
+    //    get { return skillPar; }
     //}
 }

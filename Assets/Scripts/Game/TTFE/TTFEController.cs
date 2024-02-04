@@ -12,12 +12,11 @@ public class TTFEController : MonoBehaviour
     [SerializeField] GameObject cube;
     [SerializeField] int maxSpawnAmount;
     public TTFEGrid[] allCells;
+    public int maxMoveTime;
+    
 
     [Header("Deck")]
     [SerializeField] Deck deckManager;
-
-
-
 
 
     //≤„º∂»Áœ¬£∫
@@ -57,24 +56,28 @@ public class TTFEController : MonoBehaviour
                 //“Ù∆µ£∫øÈª¨∂Ø
                 ticker = 0;
                 slide("left");
+                UpdateCubeInfo();
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
                 //“Ù∆µ£∫øÈª¨∂Ø
                 ticker = 0;
                 slide("up");
+                UpdateCubeInfo();
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
                 //“Ù∆µ£∫øÈª¨∂Ø
                 ticker = 0;
                 slide("right");
+                UpdateCubeInfo();
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
                 //“Ù∆µ£∫øÈª¨∂Ø
                 ticker = 0;
                 slide("down");
+                UpdateCubeInfo();
             }
         }
 

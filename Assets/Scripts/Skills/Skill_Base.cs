@@ -9,11 +9,11 @@ public class Skill_Base : ScriptableObject
 
     [SerializeField] SkillType type; //技能类型，用来处理诸如“一个方块技能中的伤害类数值翻倍”的诡异需求
     [SerializeField] SkillEffects effects; //每个同功效技能单独写效果，拆碎一点，拆到每个技能只有一个参数为止
-    [SerializeField] private int duration; // 添加持续时间字段
+    [SerializeField] int duration; // 添加持续时间字段
     //每次定义了新的参数记得在下方开放一下
     public string SkillName
     {
-        get { return $"{Localize.GetInstance().GetTextByKey($"{skillName}")}"; }
+        get { return skillName; }
     }
     public SkillType Type
     {

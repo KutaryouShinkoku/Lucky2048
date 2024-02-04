@@ -12,7 +12,7 @@ public class Cube
 {
     [SerializeField] Cube_Base _base;
     public Cube_Base Base { get { return _base; } }
-    public List<Skill> skills;
+    public List<CubeSkill> skills;
     private CombatManager combatManager;
     public void Setup(CombatManager combatManager)
     {
@@ -23,11 +23,11 @@ public class Cube
     //实装技能
     public void Init()
     {
-        skills = new List<Skill>();
+        skills = new List<CubeSkill>();
         foreach (var skill in Base.CubeSkill)
         {
             //实装技能
-            if (skills.Count <= skills.Capacity) { skills.Add(new Skill(skill .SkillBase)); }
+            if (skills.Count <= skills.Capacity) { skills.Add(skill); }
             else break;
         }
     }
@@ -36,8 +36,8 @@ public class Cube
     {
         foreach(var skill in skills)
         {
-            HandleSkill(skill.Base.Effects,skill.SkillPar, skill);
-            Debug.Log($"处理技能：{skill.Base.SkillName}，参数为{skill.SkillPar}");
+            HandleSkill(skill.SkillBase.Effects,skill.SkillPar, skill.SkillBase);
+            Debug.Log($"处理技能：{skill.SkillBase.SkillName}，参数为{skill.SkillPar}");
         }
     }
 
@@ -61,7 +61,7 @@ public class Cube
         return armor;
     }
 
-    public void HandleSkill(SkillEffects effect, int skillPar,Skill skill) //对于每一个技能的具体处理，屎山部分
+    public void HandleSkill(SkillEffects effect, int skillPar,Skill_Base skill) //对于每一个技能的具体处理，屎山部分
     {
         switch (effect)
         {

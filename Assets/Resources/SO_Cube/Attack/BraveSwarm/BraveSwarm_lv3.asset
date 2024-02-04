@@ -17,8 +17,10 @@ MonoBehaviour:
   level: 2
   nextLevelCube:
     _base: {fileID: 11400000, guid: 3a5bbadfc93a9644ea7c01adc534034a, type: 2}
+    skills: []
   lastLevelCube:
     _base: {fileID: 11400000, guid: aca52a2df0661184b9a62e96e0a3239c, type: 2}
+    skills: []
   cubeRarity: 0
   cubeRace: 1
   cubeType: 0
@@ -27,5 +29,5 @@ MonoBehaviour:
   cubeSkill:
   - skillBase: {fileID: 11400000, guid: beb7e51bdbd75184a85c03611985c61b, type: 2}
     skillPar: 2
-  - skillBase: {fileID: 0}
+  - skillBase: {fileID: 11400000, guid: 17ce764ce43073b46a5ad7cd809b3fe3, type: 2}
     skillPar: 2
