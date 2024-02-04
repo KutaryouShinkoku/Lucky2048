@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="150">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{16B7CAE7-F931-8062-660A-4014BA877A4C}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+			<GameParameters>
+				<GameParameter Id="766723505" Name="game_state"/>
+				<GameParameter Id="4095523034" Name="hit_state"/>
+			</GameParameters>
+		</SoundBank>
+		<SoundBank Id="1661994096" Type="User" Language="SFX" Hash="{C8178DED-E550-2093-CA09-B84D0598994A}">
+			<ShortName>soundbank</ShortName>
+			<Path>soundbank.bnk</Path>
+			<Media>
+				<File Id="79543238" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_Coins_04.WAV</ShortName>
+					<CachePath>SFX/sfx_Coins_04_818F3B66.wem</CachePath>
+				</File>
+				<File Id="118262739" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>攻击音效x3 ver1.wav</ShortName>
+					<CachePath>SFX/攻击音效x3 ver1_0A304745.wem</CachePath>
+				</File>
+				<File Id="184400421" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>攻击音效x3 ver1.wav</ShortName>
+					<CachePath>SFX/攻击音效x3 ver1_C38303B7.wem</CachePath>
+				</File>
+				<File Id="193310141" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_button_2_3.wav</ShortName>
+					<CachePath>SFX/sfx_button_2_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="194118279" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_button_2_1.wav</ShortName>
+					<CachePath>SFX/sfx_button_2_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="248997033" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_Coins_03.WAV</ShortName>
+					<CachePath>SFX/sfx_Coins_03_818F3B66.wem</CachePath>
+				</File>
+				<File Id="278950379" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_sword_1.wav</ShortName>
+					<CachePath>SFX/sfx_sword_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="337319842" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>衔接.wav</ShortName>
+					<CachePath>SFX/衔接_818F3B66.wem</CachePath>
+				</File>
+				<File Id="378278548" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_sword_2.wav</ShortName>
+					<CachePath>SFX/sfx_sword_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="435726773" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_Coins_05.WAV</ShortName>
+					<CachePath>SFX/sfx_Coins_05_818F3B66.wem</CachePath>
+				</File>
+				<File Id="442004508" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_sword_3.wav</ShortName>
+					<CachePath>SFX/sfx_sword_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="447460811" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_金属碰撞_2.wav</ShortName>
+					<CachePath>SFX/sfx_金属碰撞_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="451565409" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_金属碰撞_1.wav</ShortName>
+					<CachePath>SFX/sfx_金属碰撞_1_818F3B66.wem</CachePath>
+				</File>
+				<File Id="497349836" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_move_1.wav</ShortName>
+					<CachePath>SFX/sfx_move_1_6E77F90D.wem</CachePath>
+				</File>
+				<File Id="598301397" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>bgm1.wav</ShortName>
+					<CachePath>SFX/bgm1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="670878327" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>敌人受击x3 ver1.wav</ShortName>
+					<CachePath>SFX/敌人受击x3 ver1_76253416.wem</CachePath>
+				</File>
+				<File Id="753823645" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_button_2_2.wav</ShortName>
+					<CachePath>SFX/sfx_button_2_2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="812495397" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>bgm3.wav</ShortName>
+					<CachePath>SFX/bgm3_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="826793660" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>老虎机ver1.wav</ShortName>
+					<CachePath>SFX/老虎机ver1_D9D5E1FB.wem</CachePath>
+				</File>
+				<File Id="845433621" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_金属碰撞_3.wav</ShortName>
+					<CachePath>SFX/sfx_金属碰撞_3_818F3B66.wem</CachePath>
+				</File>
+				<File Id="937835457" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_Coins_01.WAV</ShortName>
+					<CachePath>SFX/sfx_Coins_01_818F3B66.wem</CachePath>
+				</File>
+				<File Id="981292281" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_Coins_02.WAV</ShortName>
+					<CachePath>SFX/sfx_Coins_02_818F3B66.wem</CachePath>
+				</File>
+				<File Id="985095005" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>bgm2.wav</ShortName>
+					<CachePath>SFX/bgm2_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="1050195167" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_button_2_4.wav</ShortName>
+					<CachePath>SFX/sfx_button_2_4_818F3B66.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="1915427516" Name="event_bgm" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="598301397"/>
+						<MediaRef Id="812495397"/>
+						<MediaRef Id="985095005"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3201060962" Name="event_button" DurationType="OneShot" DurationMin="0.43303856" DurationMax="0.43303856">
+					<MediaRefs>
+						<MediaRef Id="193310141"/>
+						<MediaRef Id="194118279"/>
+						<MediaRef Id="753823645"/>
+						<MediaRef Id="1050195167"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2460205537" Name="event_combine" DurationType="OneShot" DurationMin="1.1112018" DurationMax="1.2646939">
+					<MediaRefs>
+						<MediaRef Id="79543238"/>
+						<MediaRef Id="248997033"/>
+						<MediaRef Id="435726773"/>
+						<MediaRef Id="937835457"/>
+						<MediaRef Id="981292281"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1640088039" Name="event_fight_attack" DurationType="OneShot" DurationMin="0.3509524" DurationMax="0.3509524">
+					<MediaRefs>
+						<MediaRef Id="278950379"/>
+						<MediaRef Id="378278548"/>
+						<MediaRef Id="442004508"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2898613670" Name="event_fight_hit" DurationType="OneShot" DurationMin="0.38373196" DurationMax="0.5850781">
+					<MediaRefs>
+						<MediaRef Id="118262739"/>
+						<MediaRef Id="184400421"/>
+						<MediaRef Id="447460811"/>
+						<MediaRef Id="451565409"/>
+						<MediaRef Id="845433621"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2924374976" Name="event_slip" DurationType="OneShot" DurationMin="0.2732593" DurationMax="0.2732593">
+					<MediaRefs>
+						<MediaRef Id="497349836"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3073899313" Name="event_switch_to_bgm2" DurationType="OneShot" DurationMin="0.9419728" DurationMax="0.9419728">
+					<MediaRefs>
+						<MediaRef Id="337319842"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3073899312" Name="event_switch_to_bgm3" DurationType="OneShot" DurationMin="1.4914595" DurationMax="1.4914595">
+					<MediaRefs>
+						<MediaRef Id="670878327"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2620384211" Name="event_tiger" DurationType="OneShot" DurationMin="0.45963448" DurationMax="0.45963448">
+					<MediaRefs>
+						<MediaRef Id="826793660"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+			<GameParameters>
+				<GameParameter Id="766723505" Name="game_state"/>
+				<GameParameter Id="4095523034" Name="hit_state"/>
+			</GameParameters>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{9C222F37-9C8C-0778-1F9E-ED6E17E16EC4}</FileHash>
+</SoundBanksInfo>

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58d141aee39ec346a762fb2cc42227e, type: 3}
+  m_Name: RelaxedAlpaca_lv2
+  m_EditorClassIdentifier: 
+  cubeKey: alpaca_lv2
+  cubeName: 
+  level: 1
+  nextLevelCube:
+    _base: {fileID: 11400000, guid: 403fb2b3e825cd04fab22c36696b7017, type: 2}
+    target: {fileID: 0}
+  lastLevelCube:
+    _base: {fileID: 11400000, guid: 52808c3ab5fd09d44b1ba99dd8eb6066, type: 2}
+    target: {fileID: 0}
+  cubeRarity: 0
+  cubeRace: 0
+  cubeType: 1
+  description: "\u4E3A\u73A9\u5BB6\u63D0\u4F9B3\u70B9\u62A4\u7532\u3002\u6BCF\u5728\u9762\u677F\u4E0A\u51FA\u73B02\u6B21\uFF0C\u7ED9\u4E88\u654C\u4EBA1\u5C42\u865A\u5F31\u3002"
+  sprite: {fileID: 21300000, guid: e8376a2b060d59040a9419d826dada7b, type: 3}
+  cubeSkill:
+  - skillBase: {fileID: 11400000, guid: 65b704f8afade7c47a89a6af947bc374, type: 2}
+    skillPar: 3
+  - skillBase: {fileID: 11400000, guid: 79bb1919165e0c045b2f29d552ca2e86, type: 2}
+    skillPar: 1

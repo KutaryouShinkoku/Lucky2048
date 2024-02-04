@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58d141aee39ec346a762fb2cc42227e, type: 3}
+  m_Name: SwiftSteed_lv4
+  m_EditorClassIdentifier: 
+  cubeKey: SwiftSteed_lv1
+  cubeName: 
+  level: 3
+  nextLevelCube:
+    _base: {fileID: 0}
+    target: {fileID: 0}
+  lastLevelCube:
+    _base: {fileID: 11400000, guid: 1eff8531b8863814e839b3bdecdb9060, type: 2}
+    target: {fileID: 0}
+  cubeRarity: 1
+  cubeRace: 0
+  cubeType: 2
+  description: "\u589E\u52A015\u6B21\u56DE\u5408\u5185\u53EF\u79FB\u52A8\u7684\u6B21\u6570\u3002"
+  sprite: {fileID: 21300000, guid: a7ba5b182911d70448af3499798c1d81, type: 3}
+  cubeSkill:
+  - skillBase: {fileID: 0}
+    skillPar: 15

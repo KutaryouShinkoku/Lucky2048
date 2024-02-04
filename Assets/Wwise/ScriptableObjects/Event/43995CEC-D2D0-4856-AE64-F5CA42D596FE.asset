@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2015458497a13495aa132a52c95f4ea7, type: 3}
+  m_Name: 43995CEC-D2D0-4856-AE64-F5CA42D596FE
+  m_EditorClassIdentifier: 
+  objectName: event_switch_to_bgm3
+  id: 3073899312
+  guid: 43995CEC-D2D0-4856-AE64-F5CA42D596FE

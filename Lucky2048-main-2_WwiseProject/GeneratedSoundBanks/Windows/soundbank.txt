@@ -1,0 +1,41 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1640088039	event_fight_attack			\Default Work Unit\event_fight_attack	
+	1915427516	event_bgm			\Default Work Unit\event_bgm	
+	2460205537	event_combine			\Default Work Unit\event_combine	
+	2620384211	event_tiger			\Default Work Unit\event_tiger	
+	2898613670	event_fight_hit			\Default Work Unit\event_fight_hit	
+	2924374976	event_slip			\Default Work Unit\event_slip	
+	3073899312	event_switch_to_bgm3			\Default Work Unit\event_switch_to_bgm3	
+	3073899313	event_switch_to_bgm2			\Default Work Unit\event_switch_to_bgm2	
+	3201060962	event_button			\Default Work Unit\event_button	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	766723505	game_state			\Default Work Unit\game_state	
+	4095523034	hit_state			\Default Work Unit\hit_state	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	79543238	sfx_Coins_04	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_Coins_04_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\combine\sfx_Coins_04		202868
+	118262739	攻击音效x3 ver1	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\攻击音效x3 ver1_0A304745.wem		\Actor-Mixer Hierarchy\Default Work Unit\fight\hit_health\攻击音效x3 ver1		67832
+	184400421	攻击音效x3 ver1_01	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\攻击音效x3 ver1_C38303B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\fight\hit_health\攻击音效x3 ver1_01		103348
+	193310141	sfx_button_2_3	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_button_2_3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\button\sfx_button_2_3		76532
+	194118279	sfx_button_2_1	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_button_2_1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\button\sfx_button_2_1		76532
+	248997033	sfx_Coins_03	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_Coins_03_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\combine\sfx_Coins_03		223188
+	278950379	sfx_sword_1	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_sword_1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\fight\attack\sfx_sword_1		62052
+	337319842	衔接	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\衔接_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\bgm\衔接		166308
+	378278548	sfx_sword_2	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_sword_2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\fight\attack\sfx_sword_2		62052
+	435726773	sfx_Coins_05	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_Coins_05_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\combine\sfx_Coins_05		211420
+	442004508	sfx_sword_3	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_sword_3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\fight\attack\sfx_sword_3		62052
+	447460811	sfx_金属碰撞_2	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_金属碰撞_2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\fight\hit_armor\sfx_金属碰撞_2		62052
+	451565409	sfx_金属碰撞_1	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_金属碰撞_1_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\fight\hit_armor\sfx_金属碰撞_1		62052
+	497349836	sfx_move_1	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_move_1_6E77F90D.wem		\Actor-Mixer Hierarchy\Default Work Unit\slip\sfx_move_1		48348
+	598301397	bgm1	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\bgm1_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\bgm\bgm1		9825116
+	670878327	衔接2	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\敌人受击x3 ver1_76253416.wem		\Actor-Mixer Hierarchy\Default Work Unit\bgm\衔接2		263240
+	753823645	sfx_button_2_2	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_button_2_2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\button\sfx_button_2_2		76532
+	812495397	bgm3	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\bgm3_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\bgm\bgm3		9825964
+	826793660	老虎机ver1	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\老虎机ver1_D9D5E1FB.wem		\Actor-Mixer Hierarchy\Default Work Unit\tiger\老虎机ver1		81224
+	845433621	sfx_金属碰撞_3	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_金属碰撞_3_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\fight\hit_armor\sfx_金属碰撞_3		62052
+	937835457	sfx_Coins_01	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_Coins_01_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\combine\sfx_Coins_01		202848
+	981292281	sfx_Coins_02	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_Coins_02_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\combine\sfx_Coins_02		196112
+	985095005	bgm2	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\bgm2_FBC78EF0.wem		\Actor-Mixer Hierarchy\Default Work Unit\bgm\bgm2		9825964
+	1050195167	sfx_button_2_4	Y:\Downloads\Lucky2048-main-2\Lucky2048-main-2_WwiseProject\.cache\Windows\SFX\sfx_button_2_4_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\button\sfx_button_2_4		76532
+
