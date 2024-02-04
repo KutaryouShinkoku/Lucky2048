@@ -45,19 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalDeck:
-  - _base: {fileID: 11400000, guid: b066fa5c42e66294888c8f7d13e69de7, type: 2}
-  - _base: {fileID: 11400000, guid: 411966fc62b663442b45e6091c0279e7, type: 2}
-  - _base: {fileID: 11400000, guid: 411966fc62b663442b45e6091c0279e7, type: 2}
-  - _base: {fileID: 11400000, guid: 74f51267001017b4296c51b2a620cf10, type: 2}
-  - _base: {fileID: 11400000, guid: 92a3ff8c436c8ce43b17ada97277b046, type: 2}
-  - _base: {fileID: 11400000, guid: 46d907d070b519148b6ac9d2de208d01, type: 2}
+  - _base: {fileID: 11400000, guid: acb145a50f4ecee4fb1733830459e5f1, type: 2}
+  - _base: {fileID: 11400000, guid: b1b7e2c50ce1b1a46a5aa9d89d3214e6, type: 2}
+  - _base: {fileID: 11400000, guid: fdbd109e403d3a743bd9030c6e7d11d8, type: 2}
+  - _base: {fileID: 11400000, guid: 52808c3ab5fd09d44b1ba99dd8eb6066, type: 2}
+  - _base: {fileID: 11400000, guid: d03cc87c4fe8a74428b51775841bcb8a, type: 2}
   rareDeck:
-  - _base: {fileID: 11400000, guid: 46d907d070b519148b6ac9d2de208d01, type: 2}
-  - _base: {fileID: 11400000, guid: b066fa5c42e66294888c8f7d13e69de7, type: 2}
-  - _base: {fileID: 11400000, guid: d5994b68d4ed1404db27b258825f8f0e, type: 2}
-  - _base: {fileID: 11400000, guid: 7dd0a026f04ec44469c172caef532c56, type: 2}
+  - _base: {fileID: 11400000, guid: 16cf9946067a988499ed53a67360903b, type: 2}
+  - _base: {fileID: 11400000, guid: bf7630d471fd8b84da0df534e158dfd8, type: 2}
+  - _base: {fileID: 11400000, guid: b6d5b7655f3982645962c0e19a831119, type: 2}
+  - _base: {fileID: 11400000, guid: fbaaebb96654ab54c9dd6c5c03006df1, type: 2}
   epicDeck:
-  - _base: {fileID: 11400000, guid: 46d907d070b519148b6ac9d2de208d01, type: 2}
-  - _base: {fileID: 11400000, guid: 92a3ff8c436c8ce43b17ada97277b046, type: 2}
-  - _base: {fileID: 11400000, guid: 74f51267001017b4296c51b2a620cf10, type: 2}
-  - _base: {fileID: 11400000, guid: 411966fc62b663442b45e6091c0279e7, type: 2}
+  - _base: {fileID: 11400000, guid: 80fc1e65d552a75488a3fac7b9e86e48, type: 2}
+  - _base: {fileID: 11400000, guid: 8212b6c57ec5dd04aa8c62c863f14614, type: 2}
+  - _base: {fileID: 11400000, guid: 3c4599d88435f05449dab15628dfb138, type: 2}

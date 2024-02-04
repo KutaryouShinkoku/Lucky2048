@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc60e6fb807f82348872caa4aac5cce4, type: 3}
   m_Name: Damage
   m_EditorClassIdentifier: 
-  skillName: testskillDmg
+  skillName: Damage
   type: 1
   effects: 0
+  duration: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc60e6fb807f82348872caa4aac5cce4, type: 3}
   m_Name: Weakness
   m_EditorClassIdentifier: 
-  skillName: 
+  skillName: Weakness
   type: 0
-  effects: 3
+  effects: 2
   duration: 0

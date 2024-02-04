@@ -17,17 +17,15 @@ MonoBehaviour:
   level: 1
   nextLevelCube:
     _base: {fileID: 11400000, guid: 1781a2a48884bfa44b551840c61c349d, type: 2}
-    target: {fileID: 0}
   lastLevelCube:
     _base: {fileID: 11400000, guid: 80fc1e65d552a75488a3fac7b9e86e48, type: 2}
-    target: {fileID: 0}
   cubeRarity: 2
   cubeRace: 0
   cubeType: 0
-  description: "\u9020\u621014\u70B9\u4F24\u5BB3\u3002\u670935%\u6982\u7387\u4F7F\u673A\u5668\u4EBA\u6655\u7729"
+  description: "\u9020\u621014\u70B9\u4F24\u5BB3\u3002\u670935%\u6982\u7387\u4F7F\u673A\u5668\u4EBA\u6655\u7729\u3002"
   sprite: {fileID: 21300000, guid: 3361bc562e4d4614ca7afc82f296f9c1, type: 3}
   cubeSkill:
   - skillBase: {fileID: 11400000, guid: beb7e51bdbd75184a85c03611985c61b, type: 2}
     skillPar: 14
-  - skillBase: {fileID: 0}
-    skillPar: 0
+  - skillBase: {fileID: 11400000, guid: 426b01846c12152409cee496bebfc3a4, type: 2}
+    skillPar: 35

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc60e6fb807f82348872caa4aac5cce4, type: 3}
-  m_Name: Thorns
+  m_Name: Stun
   m_EditorClassIdentifier: 
-  skillName: Thorns
+  skillName: Stun
   type: 0
-  effects: 3
+  effects: 6
   duration: 0
