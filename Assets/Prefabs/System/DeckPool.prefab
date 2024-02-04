@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8185849271821876663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5763818278756164657}
+  - component: {fileID: 97343015278311917}
+  m_Layer: 0
+  m_Name: DeckPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5763818278756164657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185849271821876663}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 198.75703, y: 718.1571, z: -4.0953803}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &97343015278311917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185849271821876663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8b351b55086d84d954eac7e1cae53d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalDeck:
+  - _base: {fileID: 11400000, guid: b066fa5c42e66294888c8f7d13e69de7, type: 2}
+  - _base: {fileID: 11400000, guid: 411966fc62b663442b45e6091c0279e7, type: 2}
+  - _base: {fileID: 11400000, guid: 411966fc62b663442b45e6091c0279e7, type: 2}
+  - _base: {fileID: 11400000, guid: 74f51267001017b4296c51b2a620cf10, type: 2}
+  - _base: {fileID: 11400000, guid: 92a3ff8c436c8ce43b17ada97277b046, type: 2}
+  - _base: {fileID: 11400000, guid: 46d907d070b519148b6ac9d2de208d01, type: 2}
+  rareDeck:
+  - _base: {fileID: 11400000, guid: 46d907d070b519148b6ac9d2de208d01, type: 2}
+  - _base: {fileID: 11400000, guid: b066fa5c42e66294888c8f7d13e69de7, type: 2}
+  - _base: {fileID: 11400000, guid: d5994b68d4ed1404db27b258825f8f0e, type: 2}
+  - _base: {fileID: 11400000, guid: 7dd0a026f04ec44469c172caef532c56, type: 2}
+  epicDeck:
+  - _base: {fileID: 11400000, guid: 46d907d070b519148b6ac9d2de208d01, type: 2}
+  - _base: {fileID: 11400000, guid: 92a3ff8c436c8ce43b17ada97277b046, type: 2}
+  - _base: {fileID: 11400000, guid: 74f51267001017b4296c51b2a620cf10, type: 2}
+  - _base: {fileID: 11400000, guid: 411966fc62b663442b45e6091c0279e7, type: 2}

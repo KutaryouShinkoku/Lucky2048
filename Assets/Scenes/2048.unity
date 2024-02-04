@@ -3414,67 +3414,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756164590}
   m_CullTransparentMesh: 1
---- !u!1 &1975478797
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1975478799}
-  - component: {fileID: 1975478800}
-  m_Layer: 0
-  m_Name: DeckPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1975478799
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975478797}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 198.75703, y: 718.1571, z: -4.0953803}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1975478800
+--- !u!114 &1975478800 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 97343015278311917, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
+  m_PrefabInstance: {fileID: 6258559120507789385}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975478797}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b8b351b55086d84d954eac7e1cae53d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalDeck:
-  - _base: {fileID: 11400000, guid: b066fa5c42e66294888c8f7d13e69de7, type: 2}
-  - _base: {fileID: 11400000, guid: 411966fc62b663442b45e6091c0279e7, type: 2}
-  - _base: {fileID: 11400000, guid: 411966fc62b663442b45e6091c0279e7, type: 2}
-  - _base: {fileID: 11400000, guid: 74f51267001017b4296c51b2a620cf10, type: 2}
-  - _base: {fileID: 11400000, guid: 92a3ff8c436c8ce43b17ada97277b046, type: 2}
-  - _base: {fileID: 11400000, guid: 46d907d070b519148b6ac9d2de208d01, type: 2}
-  rareDeck:
-  - _base: {fileID: 11400000, guid: 46d907d070b519148b6ac9d2de208d01, type: 2}
-  - _base: {fileID: 11400000, guid: b066fa5c42e66294888c8f7d13e69de7, type: 2}
-  - _base: {fileID: 11400000, guid: d5994b68d4ed1404db27b258825f8f0e, type: 2}
-  - _base: {fileID: 11400000, guid: 7dd0a026f04ec44469c172caef532c56, type: 2}
-  epicDeck:
-  - _base: {fileID: 11400000, guid: 46d907d070b519148b6ac9d2de208d01, type: 2}
-  - _base: {fileID: 11400000, guid: 92a3ff8c436c8ce43b17ada97277b046, type: 2}
-  - _base: {fileID: 11400000, guid: 74f51267001017b4296c51b2a620cf10, type: 2}
-  - _base: {fileID: 11400000, guid: 411966fc62b663442b45e6091c0279e7, type: 2}
 --- !u!1001 &2120778845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3987,6 +3937,63 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6083165061317015477, guid: 5ec70ee452d0d2047ac4238f1d143c8b, type: 3}
   m_PrefabInstance: {fileID: 537282149}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6258559120507789385
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5763818278756164657, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 198.75703
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763818278756164657, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 718.1571
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763818278756164657, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.0953803
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763818278756164657, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763818278756164657, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763818278756164657, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763818278756164657, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763818278756164657, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763818278756164657, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763818278756164657, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185849271821876663, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
+      propertyPath: m_Name
+      value: DeckPool
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d80cb22656004034a911e8c474f2e2be, type: 3}
 --- !u!224 &6503181079436790191 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6503181080523483813, guid: 7b49fcfea7eef2f4a86b4d2e0a08ca4b, type: 3}
@@ -4027,7 +4034,7 @@ SceneRoots:
   - {fileID: 1106387888}
   - {fileID: 1212038923}
   - {fileID: 116538136}
-  - {fileID: 1975478799}
+  - {fileID: 6258559120507789385}
   - {fileID: 852008441}
   - {fileID: 1528083056}
   - {fileID: 849397060}
