@@ -6,7 +6,8 @@ using UnityEngine.UI; // 导入UI命名空间
 public enum CombatState //各阶段
 {
     none, //空阶段，备用
-    select, //选方块
+    selectR, //选方块稀有度
+    selectC, //选方块
     preroll, //摇之前的阶段，检测马之类的
     roll, //摇老虎机
     combine, //2048
@@ -18,7 +19,7 @@ public class CombatManager : MonoBehaviour
     //public Cube cube;
     public Player player;
     public Enemy enemy;
-    private CombatState state;
+    public CombatState state;
     [Header("UI")]
     public CombatHUD combatHUD;
     public Text gameEndText; // 游戏结束时显示的文本
@@ -28,6 +29,11 @@ public class CombatManager : MonoBehaviour
     [SerializeField] DeckBuilder deckBuilder1;
     [SerializeField] DeckBuilder deckBuilder2;
     [SerializeField] DeckBuilder deckBuilder3;
+    //选牌
+    int normalCount;
+    int rareCount;
+    int epicCount;
+
     public Queue<Cube> addedCube { get; set; } = new Queue<Cube>();
     //这个list则是临时用来管理选牌的
     public List<int> tempId;
@@ -35,15 +41,14 @@ public class CombatManager : MonoBehaviour
     private int thornsBuffIntensity; // 荆棘 Buff 的强度
     public void Start()
     {
+        ResetCount();
         GenerateDeckBuilder(deckPool.normalDeck);
-        addedCube.Enqueue(deckBuilder1.cube);
-        Debug.Log($"{addedCube}");
         Instantiate(player);
         Instantiate(enemy);
         InitializePlayerAndEnemy();
         player.playerArmor = 0;
         enemy.enemyArmor = 0;
-        state = CombatState.none;
+        state = CombatState.selectR;
         //cube.Setup(this); // 将CombatManager的引用传递给Cube
     }
     public void Update()
@@ -52,22 +57,19 @@ public class CombatManager : MonoBehaviour
         if (deckBuilder1.addedCube.Count != 0)
         {
             AddCube(deckBuilder1);
+            RefreshPick();
         }
         if (deckBuilder2.addedCube.Count != 0)
         {
             AddCube(deckBuilder2);
+            RefreshPick();
         }
         if (deckBuilder3.addedCube.Count != 0)
         {
             AddCube(deckBuilder3);
+            RefreshPick();
         }
 
-
-        //选方块
-        if (state == CombatState.select)
-        {
-            GenerateDeckBuilder(deckPool.normalDeck);
-        }
         //回合结束开始处理方块
         if(state == CombatState.end)
         {
@@ -89,7 +91,7 @@ public class CombatManager : MonoBehaviour
             enemy.ProcessBuffs();//处理敌人的Buff
             enemy.PerformAction();//然后处理敌人的行动
             DeathCheck();// 检查战斗是否结束
-            state = CombatState.select; // 回合结束，切换到玩家选择方块的阶段
+            state = CombatState.selectR; // 回合结束，切换到玩家选择方块的阶段
         }
     }
     public void InitializePlayerAndEnemy()
@@ -151,7 +153,7 @@ public class CombatManager : MonoBehaviour
     }
     public int GenerateUniqueId(int count)
     {
-        int cubeId = UnityEngine.Random.Range(0, count);
+        int cubeId = Random.Range(0, count);
         if (!tempId.Contains(cubeId))
         {
             tempId.Add(cubeId);
@@ -168,5 +170,51 @@ public class CombatManager : MonoBehaviour
             Debug.Log($"从deckbuilder里抓{message.Base.CubeName}来用");
             addedCube.Enqueue(message);
         }
+    }
+    public void SelectRarityNormal()
+    {
+        GenerateDeckBuilder(deckPool.normalDeck);
+        normalCount++;
+        state = CombatState.selectC;
+    }
+    public void SelectRarityRare()
+    {
+        GenerateDeckBuilder(deckPool.rareDeck);
+        rareCount++;
+        state = CombatState.selectC;
+    }
+    public void SelectRarityEpic()
+    {
+        GenerateDeckBuilder(deckPool.epicDeck);
+        epicCount++;
+        state = CombatState.selectC;
+    }
+    public void RefreshPick()
+    {
+        if (normalCount > 0 && normalCount < 3)
+        {
+            SelectRarityNormal();
+        }
+        else if (rareCount > 0 && rareCount < 2)
+        {
+            SelectRarityRare();
+        }
+        else EndPick();
+    }
+    public void EndPick()
+    {
+        state = CombatState.preroll;
+        ResetCount();
+    }
+    public void ResetCount()
+    {
+        normalCount = 0;
+        rareCount = 0;
+        epicCount = 0;
+    }
+    public void XuanpaiTest()
+    {
+        state = CombatState.selectR;
+        Debug.Log("选牌");
     }
 }

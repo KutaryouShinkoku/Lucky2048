@@ -54,21 +54,25 @@ public class TTFEController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
+                //音频：块滑动
                 ticker = 0;
                 slide("left");
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
+                //音频：块滑动
                 ticker = 0;
                 slide("up");
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
+                //音频：块滑动
                 ticker = 0;
                 slide("right");
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
+                //音频：块滑动
                 ticker = 0;
                 slide("down");
             }
@@ -83,6 +87,7 @@ public class TTFEController : MonoBehaviour
         //从deck里抽选最多15个方块
         List<Cube> spawnPool = new List<Cube>();
         List<int> spawnId = new List<int>(); //临时list，用来管理本批生成的方块
+        //音频：老虎机
         for (int i = 0;i < Mathf.Min(deckManager.cubeDeck.Count, maxSpawnAmount, allCells.Length);) 
         {
             int deckId = UnityEngine.Random.Range(0, deckManager.cubeDeck.Count);

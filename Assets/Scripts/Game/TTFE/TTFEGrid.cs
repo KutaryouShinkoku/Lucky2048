@@ -110,6 +110,7 @@ public class TTFEGrid : MonoBehaviour
                     //低级可以合成更高级
                     else
                     {
+                        //音频：块合成
                         Debug.Log($"位于{currentGrid.name}合成{currentGrid.cell.cube.Base.name}！");
                         nextGrid.cell.transform.parent = currentGrid.transform; //把上个格子的cell接进来
                         currentGrid.cell = nextGrid.cell; 
@@ -179,6 +180,7 @@ public class TTFEGrid : MonoBehaviour
                     //低级可以合成更高级
                     else
                     {
+                        //音频：块合成
                         Debug.Log($"位于{currentGrid.name}合成{currentGrid.cell.cube.Base.name}！");
                         nextGrid.cell.transform.parent = currentGrid.transform; //把上个格子的cell接进来
                         currentGrid.cell = nextGrid.cell;
@@ -248,6 +250,7 @@ public class TTFEGrid : MonoBehaviour
                     //低级可以合成更高级
                     else
                     {
+                        //音频：块合成
                         Debug.Log($"位于{currentGrid.name}合成{currentGrid.cell.cube.Base.name}！");
                         nextGrid.cell.transform.parent = currentGrid.transform; //把上个格子的cell接进来
                         currentGrid.cell = nextGrid.cell;
@@ -317,6 +320,7 @@ public class TTFEGrid : MonoBehaviour
                     //低级可以合成更高级
                     else
                     {
+                        //音频：块合成
                         Debug.Log($"位于{currentGrid.name}合成{currentGrid.cell.cube.Base.name}！");
                         nextGrid.cell.transform.parent = currentGrid.transform; //把上个格子的cell接进来
                         currentGrid.cell = nextGrid.cell;
