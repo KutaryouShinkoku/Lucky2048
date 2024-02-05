@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // µ¼ÈëUIÃüÃû¿Õ¼ä
+using UnityEngine.UI; // ï¿½ï¿½ï¿½ï¿½UIï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½
 
-public enum CombatState //¸÷½×¶Î
+
+
+public enum CombatState //ï¿½ï¿½ï¿½×¶ï¿½
 {
-    none, //¿Õ½×¶Î£¬±¸ÓÃ
-    selectR, //Ñ¡·½¿éÏ¡ÓÐ¶È
-    selectC, //Ñ¡·½¿é
-    roll, //Ò¡ÀÏ»¢»ú
-    precombine, //Ò¡Ö®Ç°µÄ½×¶Î£¬¼ì²âÂíÖ®ÀàµÄ
+    none, //ï¿½Õ½×¶Î£ï¿½ï¿½ï¿½ï¿½ï¿½
+    selectR, //Ñ¡ï¿½ï¿½ï¿½ï¿½Ï¡ï¿½Ð¶ï¿½
+    selectC, //Ñ¡ï¿½ï¿½ï¿½ï¿½
+    roll, //Ò¡ï¿½Ï»ï¿½ï¿½ï¿½
+    precombine, //Ò¡Ö®Ç°ï¿½Ä½×¶Î£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½
     combine, //2048
-    end, //Íæ¼Ò»ØºÏ½áÊø£¬½áËã·½¿é£¬ÏÈµþ¼×ÔÙ¹¥»÷
-    enemy, //µÐÈË»ØºÏ
-    over, //Ê§°Ü
-    win, //Ê¤Àû
+    end, //ï¿½ï¿½Ò»ØºÏ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã·½ï¿½é£¬ï¿½Èµï¿½ï¿½ï¿½ï¿½Ù¹ï¿½ï¿½ï¿½
+    enemy, //ï¿½ï¿½ï¿½Ë»Øºï¿½
+    over, //Ê§ï¿½ï¿½
+    win, //Ê¤ï¿½ï¿½
 }
 public class CombatManager : MonoBehaviour
 {
@@ -24,26 +26,30 @@ public class CombatManager : MonoBehaviour
     public CombatState state;
     [Header("UI")]
     public CombatHUD combatHUD;
-    public Text gameEndText; // ÓÎÏ·½áÊøÊ±ÏÔÊ¾µÄÎÄ±¾
+    public Text gameEndText; // ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ä±ï¿½
     bool isCubeResolved;
     float cubeResolveTimer = 1.5f;
+
+    public AK.Wwise.Event MyEvent1;
+    public AK.Wwise.Event MyEvent2;
+
     [SerializeField] TTFEController ttfeController;
 
-    [SerializeField] DeckPool deckPool; //È«²¿µÄ¿¨³ØÒÔ¼°È¨ÖØ
+    [SerializeField] DeckPool deckPool; //È«ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½È¨ï¿½ï¿½
     [SerializeField] DeckBuilder deckBuilder1;
     [SerializeField] DeckBuilder deckBuilder2;
     [SerializeField] DeckBuilder deckBuilder3;
-    //Ñ¡ÅÆ
+    //Ñ¡ï¿½ï¿½
     int normalCount;
     int rareCount;
     int epicCount;
 
     public Queue<Cube> addedCube { get; set; } = new Queue<Cube>();
-    //Õâ¸ölistÔòÊÇÁÙÊ±ÓÃÀ´¹ÜÀíÑ¡ÅÆµÄ
+    //ï¿½ï¿½ï¿½listï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½Æµï¿½
     public List<int> tempId;
 
 
-    private int thornsBuffIntensity; // ¾£¼¬ Buff µÄÇ¿¶È
+    private int thornsBuffIntensity; // ï¿½ï¿½ï¿½ï¿½ Buff ï¿½ï¿½Ç¿ï¿½ï¿½
     public void Start()
     {
         ResetCount();
@@ -52,11 +58,11 @@ public class CombatManager : MonoBehaviour
         player.playerArmor = 0;
         enemy.enemyArmor = 0;
         state = CombatState.selectR;
-        //cube.Setup(this); // ½«CombatManagerµÄÒýÓÃ´«µÝ¸øCube
+        //cube.Setup(this); // ï¿½ï¿½CombatManagerï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½Ý¸ï¿½Cube
     }
     public void Update()
     {
-        //¸üÐÂ¿¨×é
+        //ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½
         if (deckBuilder1.addedCube.Count != 0)
         {
             AddCube(deckBuilder1);
@@ -72,7 +78,7 @@ public class CombatManager : MonoBehaviour
             AddCube(deckBuilder3);
             RefreshPick();
         }
-        //Debug.Log($"½×¶Î£º{state}");
+        //Debug.Log($"ï¿½×¶Î£ï¿½{state}");
 
             if (state == CombatState.roll)
         {
@@ -95,7 +101,7 @@ public class CombatManager : MonoBehaviour
             }
         }
 
-        //»ØºÏ½áÊø¿ªÊ¼´¦Àí·½¿é
+        //ï¿½ØºÏ½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if(state == CombatState.end)
         {
             cubeResolveTimer -= Time.deltaTime;
@@ -104,12 +110,14 @@ public class CombatManager : MonoBehaviour
                 for (int i = 0; i < ttfeController.cubesInPanel.Count; i++)
                 {
                     ttfeController.cubesInPanel[i].Setup(this);
-                    //ÏÈ´¦Àíµ¾ËëµÄÉý¼¶
-                    //È»ºóÒÀ´Î´¦Àí·½¿éµÄ¼¼ÄÜ
+                    //ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    //È»ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
                     ttfeController.cubesInPanel[i].ResolveSkills();
                 }
                 isCubeResolved = true;
-                //Á÷³ÌÎª¸ø·½¿éÈ¡Ä¿±ê£¨°Ñ¼¼ÄÜÄ¿±ê¸½¸ø·½¿é£©-½áËã·½¿é¼¼ÄÜ£¨ÔÚcube½Å±¾£©-´¦Àí¼¼ÄÜ¶ÔÄ¿±êµÄ½á¹û
+                //ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ä¿ï¿½ê£¨ï¿½Ñ¼ï¿½ï¿½ï¿½Ä¿ï¿½ê¸½ï¿½ï¿½ï¿½ï¿½ï¿½é£©-ï¿½ï¿½ï¿½ã·½ï¿½é¼¼ï¿½Ü£ï¿½ï¿½ï¿½cubeï¿½Å±ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¶ï¿½Ä¿ï¿½ï¿½Ä½ï¿½ï¿½
+                MyEvent1.Post(gameObject);
+                
             }
             //DeathCheck();
             if (cubeResolveTimer < 0)
@@ -120,14 +128,14 @@ public class CombatManager : MonoBehaviour
             }
         }
 
-        //µÐÈË»ØºÏ
+        //ï¿½ï¿½ï¿½Ë»Øºï¿½
         if(state == CombatState.enemy)
         {
 
-            enemy.ProcessBuffs();//´¦ÀíµÐÈËµÄBuff
-            enemy.PerformAction();//È»ºó´¦ÀíµÐÈËµÄÐÐ¶¯
-            //DeathCheck();// ¼ì²éÕ½¶·ÊÇ·ñ½áÊø
-            state = CombatState.selectR; // »ØºÏ½áÊø£¬ÇÐ»»µ½Íæ¼ÒÑ¡Ôñ·½¿éµÄ½×¶Î
+            enemy.ProcessBuffs();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½Buff
+            enemy.PerformAction();//È»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ð¶ï¿½
+            //DeathCheck();// ï¿½ï¿½ï¿½Õ½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
+            state = CombatState.selectR; // ï¿½ØºÏ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ñ·½¿ï¿½Ä½×¶ï¿½
         }
         if (player.playerHP <= 0)
         {
@@ -153,36 +161,36 @@ public class CombatManager : MonoBehaviour
     {
         if (thornsBuffIntensity > 0)
         {
-            enemy.TakeDamage(thornsBuffIntensity); // ¶ÔµÐÈËÔì³É¾£¼¬ÉËº¦
+            enemy.TakeDamage(thornsBuffIntensity); // ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½Ëºï¿½
         }
     }
 
     public void AddThornsBuff(int intensity)
     {
-        thornsBuffIntensity += intensity; // Ôö¼Ó¾£¼¬ Buff Ç¿¶È
+        thornsBuffIntensity += intensity; // ï¿½ï¿½ï¿½Ó¾ï¿½ï¿½ï¿½ Buff Ç¿ï¿½ï¿½
     }
 
-    //ÓÎÏ·½áÊøµÄÅÐ¶¨
-    //public void DeathCheck() //¼ì²éÍæ¼Ò»òÕßµÐÈËÊÇ·ñÓÐÈËËÀ
+    //ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
+    //public void DeathCheck() //ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     //{
     //    if (player.playerHP==0)
     //    {
-    //        // Íæ¼ÒËÀÍö£¬ÓÎÏ·Ê§°Ü
+    //        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·Ê§ï¿½ï¿½
     //        GameEnd(false);
     //    }
     //    else if (enemy.enemyHP==0)
     //    {
-    //        // µÐÈËËÀÍö£¬ÓÎÏ·»ñÊ¤
+    //        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½Ê¤
     //        GameEnd(true);
     //    }
     //}
     //public void GameEnd(bool playerWon)
     //{
-    //    state = CombatState.none; // Í£Ö¹ÓÎÏ·×´Ì¬¸üÐÂ
-    //    gameEndText.gameObject.SetActive(true); // ÏÔÊ¾ÓÎÏ·½áÊøÎÄ±¾
-    //    gameEndText.text = playerWon ? "ÓÎÏ·Ê¤Àû£¡" : "ÓÎÏ·Ê§°Ü£¡"; // ¸ù¾ÝÍæ¼ÒÊÇ·ñÓ®µÃÓÎÏ·À´¸üÐÂÎÄ±¾
+    //    state = CombatState.none; // Í£Ö¹ï¿½ï¿½Ï·×´Ì¬ï¿½ï¿½ï¿½ï¿½
+    //    gameEndText.gameObject.SetActive(true); // ï¿½ï¿½Ê¾ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½
+    //    gameEndText.text = playerWon ? "ï¿½ï¿½Ï·Ê¤ï¿½ï¿½ï¿½ï¿½" : "ï¿½ï¿½Ï·Ê§ï¿½Ü£ï¿½"; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ó®ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½
     //}
-    //-------------------------¿¨×éÏà¹Ø------------------------
+    //-------------------------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½------------------------
     public void GenerateDeckBuilder(List<Cube> pool)
     {
         tempId = new List<int>();
@@ -207,7 +215,7 @@ public class CombatManager : MonoBehaviour
         while (deckBuilder.addedCube.Count > 0)
         {
             var message = deckBuilder.addedCube.Dequeue();
-            Debug.Log($"´ÓdeckbuilderÀï×¥{message.Base.CubeName}À´ÓÃ");
+            Debug.Log($"ï¿½ï¿½deckbuilderï¿½ï¿½×¥{message.Base.CubeName}ï¿½ï¿½ï¿½ï¿½");
             addedCube.Enqueue(message);
         }
     }
@@ -255,7 +263,7 @@ public class CombatManager : MonoBehaviour
     public void XuanpaiTest()
     {
         state = CombatState.selectR;
-        Debug.Log("Ñ¡ÅÆ");
+        Debug.Log("Ñ¡ï¿½ï¿½");
     }
     public void EndTurn()
     {

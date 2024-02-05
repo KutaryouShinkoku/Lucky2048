@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static Buff;
 using static CombatManager;
@@ -11,20 +10,23 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private List<Buff> buffs; //ÉíÉÏµÄBuff
-    public int playerHP;//³õÊ¼ÑªÁ¿
-    public int playerMaxHP; //ÑªÁ¿
-    public int playerMaxArmor; //»¤¼×
-    public int playerArmor;//³õÊ¼»¤¼×
-    public int playerBuffer;//»º³å²ãÊý
-    public bool IsBuffer { get; set; }//ÊÇ·ñ»º³å
-    public static event Action<int> OnDamageTaken; // ÊÜÉËÊÂ¼þ
+    [SerializeField] private List<Buff> buffs; //ï¿½ï¿½ï¿½Ïµï¿½Buff
+    public int playerHP;//ï¿½ï¿½Ê¼Ñªï¿½ï¿½
+    public int playerMaxHP; //Ñªï¿½ï¿½
+    public int playerMaxArmor; //ï¿½ï¿½ï¿½ï¿½
+    public int playerArmor;//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+    public int playerBuffer;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public bool IsBuffer { get; set; }//ï¿½Ç·ñ»º³ï¿½
+    public static event Action<int> OnDamageTaken; // ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
+    public AK.Wwise.Event MyEvent1;
+    public AK.Wwise.Event MyEvent2;
+  
     void Start()
     {   
         playerHP = playerMaxHP;
         playerArmor = 0;
         playerBuffer = 0;
-        // ¶©ÔÄÊÂ¼þ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
         OnDamageTaken += UpdatePlayerHealthUI;
     }
 
@@ -39,21 +41,24 @@ public class Player : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        int originalHP = playerHP; // ¼ÇÂ¼ÊÜÉËÇ°µÄÉúÃüÖµ
+        int originalHP = playerHP; // ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 
         if (playerArmor > 0)
         {
             if (playerArmor >= damage)
             {
                 playerArmor -= damage;
-                // ²¥·Å»¤¼×ÊÜËðÒôÐ§
+                // ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+                MyEvent1.Post(gameObject);//æœ‰æŠ¤ç”²
             }
             else
             {
-                playerArmor = 0;// ²¥·Å»¤¼×ÊÜËðÒôÐ§
+                playerArmor = 0;// ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+                MyEvent2.Post(gameObject);
                 if (!IsBuffer)
                 {
-                    playerHP -= (damage - playerArmor); // ²¥·ÅÉúÃüÊÜËðÒôÐ§
+                    playerHP -= (damage - playerArmor); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+
                 }
                 else
                 {
@@ -64,26 +69,27 @@ public class Player : MonoBehaviour
         else
         {
             playerHP -= damage;
-            // ²¥·ÅÉúÃüÖµÊÜËðÒôÐ§
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+            MyEvent2.Post(gameObject);
         }
 
-        playerHP = Mathf.Max(0, playerHP); // È·±£ÑªÁ¿²»»á±ä³É¸ºÊý
+        playerHP = Mathf.Max(0, playerHP); // È·ï¿½ï¿½Ñªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¸ï¿½ï¿½ï¿½
 
-        //int damageTaken = originalHP - playerHP; // ¼ÆËãÊµ¼ÊÊÜµ½µÄÉËº¦
+        //int damageTaken = originalHP - playerHP; // ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Üµï¿½ï¿½ï¿½ï¿½Ëºï¿½
         //if (damageTaken > 0)
         //{
-        //    OnDamageTaken?.Invoke(damageTaken); // Ö»ÓÐµ±Êµ¼ÊÊÜµ½ÉËº¦Ê±²Å´¥·¢ÊÂ¼þ
+        //    OnDamageTaken?.Invoke(damageTaken); // Ö»ï¿½Ðµï¿½Êµï¿½ï¿½ï¿½Üµï¿½ï¿½Ëºï¿½Ê±ï¿½Å´ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
         //}
     }
     private void UpdatePlayerHealthUI(int damage)
     {
-        // ¸üÐÂÍæ¼ÒÉúÃüÖµUI
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµUI
     }
-    public void AddBuff(Buff newBuff)//ÉÏbuff
+    public void AddBuff(Buff newBuff)//ï¿½ï¿½buff
     {
         buffs.Add(newBuff);
     }
-    public void RemoveBuff(Buff newBuff)//ÒÆ³ýbuff
+    public void RemoveBuff(Buff newBuff)//ï¿½Æ³ï¿½buff
     { 
         buffs.Remove(newBuff); 
     }
@@ -91,19 +97,19 @@ public class Player : MonoBehaviour
     {
         if (playerBuffer == 0)
         {
-            //ÒÆ³ýBufferÕâ¸öBuff
+            //ï¿½Æ³ï¿½Bufferï¿½ï¿½ï¿½Buff
             //buffs.RemoveAll(buff => buff.type == "Buffer");
         }
     }
     public void AddArmor(int AddA) 
     {
         playerArmor = Mathf.Clamp(playerArmor + AddA, 0, 99);
-        Debug.Log($"Íæ¼Ò¼Ó»¤¼×");
+        Debug.Log($"ï¿½ï¿½Ò¼Ó»ï¿½ï¿½ï¿½");
     }
 
     private void OnDestroy()
     {
-        // ·ÀÖ¹ÄÚ´æÐ¹Â©£¬È·±£ÔÚ¶ÔÏóÏú»ÙÊ±È¡Ïû¶©ÔÄ
+        // ï¿½ï¿½Ö¹ï¿½Ú´ï¿½Ð¹Â©ï¿½ï¿½È·ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         OnDamageTaken -= UpdatePlayerHealthUI;
     }
 

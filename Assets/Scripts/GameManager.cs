@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject uiGameOver;
     [SerializeField] GameObject uiGameWin;
 
+    public AK.Wwise.Event MyEvent;
+    public AK.Wwise.RTPC MyRtpc;
+    public AK.Wwise.Event MyEventBegin;
+
     public bool isFirstTimePlay = true;
     //[SerializeField] GameObject TTFEController;
     // Start is called before the first frame update
@@ -40,6 +44,7 @@ public class GameManager : MonoBehaviour
         uiGameOver.SetActive(false);
         uiGameWin.SetActive(false);
         //Instantiate(TTFEController);
+        
     }
 
     public void Update()
@@ -57,8 +62,8 @@ public class GameManager : MonoBehaviour
             uiGameWin.SetActive(true);
         }
     }
-    //-------------------------------------½çÃæÇÐ»»²¿·Ö---------------------------
-    public void BtnStart() //¿ªÊ¼ÓÎÏ·
+    //-------------------------------------ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½---------------------------
+    public void BtnStart() //ï¿½ï¿½Ê¼ï¿½ï¿½Ï·
     {
         if (isFirstTimePlay)
         {
@@ -69,24 +74,27 @@ public class GameManager : MonoBehaviour
         gameState = GameState.game;
         uiMainGame.SetActive(true);
         uiMainMenu.SetActive(false);
+        MyEventBegin.Post(gameObject);
+        MyEvent.Post(gameObject);
+        MyRtpc.SetGlobalValue(15);
     }
-    public void BtnTutorial() //½ÌÑ§
+    public void BtnTutorial() //ï¿½ï¿½Ñ§
     {
         uiTutorial.SetActive(true);
     }
-    public void BtnTutorialClose() //½ÌÑ§
+    public void BtnTutorialClose() //ï¿½ï¿½Ñ§
     {
         uiTutorial.SetActive(false);
     }
 
-    //Âþ»­²¿·Ö
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public void NextComic()
     {
-        //ÏÂÕÅÂþ»­£»Èç¹ûÓÐ¶àÕÅµÄ»°ÆôÓÃÕâ¸ö
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ÅµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
     public void SkipComic()
     {
-        //Ö±½ÓÌø¹ý£¬Ö±µ½ÓÎÏ·¿ªÊ¼
+        //Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½Ê¼
         uiPick.SetActive(true);
         uiComic.SetActive(false);
         Debug.Log($"SkipComics");
@@ -94,11 +102,12 @@ public class GameManager : MonoBehaviour
 
     public enum GameState
     {
-        comic, none, game,setting
+        comic, none, game, setting
     }
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 }
 

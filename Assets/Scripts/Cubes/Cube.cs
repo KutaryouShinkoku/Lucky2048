@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 using static Buff;
@@ -19,93 +18,93 @@ public class Cube
     public void Setup(CombatManager combatManager)
     {
         this.combatManager = combatManager;
-        Init(); // Èç¹ûÐèÒª£¬Ò²¿ÉÒÔÔÚÕâÀïµ÷ÓÃInit
+        Init(); // ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Init
     }
 
-    //Êµ×°¼¼ÄÜ
+    //Êµ×°ï¿½ï¿½ï¿½ï¿½
     public void Init()
     {
         skills = new List<CubeSkill>();
         foreach (var skill in Base.CubeSkill)
         {
-            //Êµ×°¼¼ÄÜ
+            //Êµ×°ï¿½ï¿½ï¿½ï¿½
             if (skills.Count <= skills.Capacity) { skills.Add(skill); }
             else break;
         }
     }
 
-    public void ResolveSkills() //½áËã¼¼ÄÜ
+    public void ResolveSkills() //ï¿½ï¿½ï¿½ã¼¼ï¿½ï¿½
     {
         foreach(var skill in skills)
         {
             HandleSkill(skill.SkillBase.Effects,skill.SkillPar, skill.SkillBase);
-            Debug.Log($"´¦Àí¼¼ÄÜ£º{skill.SkillBase.SkillName}£¬²ÎÊýÎª{skill.SkillPar}");
+            Debug.Log($"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½{skill.SkillBase.SkillName}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª{skill.SkillPar}");
         }
     }
 
-    public int CalculateDamage() //¼ÆËãÉËº¦
+    public int CalculateDamage() //ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½
     {
         int damage = 0;
-        //¼¼ÄÜÔì³ÉµÄ»ù´¡ÉËº¦
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉµÄ»ï¿½ï¿½ï¿½ï¿½Ëºï¿½
 
-        //ÃÛ·ä¼Ó³É
+        //ï¿½Û·ï¿½Ó³ï¿½
 
-        //Æ»¹û¼Ó³É
+        //Æ»ï¿½ï¿½ï¿½Ó³ï¿½
 
         return damage;
     }
 
-    public int CalculateArmor() //¼ÆËã»¤¼×
+    public int CalculateArmor() //ï¿½ï¿½ï¿½ã»¤ï¿½ï¿½
     {
         int armor = 0;
-        //µþ¼×
+        //ï¿½ï¿½ï¿½ï¿½
 
         return armor;
     }
 
-    public void HandleSkill(SkillEffects effect, int skillPar,Skill_Base skill) //¶ÔÓÚÃ¿Ò»¸ö¼¼ÄÜµÄ¾ßÌå´¦Àí£¬ÊºÉ½²¿·Ö
+    public void HandleSkill(SkillEffects effect, int skillPar,Skill_Base skill) //ï¿½ï¿½ï¿½ï¿½Ã¿Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ÜµÄ¾ï¿½ï¿½å´¦ï¿½ï¿½ï¿½ÊºÉ½ï¿½ï¿½ï¿½ï¿½
     {
         switch (effect)
         {
             case SkillEffects.damage:
-                //Ôì³ÉÉËº¦
-                Debug.Log($"Ôì³ÉÁË{skillPar}µãÉËº¦");
-                combatManager.enemy.TakeDamage(skillPar); // Ê¹ÓÃCombatManagerµÄÊµÀýÀ´·ÃÎÊenemy
+                //ï¿½ï¿½ï¿½ï¿½Ëºï¿½
+                Debug.Log($"ï¿½ï¿½ï¿½ï¿½ï¿½{skillPar}ï¿½ï¿½ï¿½Ëºï¿½");
+                combatManager.enemy.TakeDamage(skillPar); // Ê¹ï¿½ï¿½CombatManagerï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½enemy
                 break;
             case SkillEffects.armor:
-                //µþ¼×
+                //ï¿½ï¿½ï¿½ï¿½
                 combatManager.player.AddArmor(skillPar);
                 break;
             case SkillEffects.ApplyWeakness:
-                //ÐéÈõ
+                //ï¿½ï¿½ï¿½ï¿½
                 combatManager.enemy.AddBuff(new Buff(BuffType.Weakness, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyThorns:
-                //¾£¼¬
+                //ï¿½ï¿½ï¿½ï¿½
                 combatManager.player.AddBuff(new Buff(BuffType.Thorns, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyBuffer:
-                //»º³å
+                //ï¿½ï¿½ï¿½ï¿½
                 combatManager.player.AddBuff(new Buff(BuffType.Buffer, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyPoison:
-                //ÖÐ¶¾
+                //ï¿½Ð¶ï¿½
                 combatManager.enemy.AddBuff(new Buff(BuffType.Poison, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyBreakdown:
-                //ÆÆ¼×
+                //ï¿½Æ¼ï¿½
                 combatManager.enemy.AddBuff(new Buff(BuffType.Breakdown, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyStun:
-                //Ñ£ÔÎ
+                //Ñ£ï¿½ï¿½
                 combatManager.enemy.AddBuff(new Buff(BuffType.Stun, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyApple:
-                //Æ»¹ûÉËº¦±¶ÂÊÌáÉý
+                //Æ»ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 combatManager.enemy.AddBuff(new Buff(BuffType.Levelup, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyHorse:
-                //¿¥ÂíÒÆ¶¯´ÎÊýÌáÉý
+                //ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 break;
 
 

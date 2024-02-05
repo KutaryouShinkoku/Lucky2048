@@ -21,7 +21,7 @@ public class CombatHUD : MonoBehaviour
     public TTFEController ttfeController;
     public  Player player;
     public  Enemy enemy;
-    //[SerializeField] Text txtNextAction; // ÏÔÊ¾ÏÂÒ»»ØºÏµÐÈËµÄÒâÍ¼
+    //[SerializeField] Text txtNextAction; // ï¿½ï¿½Ê¾ï¿½ï¿½Ò»ï¿½ØºÏµï¿½ï¿½Ëµï¿½ï¿½ï¿½Í¼
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +40,7 @@ public class CombatHUD : MonoBehaviour
 
     void InitializeHUD()
     {
-        //ÑªÌõ³õÊ¼»¯
+        //Ñªï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
         sldPlayerHP.maxValue = player.playerMaxHP;
         sldPlayerHP.value = player.playerMaxHP;
         sldPlayerArmor.maxValue = player.playerMaxArmor;
@@ -65,7 +65,7 @@ public class CombatHUD : MonoBehaviour
 
     public void UpdateMoveTimes()
     {
-        remainMoveTime.text = $"Ê£ÓàÒÆ¶¯´ÎÊý£º{ttfeController.maxMoveTime - ttfeController.moveTime}/{ttfeController.maxMoveTime}";
+        remainMoveTime.text = $"å‰©ä½™ç§»åŠ¨æ¬¡æ•°{ttfeController.maxMoveTime - ttfeController.moveTime}/{ttfeController.maxMoveTime}";
     }
 
     public void SetHPBarSmoothly()

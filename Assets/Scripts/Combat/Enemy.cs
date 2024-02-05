@@ -7,29 +7,34 @@ using static CombatManager;
 
 public class Enemy : MonoBehaviour
 {
-    //µÐÈËaiÔÚÕâÀïÐ´¾ÍÐÐ
-    public int enemyMaxHP; //ÑªÁ¿
-    public int enemyMaxArmor; //»¤¼×
-    [SerializeField] private List<Buff> buffs; //ÉíÉÏµÄBuff
+    //ï¿½ï¿½ï¿½ï¿½aiï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½
+    public int enemyMaxHP; //Ñªï¿½ï¿½
+    public int enemyMaxArmor; //ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] private List<Buff> buffs; //ï¿½ï¿½ï¿½Ïµï¿½Buff
     [Header("UI")]
-    [SerializeField] Image enemyImage; // µÐÈËÐÎÏóµÄUIÔªËØÒýÓÃ
-    [SerializeField] Sprite secondPhaseSprite; // µÚ¶þ½×¶ÎµÄµÐÈËÐÎÏó
+    [SerializeField] Image enemyImage; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UIÔªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] Sprite secondPhaseSprite; // ï¿½Ú¶ï¿½ï¿½×¶ÎµÄµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public Animator animator;
-    public int enemyHP;//³õÊ¼ÑªÁ¿
-    public int enemyArmor;//³õÊ¼»¤¼×
-    public enum Action { Guard, HeavyHit, Roar, Charge, Overload }//µÐÈËµÄÐÐÎª
-    private Action currentAction;//µ±Ç°ÏÂ»ØºÏµÄÐÐÎª
-    public int addDefence { get; set; } // ÓÉÓÚÐéÈõBuffµ¼ÖÂµÄÉËº¦¼õÉÙ
-    public int damage { get; set; } //µÐÈËÊÜµ½µÄµÄÉËº¦
-    public int AttackCount { get; set; }//µÐÈËÉËº¦´ÎÊý
-    public int AttackSin { get; set; }//µÐÈËµ¥´ÎÉËº¦
-    public int Strength { get; set; }//µÐÈËÁ¦Á¿
-    public int Agility {  get; set; }//µÐÈËÃô½Ý
-    public int Breakdown { get; set; }//µÐÈËÆÆ¼×
-    public bool IsStunned = false; // ÊÇ·ñ±»ÔÎÑ£
-    private bool isInSecondPhase = false;//µÐÈËÊÇ·ñ½øÈë¶þ½×¶Î
-    private bool hasOverloadedConsecutively = false;//µÐÈËÊÇ·ñÁ¬ÐøÁ½´Î³äÄÜ
+    public int enemyHP;//ï¿½ï¿½Ê¼Ñªï¿½ï¿½
+    public int enemyArmor;//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+    public enum Action { Guard, HeavyHit, Roar, Charge, Overload }//ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Îª
+    private Action currentAction;//ï¿½ï¿½Ç°ï¿½Â»ØºÏµï¿½ï¿½ï¿½Îª
+    public int addDefence { get; set; } // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Buffï¿½ï¿½ï¿½Âµï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½
+    public int damage { get; set; } //ï¿½ï¿½ï¿½ï¿½ï¿½Üµï¿½ï¿½Äµï¿½ï¿½Ëºï¿½
+    public int AttackCount { get; set; }//ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½
+    public int AttackSin { get; set; }//ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½Ëºï¿½
+    public int Strength { get; set; }//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public int Agility {  get; set; }//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public int Breakdown { get; set; }//ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½
+    public bool IsStunned = false; // ï¿½Ç·ï¿½ï¿½ï¿½Ñ£
+    private bool isInSecondPhase = false;//ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¶ï¿½
+    private bool hasOverloadedConsecutively = false;//ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î³ï¿½ï¿½ï¿½
     private CombatManager combatManager;
+
+
+
+
+
     public Player player;
     //public void setup(CombatManager combatManager) 
     //{
@@ -43,7 +48,7 @@ public class Enemy : MonoBehaviour
         enemyArmor = 0;
         Strength = 0;
         Agility = 0;
-        currentAction = Action.Guard; // µÚÒ»»ØºÏÊ¼ÖÕÊÇÊØ»¤
+        currentAction = Action.Guard; // ï¿½ï¿½Ò»ï¿½Øºï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ø»ï¿½
         buffs = new List<Buff>();
         DecideNextAction();
     }
@@ -53,11 +58,11 @@ public class Enemy : MonoBehaviour
     {   
         CheckPhaseTransition();
         DecideNextAction();
-        //UpdateNextActionUI();ÕâÀï´ó¸ÅÒª¼Ó¸öµÐÈËÒâÍ¼¸üÐÂ
+        //UpdateNextActionUI();ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ó¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½
         ProcessBuffs();
         
 
-        // ÐÐ¶¯Âß¼­
+        // ï¿½Ð¶ï¿½ï¿½ß¼ï¿½
     }
 
     public void TestDmg()
@@ -70,59 +75,61 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log($"InSecondPhase1");
             isInSecondPhase = true;
-            currentAction = Action.Charge; // ½øÈëµÚ¶þ½×¶Î£¬µÚÒ»»ØºÏÊ¹ÓÃ³äÄÜ
+            currentAction = Action.Charge; // ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½×¶Î£ï¿½ï¿½ï¿½Ò»ï¿½Øºï¿½Ê¹ï¿½Ã³ï¿½ï¿½ï¿½
             animator.SetBool("InSecondPhase", true);
-            // ²¥·Å×ª»»½×¶ÎµÄ¶¯»­
+            // ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½×¶ÎµÄ¶ï¿½ï¿½ï¿½
             //animator.SetTrigger("PhaseTransition");
 
-            // ¸Ä±äµÐÈËÐÎÏó
+            // ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             //enemyImage.sprite = secondPhaseSprite;
 
-            // ÕâÀï¿ÉÒÔÌí¼ÓÆäËûUI¸üÐÂÂß¼­
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UIï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½
+         
         }
+
     }
 
     void DecideNextAction()
     {
         if (!isInSecondPhase)
         {
-            // µÚÒ»½×¶ÎµÄÐÐÎªÂß¼­
+            // ï¿½ï¿½Ò»ï¿½×¶Îµï¿½ï¿½ï¿½Îªï¿½ß¼ï¿½
             switch (currentAction)
             {
                 case Action.Guard:
-                    currentAction = Random.Range(0f, 1f) < 0.40f ? Action.HeavyHit : Action.Roar;//40%ÖØ»÷	60%ÅØÏø
+                    currentAction = Random.Range(0f, 1f) < 0.70f ? Action.HeavyHit : Action.Roar;//40%ï¿½Ø»ï¿½	60%ï¿½ï¿½ï¿½ï¿½
                     break;
                 case Action.HeavyHit:
-                    currentAction = Random.Range(0f, 1f) < 0.25f ? Action.Guard : Action.Roar;//25%ÊØ»¤	75%ÅØÏø	
+                    currentAction = Random.Range(0f, 1f) < 0.25f ? Action.Guard : Action.Roar;//25%ï¿½Ø»ï¿½	75%ï¿½ï¿½ï¿½ï¿½	
                     break;
                 case Action.Roar:
-                    currentAction = Random.Range(0f, 1f) < 0.45f ? Action.Guard : Action.HeavyHit;//45%ÊØ»¤	55%ÖØ»÷	
+                    currentAction = Random.Range(0f, 1f) < 0.45f ? Action.Guard : Action.HeavyHit;//45%ï¿½Ø»ï¿½	55%ï¿½Ø»ï¿½	
                     break;
             }
         }
-        else// µÚ¶þ½×¶ÎµÄÐÐÎªÂß¼­
+        else// ï¿½Ú¶ï¿½ï¿½×¶Îµï¿½ï¿½ï¿½Îªï¿½ß¼ï¿½
         {   
             switch (currentAction)
             {
                 case Action.Charge:
-                    currentAction = Random.Range(0f, 1f) < 0.80f ? Action.HeavyHit : Action.Overload;//80%ÖØ»÷	20%³¬ÔØ	
+                    currentAction = Random.Range(0f, 1f) < 0.80f ? Action.HeavyHit : Action.Overload;//80%ï¿½Ø»ï¿½	20%ï¿½ï¿½ï¿½ï¿½	
                     break;
                 case Action.HeavyHit:
-                    currentAction = Random.Range(0f, 1f) < 0.55f ? Action.Charge : Action.Overload;//55%³äÄÜ  45%³¬ÔØ	
+                    currentAction = Random.Range(0f, 1f) < 0.55f ? Action.Charge : Action.Overload;//55%ï¿½ï¿½ï¿½ï¿½  45%ï¿½ï¿½ï¿½ï¿½	
                     break;
                 case Action.Overload:
-                    if (hasOverloadedConsecutively)//ÅÐ¶ÏÊÇ·ñÁ¬Ðø³äÄÜ
+                    if (hasOverloadedConsecutively)//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     {
-                        currentAction = Random.Range(0f, 1f) < 0.64f ? Action.Charge : Action.HeavyHit;//64%³äÄÜ  36%³¬ÔØ
+                        currentAction = Random.Range(0f, 1f) < 0.64f ? Action.Charge : Action.HeavyHit;//64%ï¿½ï¿½ï¿½ï¿½  36%ï¿½ï¿½ï¿½ï¿½
                         hasOverloadedConsecutively = false;
                     }
                     else
                     {
                         currentAction = Random.Range(0f, 1f) switch
                         {
-                            < 0.30f => Action.HeavyHit,//30%ÖØ»÷	
-                            > 0.85f => Action.Overload,//25%³¬ÔØ	
-                            _ => Action.Charge,//45%³äÄÜ	
+                            < 0.30f => Action.HeavyHit,//30%ï¿½Ø»ï¿½	
+                            > 0.85f => Action.Overload,//25%ï¿½ï¿½ï¿½ï¿½	
+                            _ => Action.Charge,//45%ï¿½ï¿½ï¿½ï¿½	
                         };
                         if (currentAction == Action.Overload)
                         {
@@ -161,12 +168,12 @@ public class Enemy : MonoBehaviour
 
     private void PerformGuard()
     {
-        Defense(5);// ÊØ»¤Âß¼­£¬Ôö¼Ó5µã»¤¼×
+        Defense(5);// ï¿½Ø»ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5ï¿½ã»¤ï¿½ï¿½
     }
     private void PerformHeavyHit()
     {
-        AttackSin = 4 + Strength;// ÖØ»÷Âß¼­£¬Ôì³É4µãÉËº¦
-        AttackCount = 1;//Ò»´Î
+        AttackSin = 8 + Strength;// ï¿½Ø»ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½ï¿½Ëºï¿½
+        AttackCount = 1;//Ò»ï¿½ï¿½
         Attack(player);
 
     }
@@ -174,26 +181,26 @@ public class Enemy : MonoBehaviour
     private void PerformRoar()
     {
         Strength += 1;
-        Agility += 2;// ÅØÏøÂß¼­£¬¸øÓè×ÔÉí1µãÁ¦Á¿£¨Ìá¸ßµ¥´ÎÉËº¦Xµã£©2µãÃô½Ý£¨Ìá¸ßµ¥´Î»¤¼×Xµã£©
+        Agility += 1;// ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½Ëºï¿½Xï¿½ã£©2ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ßµï¿½ï¿½Î»ï¿½ï¿½ï¿½Xï¿½ã£©
     }
 
     private void PerformCharge() 
     {
         Strength += 2;
-        Defense(15);//³äÄÜÂß¼­£¬¸øÓè×ÔÉí2µãÁ¦Á¿£¬¸øÓè×ÔÉí15µã»¤¼×
+        Defense(10);//ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½15ï¿½ã»¤ï¿½ï¿½
     }
 
     private void PerformOverload() 
     {
-        AttackSin = 1 + Strength;
+        AttackSin = 0 + Strength;
         AttackCount = 2;
         Attack(combatManager.player);
-        Defense(15);
-        //³¬ÔØÂß¼­£¬Ôì³É1µãÉËº¦Á½´Î¡¢¸øÓè×ÔÉí12µã»¤¼×
+        Defense(10);
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½Î¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½12ï¿½ã»¤ï¿½ï¿½
     }
     private void Defense(int addDefence) 
     {
-        enemyArmor = Mathf.Clamp(enemyArmor+addDefence + Agility, 0, 99);// È·±£»¤¼×Öµ²»ÊÇ¸ºÊý
+        enemyArmor = Mathf.Clamp(enemyArmor+addDefence + Agility, 0, 99);// È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½
     }
     public void AddBuff(Buff newBuff)
     {
@@ -208,22 +215,24 @@ public class Enemy : MonoBehaviour
             buffs[i].ApplyBuffEnemy(this);
             if (buffs[i].UpdateBuff())
             {
-                buffs.RemoveAt(i); // ÒÆ³ýÒÑ¾­½áÊøµÄBuff
+                buffs.RemoveAt(i); // ï¿½Æ³ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Buff
             }
         }
     }
     public void TakeDamage(int damage)
     {   
-        damage = Mathf.Max(0, damage - enemyArmor); // ¿¼ÂÇ»¤¼×
+        damage = Mathf.Max(0, damage - enemyArmor); // ï¿½ï¿½ï¿½Ç»ï¿½ï¿½ï¿½
         enemyArmor = Mathf.Clamp(enemyArmor - damage, 0, 99);
         enemyHP -= damage;
-        // Ìí¼ÓÊÜÉËº¦µÄÂß¼­
+
+
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ß¼ï¿½
     }
 
     public void Attack(Player target)
     {
         int attackDamage = AttackSin*AttackCount;
-        attackDamage = Mathf.Max(0, attackDamage); // È·±£ÉËº¦²»ÊÇ¸ºÊý
+        attackDamage = Mathf.Max(0, attackDamage); // È·ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½
         target.TakeDamage(attackDamage);
     }
 

@@ -6,8 +6,8 @@ using System;
 public class TTFEController : MonoBehaviour
 {
     public static TTFEController instance;
-    public static bool isCubeMoving; //¹ÜÀíÊÇ·ñ·½¿é´¦ÓÚÒÆ¶¯×´Ì¬
-    public static int ticker; //¿ÉÄÜÐèÒªÓÃÀ´½ÓÊÕÒ»Ð©¶¯×÷Ö¸ÁîµÄ±¸ÓÃ±äÁ¿
+    public static bool isCubeMoving; //ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ñ·½¿é´¦ï¿½ï¿½ï¿½Æ¶ï¿½×´Ì¬
+    public static int ticker; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ð©ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ä±ï¿½ï¿½Ã±ï¿½ï¿½ï¿½
 
     [SerializeField] GameObject cube;
     [SerializeField] int maxSpawnAmount;
@@ -16,21 +16,22 @@ public class TTFEController : MonoBehaviour
     public int moveTime;
     public bool isRoll;
     public bool isEnd;
+    public AK.Wwise.Event MyEvent;
 
     [Header("Deck")]
     [SerializeField] Deck deckManager;
 
 
-    //²ã¼¶ÈçÏÂ£º
-    //Grid£¨ÆåÅÌÉÏµÄ¸ñ×Ó£©-Cell£¨¸ñ×ÓÀïÃæµÄ2048¿é£©-Cube£¨Õâ¸ö¿é³ÐÔØµÄCubeÐÅÏ¢£©-Skill£¨Õâ¸öCube¶ÔÓ¦µÄ¼¼ÄÜ£©
-    //½¨Á¢Ò»¸ölist¹ÜÀípanelÉÏ´æÔÚµÄcellÎ»ÖÃ
+    //ï¿½ã¼¶ï¿½ï¿½ï¿½Â£ï¿½
+    //Gridï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÄ¸ï¿½ï¿½Ó£ï¿½-Cellï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2048ï¿½é£©-Cubeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½Cubeï¿½ï¿½Ï¢ï¿½ï¿½-Skillï¿½ï¿½ï¿½ï¿½ï¿½Cubeï¿½ï¿½Ó¦ï¿½Ä¼ï¿½ï¿½Ü£ï¿½
+    //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½listï¿½ï¿½ï¿½ï¿½panelï¿½Ï´ï¿½ï¿½Úµï¿½cellÎ»ï¿½ï¿½
     List<int> cellId;
-    //¶øÕâ¸ölist¹ÜÀípanelÉÏcubeµÄÖÖÀà
+    //ï¿½ï¿½ï¿½ï¿½ï¿½listï¿½ï¿½ï¿½ï¿½panelï¿½ï¿½cubeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public List<Cube> cubesInPanel;
-    //ÕâÀï·ÅÓÃÀ´Í³¼Æ³öÏÖ´ÎÊýµÄ¹¦ÄÜ£¬°¡°¡°¡°¡°¡°¡ºÃÂé·³
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½Æ³ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é·³
 
 
-    //------ÒÆ¶¯------
+    //------ï¿½Æ¶ï¿½------
     public static Action<string> slide;
 
     private void OnEnable()
@@ -43,13 +44,13 @@ public class TTFEController : MonoBehaviour
 
     void Start()
     {
-        Debug.Log($"Êý×é³¤¶È£º{allCells.Length}");
+        Debug.Log($"ï¿½ï¿½ï¿½é³¤ï¿½È£ï¿½{allCells.Length}");
         UpdateCubeInfo();
         isRoll = false;
     }
     public void Update()
     {
-        //ÒÆ¶¯ÊäÈë
+        //ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½
         if (!isCubeMoving)
         {
             if (Input.GetKeyDown(KeyCode.A))
@@ -70,7 +71,7 @@ public class TTFEController : MonoBehaviour
             }
         }
 
-        //²âÊÔÒ»ÏÂ×ªÂëÎÊÌâ
+        //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     }
 
@@ -78,11 +79,12 @@ public class TTFEController : MonoBehaviour
     {
         if (moveTime < maxMoveTime)
         {
-            //ÒôÆµ£º¿é»¬¶¯
+            //ï¿½ï¿½Æµï¿½ï¿½ï¿½é»¬ï¿½ï¿½
             ticker = 0;
             slide("left");
             UpdateCubeInfo();
             moveTime++;
+            MyEvent.Post(gameObject);
         }
         else return;
     }
@@ -90,11 +92,12 @@ public class TTFEController : MonoBehaviour
     {
         if (moveTime < maxMoveTime)
         {
-            //ÒôÆµ£º¿é»¬¶¯
+            //ï¿½ï¿½Æµï¿½ï¿½ï¿½é»¬ï¿½ï¿½
             ticker = 0;
             slide("up");
             UpdateCubeInfo();
             moveTime++;
+            MyEvent.Post(gameObject);
         }
         else return;
 
@@ -103,11 +106,12 @@ public class TTFEController : MonoBehaviour
     {
         if (moveTime < maxMoveTime)
         {
-            //ÒôÆµ£º¿é»¬¶¯
+            //ï¿½ï¿½Æµï¿½ï¿½ï¿½é»¬ï¿½ï¿½
             ticker = 0;
             slide("right");
             UpdateCubeInfo();
             moveTime++;
+            MyEvent.Post(gameObject);
         }
         else return;
 
@@ -116,11 +120,12 @@ public class TTFEController : MonoBehaviour
     {
         if (moveTime < maxMoveTime)
         {
-            //ÒôÆµ£º¿é»¬¶¯
+            //ï¿½ï¿½Æµï¿½ï¿½ï¿½é»¬ï¿½ï¿½
             ticker = 0;
             slide("down");
             UpdateCubeInfo();
             moveTime++;
+            MyEvent.Post(gameObject);
         }
         else return;
 
@@ -129,19 +134,19 @@ public class TTFEController : MonoBehaviour
     {
         if (!isRoll)
         {
-            //ÏÈ°ÑÖ®Ç°µÄÃæ°åÐÅÏ¢Çå¿Õ
+            //ï¿½È°ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½
             cubesInPanel = new List<Cube>();
-            //´ÓdeckÀï³éÑ¡×î¶à15¸ö·½¿é
+            //ï¿½ï¿½deckï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½15ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             List<Cube> spawnPool = new List<Cube>();
-            List<int> spawnId = new List<int>(); //ÁÙÊ±list£¬ÓÃÀ´¹ÜÀí±¾ÅúÉú³ÉµÄ·½¿é
-            //ÒôÆµ£ºÀÏ»¢»ú
+            List<int> spawnId = new List<int>(); //ï¿½ï¿½Ê±listï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉµÄ·ï¿½ï¿½ï¿½
+            //ï¿½ï¿½Æµï¿½ï¿½ï¿½Ï»ï¿½ï¿½ï¿½
             for (int i = 0; i < Mathf.Min(deckManager.cubeDeck.Count, maxSpawnAmount, allCells.Length);)
             {
                 int deckId = UnityEngine.Random.Range(0, deckManager.cubeDeck.Count);
                 if (!spawnId.Contains(deckId))
                 {
                     spawnId.Add(deckId);
-                    Debug.Log($"µÚ{deckId}¸ö·½¿é±»ÐÒÔËµØÑ¡ÖÐÁË£¡");
+                    Debug.Log($"ï¿½ï¿½{deckId}ï¿½ï¿½ï¿½ï¿½ï¿½é±»ï¿½ï¿½ï¿½Ëµï¿½Ñ¡ï¿½ï¿½ï¿½Ë£ï¿½");
                     SpawnCubeRandom(deckId);
                     i++;
                 }
@@ -151,17 +156,17 @@ public class TTFEController : MonoBehaviour
         isEnd = false;
     }
 
-    //ÔÚËæ»úÎ»ÖÃÉú³ÉÒ»¸ö·½¿é£¬È»ºó¸øËû°ó¶¨cube
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½é£¬È»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½cube
     public void SpawnCubeRandom(int deckId) 
     {
         //List<int> cellId = new List<int>();
-        //Éú³É·½¿é
-        Debug.Log($"----Éú³É·½¿é----");
+        //ï¿½ï¿½ï¿½É·ï¿½ï¿½ï¿½
+        Debug.Log($"----ï¿½ï¿½ï¿½É·ï¿½ï¿½ï¿½----");
         bool isCubeSpawn = false;
-        //ÂúÁË¾Í·Å²»ÏÂÁËµÄ±£ÏÕË¿
+        //ï¿½ï¿½ï¿½Ë¾Í·Å²ï¿½ï¿½ï¿½ï¿½ËµÄ±ï¿½ï¿½ï¿½Ë¿
         if (cellId.Count >= 25)
         {
-            Debug.Log($"·½¿éÂúÁË£¡·Å²»ÏÂÁË£¡");
+            Debug.Log($"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½Å²ï¿½ï¿½ï¿½ï¿½Ë£ï¿½");
             return;
         }
         if (!isCubeSpawn)
@@ -169,17 +174,17 @@ public class TTFEController : MonoBehaviour
             int whichSpawn = UnityEngine.Random.Range(0, allCells.Length);
             if (!cellId.Contains(whichSpawn))
             {
-                //Éú³ÉÒ»¸ö·½¿é
+                //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 GameObject cell = Instantiate(cube, allCells[whichSpawn].transform);
 
-                //°ÑcubeÐÅÏ¢¸üÐÂµ½cellÖÐ
+                //ï¿½ï¿½cubeï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Âµï¿½cellï¿½ï¿½
                 TTFECubeCell cubeCellComp = cell.GetComponent<TTFECubeCell>();
-                allCells[whichSpawn].GetComponent<TTFEGrid>().cell = cubeCellComp; //ÕâÒ»²½ÊÇÔÚÓÎÏ·Àï°ÑcellÈÓ½øgrid
-                cubeCellComp.cellUpdate(deckManager.cubeDeck[deckId]); //È»ºóÕâÀïÊÇ¸øÕâ¸öcell·ÖÅäcube
+                allCells[whichSpawn].GetComponent<TTFEGrid>().cell = cubeCellComp; //ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½cellï¿½Ó½ï¿½grid
+                cubeCellComp.cellUpdate(deckManager.cubeDeck[deckId]); //È»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½cellï¿½ï¿½ï¿½ï¿½cube
 
                 UpdateCubeInfo();
                 isCubeSpawn = true;
-                Debug.Log($"Éú³ÉÒ»¸ö{deckManager.cubeDeck[deckId].Base.CubeKey}·½¿éÔÚ{whichSpawn}ºÅÎ»");
+                Debug.Log($"ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½{deckManager.cubeDeck[deckId].Base.CubeKey}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{whichSpawn}ï¿½ï¿½Î»");
             }
             else
             {
@@ -190,7 +195,7 @@ public class TTFEController : MonoBehaviour
 
 
     }
-    //¸üÐÂÆåÅÌÉÏcubeµÄÐÅÏ¢
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½cubeï¿½ï¿½ï¿½ï¿½Ï¢
     public void UpdateCubeInfo()
     {
         cellId = new List<int>();
@@ -201,7 +206,7 @@ public class TTFEController : MonoBehaviour
             {
                 cellId.Add(i);
                 cubesInPanel.Add(allCells[i].cell.cube);
-                Debug.Log($"ÆåÅÌ¸üÐÂ£º{i}ºÅÎ»µÄ{allCells[i].cell.cube.Base.CubeKey}");
+                Debug.Log($"ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½Â£ï¿½{i}ï¿½ï¿½Î»ï¿½ï¿½{allCells[i].cell.cube.Base.CubeKey}");
             }
         }
     }
@@ -213,11 +218,11 @@ public class TTFEController : MonoBehaviour
             isRoll = false;
             isEnd = true;
             moveTime = 0;
-            Debug.Log($"½áÊø»ØºÏ");
+            Debug.Log($"ï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½");
         }
     }
 
-    //---------------------Ñ¡ÅÆ------------------------
+    //---------------------Ñ¡ï¿½ï¿½------------------------
 
 
 
