@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject uiPick;
     [SerializeField] GameObject uiTutorial;
     [SerializeField] GameObject uiMainGame;
+    [SerializeField] GameObject uiGameOver;
+    [SerializeField] GameObject uiGameWin;
 
     public bool isFirstTimePlay = true;
     //[SerializeField] GameObject TTFEController;
@@ -34,6 +37,8 @@ public class GameManager : MonoBehaviour
 
         gameState = GameState.none;
         uiMainMenu.SetActive(true);
+        uiGameOver.SetActive(false);
+        uiGameWin.SetActive(false);
         //Instantiate(TTFEController);
     }
 
@@ -42,6 +47,14 @@ public class GameManager : MonoBehaviour
         if (combatManager.state == CombatState.selectR || combatManager.state == CombatState.selectC)
         {
             uiPick.SetActive(true);
+        }
+        if (combatManager.state == CombatState.over)
+        {
+            uiGameOver.SetActive(true);
+        }
+        if (combatManager.state == CombatState.win)
+        {
+            uiGameWin.SetActive(true);
         }
     }
     //-------------------------------------界面切换部分---------------------------
@@ -82,6 +95,10 @@ public class GameManager : MonoBehaviour
     public enum GameState
     {
         comic, none, game,setting
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
 

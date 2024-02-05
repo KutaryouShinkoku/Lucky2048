@@ -13,6 +13,8 @@ public enum CombatState //各阶段
     combine, //2048
     end, //玩家回合结束，结算方块，先叠甲再攻击
     enemy, //敌人回合
+    over, //失败
+    win, //胜利
 }
 public class CombatManager : MonoBehaviour
 {
@@ -47,9 +49,6 @@ public class CombatManager : MonoBehaviour
         ResetCount();
         //GenerateDeckBuilder(deckPool.normalDeck);
         isCubeResolved = false;
-        Instantiate(player);
-        Instantiate(enemy);
-        InitializePlayerAndEnemy();
         player.playerArmor = 0;
         enemy.enemyArmor = 0;
         state = CombatState.selectR;
@@ -130,12 +129,14 @@ public class CombatManager : MonoBehaviour
             DeathCheck();// 检查战斗是否结束
             state = CombatState.selectR; // 回合结束，切换到玩家选择方块的阶段
         }
-    }
-
-
-    public void InitializePlayerAndEnemy()
-    {
-
+        if(player.playerHP <= 0)
+        {
+            state = CombatState.over;
+        }
+        if (enemy.enemyHP <= 0)
+        {
+            state = CombatState.win;
+        }
     }
 
     public void UpdateCombatStats()
