@@ -111,7 +111,7 @@ public class CombatManager : MonoBehaviour
                 isCubeResolved = true;
                 //流程为给方块取目标（把技能目标附给方块）-结算方块技能（在cube脚本）-处理技能对目标的结果
             }
-            DeathCheck();
+            //DeathCheck();
             if (cubeResolveTimer < 0)
             {
                 state = CombatState.enemy;
@@ -126,10 +126,10 @@ public class CombatManager : MonoBehaviour
 
             enemy.ProcessBuffs();//处理敌人的Buff
             enemy.PerformAction();//然后处理敌人的行动
-            DeathCheck();// 检查战斗是否结束
+            //DeathCheck();// 检查战斗是否结束
             state = CombatState.selectR; // 回合结束，切换到玩家选择方块的阶段
         }
-        if(player.playerHP <= 0)
+        if (player.playerHP <= 0)
         {
             state = CombatState.over;
         }
@@ -163,25 +163,25 @@ public class CombatManager : MonoBehaviour
     }
 
     //游戏结束的判定
-    public void DeathCheck() //检查玩家或者敌人是否有人死
-    {
-        if (player.playerHP==0)
-        {
-            // 玩家死亡，游戏失败
-            GameEnd(false);
-        }
-        else if (enemy.enemyHP==0)
-        {
-            // 敌人死亡，游戏获胜
-            GameEnd(true);
-        }
-    }
-    public void GameEnd(bool playerWon)
-    {
-        state = CombatState.none; // 停止游戏状态更新
-        gameEndText.gameObject.SetActive(true); // 显示游戏结束文本
-        gameEndText.text = playerWon ? "游戏胜利！" : "游戏失败！"; // 根据玩家是否赢得游戏来更新文本
-    }
+    //public void DeathCheck() //检查玩家或者敌人是否有人死
+    //{
+    //    if (player.playerHP==0)
+    //    {
+    //        // 玩家死亡，游戏失败
+    //        GameEnd(false);
+    //    }
+    //    else if (enemy.enemyHP==0)
+    //    {
+    //        // 敌人死亡，游戏获胜
+    //        GameEnd(true);
+    //    }
+    //}
+    //public void GameEnd(bool playerWon)
+    //{
+    //    state = CombatState.none; // 停止游戏状态更新
+    //    gameEndText.gameObject.SetActive(true); // 显示游戏结束文本
+    //    gameEndText.text = playerWon ? "游戏胜利！" : "游戏失败！"; // 根据玩家是否赢得游戏来更新文本
+    //}
     //-------------------------卡组相关------------------------
     public void GenerateDeckBuilder(List<Cube> pool)
     {

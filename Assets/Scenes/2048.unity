@@ -183,6 +183,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   enemyHP: 0
   enemyArmor: 0
+  IsStunned: 0
+  player: {fileID: 722719139}
 --- !u!114 &73972795 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5471578117306170819, guid: 7b49fcfea7eef2f4a86b4d2e0a08ca4b, type: 3}
