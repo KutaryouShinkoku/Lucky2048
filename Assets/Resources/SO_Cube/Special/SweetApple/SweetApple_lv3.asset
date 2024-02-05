@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: SweetApple_lv3
   m_EditorClassIdentifier: 
   cubeKey: SweetApple_lv3
-  cubeName: 
+  cubeName: "\u751C\u871C\u82F9\u679Clv3"
   level: 2
   nextLevelCube:
     _base: {fileID: 11400000, guid: 324076046cc799e4e878eae4749d1c74, type: 2}
+    skills: []
   lastLevelCube:
     _base: {fileID: 11400000, guid: 671feabca16e9f84aaf7e2c885c0c9b1, type: 2}
+    skills: []
   cubeRarity: 0
   cubeRace: 2
   cubeType: 2

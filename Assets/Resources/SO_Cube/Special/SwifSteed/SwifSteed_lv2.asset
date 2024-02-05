@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58d141aee39ec346a762fb2cc42227e, type: 3}
+  m_Name: SwifSteed_lv2
+  m_EditorClassIdentifier: 
+  cubeKey: "Swift steed\u2014\u2014lv2"
+  cubeName: "\u6025\u901F\u9A8F\u9A6Clv2"
+  level: 1
+  nextLevelCube:
+    _base: {fileID: 11400000, guid: 5c8fc02a95a94f2488aa2068100dcea6, type: 2}
+    skills: []
+  lastLevelCube:
+    _base: {fileID: 11400000, guid: 39b074d8e0023654d9d835feec1ee6d8, type: 2}
+    skills: []
+  cubeRarity: 1
+  cubeRace: 0
+  cubeType: 2
+  description: "25%\u7684\u6982\u7387\u4F7F\u654C\u65B9\u4E0B\u56DE\u5408\u65E0\u6CD5\u83B7\u5F97\u62A4\u7532\u300215%\u7684\u6982\u7387\u4F7F\u654C\u65B9\u6655\u7729\u3002"
+  sprite: {fileID: 21300000, guid: a7ba5b182911d70448af3499798c1d81, type: 3}
+  cubeSkill:
+  - skillBase: {fileID: 11400000, guid: 49e1f7cf67ed905419d158c420b7116d, type: 2}
+    skillPar: 25
+  - skillBase: {fileID: 11400000, guid: 426b01846c12152409cee496bebfc3a4, type: 2}
+    skillPar: 15

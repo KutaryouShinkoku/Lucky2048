@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: ActiveMilk_lv3
   m_EditorClassIdentifier: 
   cubeKey: ActiveMilk_lv3
-  cubeName: 
+  cubeName: "\u6D3B\u529B\u725B\u5976lv3"
   level: 2
   nextLevelCube:
     _base: {fileID: 11400000, guid: d57c1177aa3e3a148b3b644c358852b1, type: 2}
+    skills: []
   lastLevelCube:
     _base: {fileID: 11400000, guid: 41392d48552aace43992d2d866ae8905, type: 2}
+    skills: []
   cubeRarity: 1
   cubeRace: 0
   cubeType: 2

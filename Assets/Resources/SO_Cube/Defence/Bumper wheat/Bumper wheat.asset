@@ -10,20 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b58d141aee39ec346a762fb2cc42227e, type: 3}
-  m_Name: BumperWheat_lv2
+  m_Name: Bumper wheat
   m_EditorClassIdentifier: 
-  cubeKey: BumperWheat_lv2
-  cubeName: 
-  level: 1
+  cubeKey: 
+  cubeName: "\u4E30\u6536\u9EA6\u7A57lv1"
+  level: 0
   nextLevelCube:
-    _base: {fileID: 11400000, guid: ffc8986f26675d34fa4075ec44715f68, type: 2}
+    _base: {fileID: 11400000, guid: b03991fd02f946447b7113fd2ad10859, type: 2}
+    skills: []
   lastLevelCube:
-    _base: {fileID: 11400000, guid: 3c4599d88435f05449dab15628dfb138, type: 2}
+    _base: {fileID: 0}
+    skills: []
   cubeRarity: 2
   cubeRace: 0
-  cubeType: 2
-  description: "\u5C06\u5468\u56F4\u7684\u65B9\u5757\u7B49\u7EA7\u6682\u65F6\u63D0\u53471\u7EA7\u3002"
+  cubeType: 1
+  description: "\u4E3A\u73A9\u5BB6\u63D0\u4F9B10\u70B9\u62A4\u7532\u3002"
   sprite: {fileID: 21300000, guid: 601f5890def7b1941aa7568ba6ff6dd6, type: 3}
   cubeSkill:
-  - skillBase: {fileID: 11400000, guid: d6a18abcdcaf2d24f8e7672a540940e2, type: 2}
-    skillPar: 0
+  - skillBase: {fileID: 11400000, guid: 65b704f8afade7c47a89a6af947bc374, type: 2}
+    skillPar: 10

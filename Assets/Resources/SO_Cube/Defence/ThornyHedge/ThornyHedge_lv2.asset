@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: ThornyHedge_lv2
   m_EditorClassIdentifier: 
   cubeKey: hedge_lv2
-  cubeName: 
+  cubeName: "\u8346\u68D8\u7BF1\u7B06lv2"
   level: 1
   nextLevelCube:
     _base: {fileID: 11400000, guid: 143d17ff03b33644caaa27ea1e431faf, type: 2}
-    target: {fileID: 0}
+    skills: []
   lastLevelCube:
     _base: {fileID: 11400000, guid: bf7630d471fd8b84da0df534e158dfd8, type: 2}
-    target: {fileID: 0}
+    skills: []
   cubeRarity: 1
   cubeRace: 0
   cubeType: 1
-  description: "\u4E3A\u73A9\u5BB6\u63D0\u4F9B6\u70B9\u62A4\u7532\uFF0C9\u5C42\u8346\u68D8"
+  description: "\u4E3A\u73A9\u5BB6\u63D0\u4F9B6\u70B9\u62A4\u7532\uFF0C9\u5C42\u8346\u68D8\u3002"
   sprite: {fileID: 21300000, guid: dc2cff96c841f334d8e4ee89ef299496, type: 3}
   cubeSkill:
   - skillBase: {fileID: 11400000, guid: 65b704f8afade7c47a89a6af947bc374, type: 2}

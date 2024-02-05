@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Viper_lv1
   m_EditorClassIdentifier: 
   cubeKey: Viper_1
-  cubeName: 
+  cubeName: "\u9634\u9669\u6BD2\u86C7lv1"
   level: 0
   nextLevelCube:
     _base: {fileID: 11400000, guid: 903158cd7f3a44f46b28c58b7ad6672d, type: 2}
+    skills: []
   lastLevelCube:
     _base: {fileID: 0}
+    skills: []
   cubeRarity: 0
   cubeRace: 0
   cubeType: 0

@@ -46,16 +46,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalDeck:
   - _base: {fileID: 11400000, guid: acb145a50f4ecee4fb1733830459e5f1, type: 2}
+    skills: []
   - _base: {fileID: 11400000, guid: b1b7e2c50ce1b1a46a5aa9d89d3214e6, type: 2}
+    skills: []
   - _base: {fileID: 11400000, guid: fdbd109e403d3a743bd9030c6e7d11d8, type: 2}
+    skills: []
   - _base: {fileID: 11400000, guid: 52808c3ab5fd09d44b1ba99dd8eb6066, type: 2}
+    skills: []
   - _base: {fileID: 11400000, guid: d03cc87c4fe8a74428b51775841bcb8a, type: 2}
+    skills: []
   rareDeck:
   - _base: {fileID: 11400000, guid: 16cf9946067a988499ed53a67360903b, type: 2}
+    skills: []
   - _base: {fileID: 11400000, guid: bf7630d471fd8b84da0df534e158dfd8, type: 2}
-  - _base: {fileID: 11400000, guid: b6d5b7655f3982645962c0e19a831119, type: 2}
+    skills: []
+  - _base: {fileID: 11400000, guid: 39b074d8e0023654d9d835feec1ee6d8, type: 2}
+    skills: []
   - _base: {fileID: 11400000, guid: fbaaebb96654ab54c9dd6c5c03006df1, type: 2}
+    skills: []
   epicDeck:
   - _base: {fileID: 11400000, guid: 80fc1e65d552a75488a3fac7b9e86e48, type: 2}
+    skills: []
   - _base: {fileID: 11400000, guid: 8212b6c57ec5dd04aa8c62c863f14614, type: 2}
-  - _base: {fileID: 11400000, guid: 3c4599d88435f05449dab15628dfb138, type: 2}
+    skills: []
+  - _base: {fileID: 11400000, guid: c91494c833228a647a2938e5f4612a97, type: 2}
+    skills: []

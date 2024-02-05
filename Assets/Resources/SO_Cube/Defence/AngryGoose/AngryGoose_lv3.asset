@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: AngryGoose_lv3
   m_EditorClassIdentifier: 
   cubeKey: goose_lv3
-  cubeName: 
+  cubeName: "\u6124\u6012\u5927\u9E45lv3"
   level: 2
   nextLevelCube:
     _base: {fileID: 11400000, guid: a6d19e192a563e849bf75d2ad5a924a6, type: 2}
+    skills: []
   lastLevelCube:
     _base: {fileID: 11400000, guid: c9913314aee822a4c98d892fb8ef2d02, type: 2}
+    skills: []
   cubeRarity: 2
   cubeRace: 0
   cubeType: 1

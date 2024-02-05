@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: LoyalWatchdog_lv2
   m_EditorClassIdentifier: 
   cubeKey: dog_lv2
-  cubeName: 
+  cubeName: "\u5FE0\u8BDA\u770B\u95E8\u72D7lv2"
   level: 1
   nextLevelCube:
     _base: {fileID: 11400000, guid: 8abdf79966ff71e4f88dbe33969f0219, type: 2}
-    target: {fileID: 0}
+    skills: []
   lastLevelCube:
     _base: {fileID: 11400000, guid: fdbd109e403d3a743bd9030c6e7d11d8, type: 2}
-    target: {fileID: 0}
+    skills: []
   cubeRarity: 0
   cubeRace: 0
   cubeType: 1

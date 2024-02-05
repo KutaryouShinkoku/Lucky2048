@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: HotChili_lv3
   m_EditorClassIdentifier: 
   cubeKey: HotChili_lv1
-  cubeName: 
+  cubeName: "\u6D3B\u529B\u725B\u5976lv3"
   level: 2
   nextLevelCube:
     _base: {fileID: 11400000, guid: 614bd35a288d9d748b9a58ba2fd02f06, type: 2}
+    skills: []
   lastLevelCube:
     _base: {fileID: 11400000, guid: de77dfe12ea8b7e42957f2f1baf7b79a, type: 2}
+    skills: []
   cubeRarity: 1
   cubeRace: 0
   cubeType: 0

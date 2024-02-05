@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: MixedSheep_lv2
   m_EditorClassIdentifier: 
   cubeKey: MixedSheep_lv2
-  cubeName: 
+  cubeName: "\u4EA4\u7EC7\u7EF5\u7F8Alv2"
   level: 1
   nextLevelCube:
     _base: {fileID: 11400000, guid: 1781a2a48884bfa44b551840c61c349d, type: 2}
+    skills: []
   lastLevelCube:
     _base: {fileID: 11400000, guid: 80fc1e65d552a75488a3fac7b9e86e48, type: 2}
+    skills: []
   cubeRarity: 2
   cubeRace: 0
   cubeType: 0
