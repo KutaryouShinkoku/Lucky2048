@@ -16,7 +16,7 @@ MonoBehaviour:
   cubeName: "\u52C7\u731B\u8702\u7FA4lv3"
   level: 2
   nextLevelCube:
-    _base: {fileID: 11400000, guid: 3a5bbadfc93a9644ea7c01adc534034a, type: 2}
+    _base: {fileID: 0}
     skills: []
   lastLevelCube:
     _base: {fileID: 11400000, guid: aca52a2df0661184b9a62e96e0a3239c, type: 2}
@@ -27,5 +27,5 @@ MonoBehaviour:
   description: "\u9020\u62102\u70B9\u4F24\u5BB3\uFF0C\u9762\u677F\u4E0A\u6240\u6709\u8702\u7FA4\u9020\u62104\u500D\u4F24\u5BB3\u3002"
   sprite: {fileID: 21300000, guid: 5102bb7116cb61942a478295814bf120, type: 3}
   cubeSkill:
-  - skillBase: {fileID: 11400000, guid: 17ce764ce43073b46a5ad7cd809b3fe3, type: 2}
-    skillPar: 2
+  - skillBase: {fileID: 11400000, guid: beb7e51bdbd75184a85c03611985c61b, type: 2}
+    skillPar: 10

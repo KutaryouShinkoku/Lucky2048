@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     public int AttackSin { get; set; }//敌人单次伤害
     public int Strength { get; set; }//敌人力量
     public int Agility {  get; set; }//敌人敏捷
+    public int Breakdown { get; set; }//敌人破甲
     public bool IsStunned = false; // 是否被晕眩
     private bool isInSecondPhase = false;//敌人是否进入二阶段
     private bool hasOverloadedConsecutively = false;//敌人是否连续两次充能
@@ -135,8 +136,8 @@ public class Enemy : MonoBehaviour
 
     public void PerformAction()
     {
-        //if (!IsStunned)
-        //{
+        if (!IsStunned)
+        {
             switch (currentAction)
             {
                 case Action.Guard:
@@ -155,7 +156,7 @@ public class Enemy : MonoBehaviour
                     PerformOverload();
                     break;
             }
-        //}
+        }
     }
 
     private void PerformGuard()
@@ -212,7 +213,7 @@ public class Enemy : MonoBehaviour
         }
     }
     public void TakeDamage(int damage)
-    {
+    {   
         damage = Mathf.Max(0, damage - enemyArmor); // 考虑护甲
         enemyArmor = Mathf.Clamp(enemyArmor - damage, 0, 99);
         enemyHP -= damage;

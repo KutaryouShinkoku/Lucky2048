@@ -5,11 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class Buff
 {
-    public enum BuffType { Weakness, Poison, Stun, Thorns, Buffer, Breakdown, }
+    public enum BuffType { Weakness, Poison, Stun, Thorns, Buffer, Breakdown, Levelup }
     public BuffType type;
     public int SkillPar; // 具体暴露的数据
     public int duration; // Buff持续的回合数
-
     public Buff(BuffType type, int SkillPar,int duration)
     {
         this.type = type;
@@ -31,12 +30,18 @@ public class Buff
                 SkillPar = Mathf.Max(0, SkillPar - 1); // 中毒伤害递减
                 break;
             case BuffType.Stun://眩晕
-                enemy.IsStunned = true;
-                break;
+                float rad= SkillPar / 100;
+                if (Random.Range(0f, 1f) <rad) 
+                {
+                    enemy.IsStunned = true; 
+                }
+                    break; 
             case BuffType.Thorns://荆棘
-                // Thorns Buff可能不需要在这里立即应用效果
                 break;
             case BuffType.Breakdown://破甲
+                break;
+            case BuffType.Levelup:
+                enemy.damage *= SkillPar; //苹果
                 break;
 
         }

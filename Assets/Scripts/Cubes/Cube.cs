@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 using static Buff;
+using static BuffUIManager;
 using static CombatManager;
 
 [System.Serializable]
@@ -88,19 +90,19 @@ public class Cube
                 break;
             case SkillEffects.ApplyPoison:
                 //中毒
-                combatManager.enemy.AddBuff(new Buff(BuffType.Buffer, skillPar, skill.Duration));
+                combatManager.enemy.AddBuff(new Buff(BuffType.Poison, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyBreakdown:
                 //破甲
-                combatManager.enemy.AddBuff(new Buff(BuffType.Buffer, skillPar, skill.Duration));
+                combatManager.enemy.AddBuff(new Buff(BuffType.Breakdown, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyStun:
                 //眩晕
-                combatManager.enemy.AddBuff(new Buff(BuffType.Buffer, skillPar, skill.Duration));
+                combatManager.enemy.AddBuff(new Buff(BuffType.Stun, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyApple:
                 //苹果伤害倍率提升
-                combatManager.enemy.AddBuff(new Buff(BuffType.Buffer, skillPar, skill.Duration));
+                combatManager.enemy.AddBuff(new Buff(BuffType.Levelup, skillPar, skill.Duration));
                 break;
             case SkillEffects.ApplyHorse:
                 //骏马移动次数提升
