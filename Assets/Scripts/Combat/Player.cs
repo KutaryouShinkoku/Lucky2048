@@ -91,7 +91,8 @@ public class Player : MonoBehaviour
     {
         if (playerBuffer == 0)
         {
-        //移除Buffer这个Buff
+            //移除Buffer这个Buff
+            //buffs.RemoveAll(buff => buff.type == "Buffer");
         }
     }
     public void AddArmor(int AddA) 
