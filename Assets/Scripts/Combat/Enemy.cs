@@ -28,7 +28,11 @@ public class Enemy : MonoBehaviour
     public bool IsStunned { get; set; } // 是否被晕眩
     private bool isInSecondPhase = false;//敌人是否进入二阶段
     private bool hasOverloadedConsecutively = false;//敌人是否连续两次充能
-
+    private CombatManager combatManager;
+    public void setup(CombatManager combatManager) 
+    {
+        this.combatManager = combatManager;
+    }
 
     void Start()
     {
@@ -158,6 +162,7 @@ public class Enemy : MonoBehaviour
     {
         AttackSin = 4 + Strength;// 重击逻辑，造成4点伤害
         AttackCount = 1;//一次
+        Attack(combatManager.player);
 
     }
 
@@ -177,6 +182,7 @@ public class Enemy : MonoBehaviour
     {
         AttackSin = 1 + Strength;
         AttackCount = 2;
+        Attack(combatManager.player);
         Defense(15);
         //超载逻辑，造成1点伤害两次、给予自身12点护甲
     }
