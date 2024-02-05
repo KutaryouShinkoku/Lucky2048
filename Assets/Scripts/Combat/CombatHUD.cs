@@ -14,9 +14,11 @@ public class CombatHUD : MonoBehaviour
     [SerializeField] Slider sldEnemyHP;
     [SerializeField] Text txtEnemyArmor;
     [SerializeField] Slider sldEnemyArmor;
+    [SerializeField] Text remainMoveTime;
 
     [Header("Game")]
     public  CombatManager manager;
+    public TTFEController ttfeController;
     public  Player player;
     public  Enemy enemy;
     //[SerializeField] Text txtNextAction; // 显示下一回合敌人的意图
@@ -33,6 +35,7 @@ public class CombatHUD : MonoBehaviour
     void Update()
     {
         UpdateHp();
+        UpdateMoveTimes();
     }
 
     void InitializeHUD()
@@ -60,7 +63,10 @@ public class CombatHUD : MonoBehaviour
         sldEnemyArmor.value = enemy.enemyArmor;
     }
 
-
+    public void UpdateMoveTimes()
+    {
+        remainMoveTime.text = $"剩余移动次数：{ttfeController.maxMoveTime - ttfeController.moveTime}/{ttfeController.maxMoveTime}";
+    }
 
     public void SetHPBarSmoothly()
     {

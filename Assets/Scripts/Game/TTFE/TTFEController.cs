@@ -13,9 +13,9 @@ public class TTFEController : MonoBehaviour
     [SerializeField] int maxSpawnAmount;
     public TTFEGrid[] allCells;
     public int maxMoveTime;
+    public int moveTime;
     public bool isRoll;
     public bool isEnd;
-    
 
     [Header("Deck")]
     [SerializeField] Deck deckManager;
@@ -76,53 +76,79 @@ public class TTFEController : MonoBehaviour
 
     public void SlideLeft()
     {
-        //音频：块滑动
-        ticker = 0;
-        slide("left");
-        UpdateCubeInfo();
+        if (moveTime < maxMoveTime)
+        {
+            //音频：块滑动
+            ticker = 0;
+            slide("left");
+            UpdateCubeInfo();
+            moveTime++;
+        }
+        else return;
     }
     public void SlideUp()
     {
-        //音频：块滑动
-        ticker = 0;
-        slide("up");
-        UpdateCubeInfo();
+        if (moveTime < maxMoveTime)
+        {
+            //音频：块滑动
+            ticker = 0;
+            slide("up");
+            UpdateCubeInfo();
+            moveTime++;
+        }
+        else return;
+
     }
     public void SlideRight()
     {
-        //音频：块滑动
-        ticker = 0;
-        slide("right");
-        UpdateCubeInfo();
+        if (moveTime < maxMoveTime)
+        {
+            //音频：块滑动
+            ticker = 0;
+            slide("right");
+            UpdateCubeInfo();
+            moveTime++;
+        }
+        else return;
+
     }
     public void SlideDown()
     {
-        //音频：块滑动
-        ticker = 0;
-        slide("down");
-        UpdateCubeInfo();
+        if (moveTime < maxMoveTime)
+        {
+            //音频：块滑动
+            ticker = 0;
+            slide("down");
+            UpdateCubeInfo();
+            moveTime++;
+        }
+        else return;
+
     }
     public void InitializeTTFE()
     {
-        //先把之前的面板信息清空
-        cubesInPanel = new List<Cube>();
-        //从deck里抽选最多15个方块
-        List<Cube> spawnPool = new List<Cube>();
-        List<int> spawnId = new List<int>(); //临时list，用来管理本批生成的方块
-        //音频：老虎机
-        for (int i = 0;i < Mathf.Min(deckManager.cubeDeck.Count, maxSpawnAmount, allCells.Length);) 
+        if (!isRoll)
         {
-            int deckId = UnityEngine.Random.Range(0, deckManager.cubeDeck.Count);
-            if(!spawnId.Contains (deckId))
+            //先把之前的面板信息清空
+            cubesInPanel = new List<Cube>();
+            //从deck里抽选最多15个方块
+            List<Cube> spawnPool = new List<Cube>();
+            List<int> spawnId = new List<int>(); //临时list，用来管理本批生成的方块
+                                                 //音频：老虎机
+            for (int i = 0; i < Mathf.Min(deckManager.cubeDeck.Count, maxSpawnAmount, allCells.Length);)
             {
-                spawnId.Add(deckId);
-                Debug.Log($"第{deckId}个方块被幸运地选中了！");
-                SpawnCubeRandom(deckId);
-                i++;
+                int deckId = UnityEngine.Random.Range(0, deckManager.cubeDeck.Count);
+                if (!spawnId.Contains(deckId))
+                {
+                    spawnId.Add(deckId);
+                    Debug.Log($"第{deckId}个方块被幸运地选中了！");
+                    SpawnCubeRandom(deckId);
+                    i++;
+                }
             }
+            isRoll = true;
         }
         isEnd = false;
-        isRoll = true;
     }
 
     //在随机位置生成一个方块，然后给他绑定cube
@@ -184,6 +210,7 @@ public class TTFEController : MonoBehaviour
     {
         isRoll = false;
         isEnd = true;
+        moveTime = 0;
         Debug.Log($"结束回合");
     }
 
