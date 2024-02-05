@@ -54,31 +54,19 @@ public class TTFEController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                //“Ù∆µ£∫øÈª¨∂Ø
-                ticker = 0;
-                slide("left");
-                UpdateCubeInfo();
+                SlideLeft();
             }
             if (Input.GetKeyDown(KeyCode.W))
             {
-                //“Ù∆µ£∫øÈª¨∂Ø
-                ticker = 0;
-                slide("up");
-                UpdateCubeInfo();
+                SlideUp();
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
-                //“Ù∆µ£∫øÈª¨∂Ø
-                ticker = 0;
-                slide("right");
-                UpdateCubeInfo();
+                SlideRight();
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
-                //“Ù∆µ£∫øÈª¨∂Ø
-                ticker = 0;
-                slide("down");
-                UpdateCubeInfo();
+                SlideDown();
             }
         }
 
@@ -86,6 +74,34 @@ public class TTFEController : MonoBehaviour
 
     }
 
+    public void SlideLeft()
+    {
+        //“Ù∆µ£∫øÈª¨∂Ø
+        ticker = 0;
+        slide("left");
+        UpdateCubeInfo();
+    }
+    public void SlideUp()
+    {
+        //“Ù∆µ£∫øÈª¨∂Ø
+        ticker = 0;
+        slide("up");
+        UpdateCubeInfo();
+    }
+    public void SlideRight()
+    {
+        //“Ù∆µ£∫øÈª¨∂Ø
+        ticker = 0;
+        slide("right");
+        UpdateCubeInfo();
+    }
+    public void SlideDown()
+    {
+        //“Ù∆µ£∫øÈª¨∂Ø
+        ticker = 0;
+        slide("down");
+        UpdateCubeInfo();
+    }
     public void InitializeTTFE()
     {
         //œ»∞—÷Æ«∞µƒ√Ê∞Â–≈œ¢«Âø’

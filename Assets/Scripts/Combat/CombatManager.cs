@@ -239,9 +239,8 @@ public class CombatManager : MonoBehaviour
         state = CombatState.selectR;
         Debug.Log("ักลฦ");
     }
-    public void JieshuTest()
+    public void EndTurn()
     {
         state = CombatState.end;
-        Debug.Log("ักลฦ");
     }
 }
