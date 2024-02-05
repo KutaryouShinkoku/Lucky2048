@@ -98,6 +98,7 @@ public class Player : MonoBehaviour
     public void AddArmor(int AddA) 
     {
         playerArmor = Mathf.Clamp(playerArmor + AddA, 0, 99);
+        Debug.Log($"Íæ¼Ò¼Ó»¤¼×");
     }
 
     private void OnDestroy()

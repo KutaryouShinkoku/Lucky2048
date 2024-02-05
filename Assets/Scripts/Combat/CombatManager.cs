@@ -258,6 +258,9 @@ public class CombatManager : MonoBehaviour
     }
     public void EndTurn()
     {
-        state = CombatState.end;
+        if (ttfeController.isRoll == true)
+        {
+            state = CombatState.end;
+        }
     }
 }

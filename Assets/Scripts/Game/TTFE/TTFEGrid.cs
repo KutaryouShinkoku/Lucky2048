@@ -30,7 +30,6 @@ public class TTFEGrid : MonoBehaviour
     {
         if (combatManager.state == CombatState.selectR&&gameObject.transform.childCount!=0)
         {
-            Debug.Log("Çå¸ñ×Ó");
             cell = null;
             Transform transform;
             for(int i = 0; i < gameObject.transform.childCount; i++)
