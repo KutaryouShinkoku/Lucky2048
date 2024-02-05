@@ -23,6 +23,8 @@ public class CombatManager : MonoBehaviour
     [Header("UI")]
     public CombatHUD combatHUD;
     public Text gameEndText; // 游戏结束时显示的文本
+    bool isCubeResolved;
+    float cubeResolveTimer = 1.5f;
     [SerializeField] TTFEController ttfeController;
 
     [SerializeField] DeckPool deckPool; //全部的卡池以及权重
@@ -43,7 +45,8 @@ public class CombatManager : MonoBehaviour
     public void Start()
     {
         ResetCount();
-        GenerateDeckBuilder(deckPool.normalDeck);
+        //GenerateDeckBuilder(deckPool.normalDeck);
+        isCubeResolved = false;
         Instantiate(player);
         Instantiate(enemy);
         InitializePlayerAndEnemy();
@@ -96,21 +99,32 @@ public class CombatManager : MonoBehaviour
         //回合结束开始处理方块
         if(state == CombatState.end)
         {
-            for(int i = 0; i < ttfeController.cubesInPanel.Count;i++)
+            cubeResolveTimer -= Time.deltaTime;
+            if (!isCubeResolved)
             {
-                ttfeController.cubesInPanel[i].Setup(this);
-                //先处理稻穗的升级
-                //然后依次处理方块的技能
-                ttfeController.cubesInPanel[i].ResolveSkills();
+                for (int i = 0; i < ttfeController.cubesInPanel.Count; i++)
+                {
+                    ttfeController.cubesInPanel[i].Setup(this);
+                    //先处理稻穗的升级
+                    //然后依次处理方块的技能
+                    ttfeController.cubesInPanel[i].ResolveSkills();
+                }
+                isCubeResolved = true;
+                //流程为给方块取目标（把技能目标附给方块）-结算方块技能（在cube脚本）-处理技能对目标的结果
             }
-            //流程为给方块取目标（把技能目标附给方块）-结算方块技能（在cube脚本）-处理技能对目标的结果
             DeathCheck();
-            state = CombatState.enemy;
+            if (cubeResolveTimer < 0)
+            {
+                state = CombatState.enemy;
+                isCubeResolved = false;
+                cubeResolveTimer = 1.5f;
+            }
         }
 
         //敌人回合
         if(state == CombatState.enemy)
         {
+
             enemy.ProcessBuffs();//处理敌人的Buff
             if (enemy.IsStunned)// 跳过行动逻辑
             {
@@ -122,6 +136,8 @@ public class CombatManager : MonoBehaviour
             state = CombatState.selectR; // 回合结束，切换到玩家选择方块的阶段
         }
     }
+
+
     public void InitializePlayerAndEnemy()
     {
 
