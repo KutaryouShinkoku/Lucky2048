@@ -25,14 +25,15 @@ public class Enemy : MonoBehaviour
     public int AttackSin { get; set; }//敌人单次伤害
     public int Strength { get; set; }//敌人力量
     public int Agility {  get; set; }//敌人敏捷
-    public bool IsStunned { get; set; } // 是否被晕眩
+    public bool IsStunned = false; // 是否被晕眩
     private bool isInSecondPhase = false;//敌人是否进入二阶段
     private bool hasOverloadedConsecutively = false;//敌人是否连续两次充能
     private CombatManager combatManager;
-    public void setup(CombatManager combatManager) 
-    {
-        this.combatManager = combatManager;
-    }
+    public Player player;
+    //public void setup(CombatManager combatManager) 
+    //{
+    //    this.combatManager = combatManager;
+    //}
 
     void Start()
     {
@@ -134,24 +135,27 @@ public class Enemy : MonoBehaviour
 
     public void PerformAction()
     {
-        switch (currentAction)
-        {
-            case Action.Guard:
-                PerformGuard();
-                break;
-            case Action.HeavyHit:
-                PerformHeavyHit();
-                break;
-            case Action.Roar:
-                PerformRoar();
-                break;
-            case Action.Charge:
-                PerformCharge();
-                break;
-            case Action.Overload:
-                PerformOverload();
-                break;
-        }
+        //if (!IsStunned)
+        //{
+            switch (currentAction)
+            {
+                case Action.Guard:
+                    PerformGuard();
+                    break;
+                case Action.HeavyHit:
+                    PerformHeavyHit();
+                    break;
+                case Action.Roar:
+                    PerformRoar();
+                    break;
+                case Action.Charge:
+                    PerformCharge();
+                    break;
+                case Action.Overload:
+                    PerformOverload();
+                    break;
+            }
+        //}
     }
 
     private void PerformGuard()
@@ -162,7 +166,7 @@ public class Enemy : MonoBehaviour
     {
         AttackSin = 4 + Strength;// 重击逻辑，造成4点伤害
         AttackCount = 1;//一次
-        Attack(combatManager.player);
+        Attack(player);
 
     }
 
