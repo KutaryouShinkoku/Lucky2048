@@ -126,12 +126,7 @@ public class CombatManager : MonoBehaviour
         {
 
             enemy.ProcessBuffs();//处理敌人的Buff
-            if (enemy.IsStunned)// 跳过行动逻辑
-            {
-                enemy.PerformAction();//然后处理敌人的行动
-                enemy.Attack(player);
-                return;
-            }
+            enemy.PerformAction();//然后处理敌人的行动
             DeathCheck();// 检查战斗是否结束
             state = CombatState.selectR; // 回合结束，切换到玩家选择方块的阶段
         }
