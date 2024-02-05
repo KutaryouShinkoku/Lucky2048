@@ -38,6 +38,7 @@ public class CombatManager : MonoBehaviour
     //这个list则是临时用来管理选牌的
     public List<int> tempId;
 
+
     private int thornsBuffIntensity; // 荆棘 Buff 的强度
     public void Start()
     {
@@ -111,7 +112,12 @@ public class CombatManager : MonoBehaviour
         if(state == CombatState.enemy)
         {
             enemy.ProcessBuffs();//处理敌人的Buff
-            enemy.PerformAction();//然后处理敌人的行动
+            if (enemy.IsStunned)// 跳过行动逻辑
+            {
+                enemy.PerformAction();//然后处理敌人的行动
+                enemy.Attack(player);
+                return;
+            }
             DeathCheck();// 检查战斗是否结束
             state = CombatState.selectR; // 回合结束，切换到玩家选择方块的阶段
         }

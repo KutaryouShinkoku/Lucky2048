@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
             else
             {
                 playerArmor = 0;// 播放护甲受损音效
-                if (IsBuffer!)
+                if (!IsBuffer)
                 {
                     playerHP -= (damage - playerArmor); // 播放生命受损音效
                 }
@@ -69,11 +69,11 @@ public class Player : MonoBehaviour
 
         playerHP = Mathf.Max(0, playerHP); // 确保血量不会变成负数
 
-        int damageTaken = originalHP - playerHP; // 计算实际受到的伤害
-        if (damageTaken > 0)
-        {
-            OnDamageTaken?.Invoke(damageTaken); // 只有当实际受到伤害时才触发事件
-        }
+        //int damageTaken = originalHP - playerHP; // 计算实际受到的伤害
+        //if (damageTaken > 0)
+        //{
+        //    OnDamageTaken?.Invoke(damageTaken); // 只有当实际受到伤害时才触发事件
+        //}
     }
     private void UpdatePlayerHealthUI(int damage)
     {

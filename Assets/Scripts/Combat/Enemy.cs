@@ -12,9 +12,9 @@ public class Enemy : MonoBehaviour
     public int enemyMaxArmor; //护甲
     [SerializeField] private List<Buff> buffs; //身上的Buff
     [Header("UI")]
-    [SerializeField] Animator animator; // 动画组件的引用
     [SerializeField] Image enemyImage; // 敌人形象的UI元素引用
     [SerializeField] Sprite secondPhaseSprite; // 第二阶段的敌人形象
+    public Animator animator;
     public int enemyHP;//初始血量
     public int enemyArmor;//初始护甲
     public enum Action { Guard, HeavyHit, Roar, Charge, Overload }//敌人的行为
@@ -25,7 +25,6 @@ public class Enemy : MonoBehaviour
     public int AttackSin { get; set; }//敌人单次伤害
     public int Strength { get; set; }//敌人力量
     public int Agility {  get; set; }//敌人敏捷
-
     public bool IsStunned { get; set; } // 是否被晕眩
     private bool isInSecondPhase = false;//敌人是否进入二阶段
     private bool hasOverloadedConsecutively = false;//敌人是否连续两次充能
@@ -33,6 +32,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         enemyHP = enemyMaxHP;
         enemyArmor = 0;
         Strength = 0;
@@ -49,31 +49,28 @@ public class Enemy : MonoBehaviour
         DecideNextAction();
         //UpdateNextActionUI();这里大概要加个敌人意图更新
         ProcessBuffs();
-        if (IsStunned)
-        {
-            // 跳过行动逻辑
-            return;
-        }
+        
 
         // 行动逻辑
     }
 
     public void TestDmg()
     {
-        TakeDamage(5);
+        TakeDamage(51);
     }
     void CheckPhaseTransition()
     {
         if (enemyHP <= enemyMaxHP * 0.5 && !isInSecondPhase)
         {
+            Debug.Log($"InSecondPhase1");
             isInSecondPhase = true;
             currentAction = Action.Charge; // 进入第二阶段，第一回合使用充能
-
+            animator.SetBool("InSecondPhase", true);
             // 播放转换阶段的动画
-            animator.SetTrigger("PhaseTransition");
+            //animator.SetTrigger("PhaseTransition");
 
             // 改变敌人形象
-            enemyImage.sprite = secondPhaseSprite;
+            //enemyImage.sprite = secondPhaseSprite;
 
             // 这里可以添加其他UI更新逻辑
         }
@@ -161,6 +158,7 @@ public class Enemy : MonoBehaviour
     {
         AttackSin = 4 + Strength;// 重击逻辑，造成4点伤害
         AttackCount = 1;//一次
+
     }
 
     private void PerformRoar()
@@ -211,9 +209,9 @@ public class Enemy : MonoBehaviour
         // 添加受伤害的逻辑
     }
 
-    private void Attack(Player target)
+    public void Attack(Player target)
     {
-        int attackDamage = damage;
+        int attackDamage = AttackSin*AttackCount;
         attackDamage = Mathf.Max(0, attackDamage); // 确保伤害不是负数
         target.TakeDamage(attackDamage);
     }
