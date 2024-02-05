@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HotChili_lv1
   m_EditorClassIdentifier: 
   cubeKey: HotChili_lv1
-  cubeName: "\u6D3B\u529B\u725B\u5976lv1"
+  cubeName: "\u706B\u7206\u8FA3\u6912lv1"
   level: 0
   nextLevelCube:
     _base: {fileID: 11400000, guid: de77dfe12ea8b7e42957f2f1baf7b79a, type: 2}

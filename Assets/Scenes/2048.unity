@@ -992,8 +992,20 @@ PrefabInstance:
       objectReference: {fileID: 73972795}
     - target: {fileID: 3595617110518307653, guid: 7443f3bc87826fd4ea62551afea81267, type: 3}
       propertyPath: cubeDeck.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3595617110518307653, guid: 7443f3bc87826fd4ea62551afea81267, type: 3}
+      propertyPath: cubeDeck.Array.data[1]._base
+      value: 
+      objectReference: {fileID: 11400000, guid: b1b7e2c50ce1b1a46a5aa9d89d3214e6, type: 2}
+    - target: {fileID: 3595617110518307653, guid: 7443f3bc87826fd4ea62551afea81267, type: 3}
+      propertyPath: cubeDeck.Array.data[2]._base
+      value: 
+      objectReference: {fileID: 11400000, guid: fdbd109e403d3a743bd9030c6e7d11d8, type: 2}
+    - target: {fileID: 3595617110518307653, guid: 7443f3bc87826fd4ea62551afea81267, type: 3}
+      propertyPath: cubeDeck.Array.data[3]._base
+      value: 
+      objectReference: {fileID: 11400000, guid: fbaaebb96654ab54c9dd6c5c03006df1, type: 2}
     - target: {fileID: 5636131839814871091, guid: 7443f3bc87826fd4ea62551afea81267, type: 3}
       propertyPath: m_LocalPosition.x
       value: 357.54443
